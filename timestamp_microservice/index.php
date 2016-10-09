@@ -7,9 +7,6 @@
  
  echo $url;
  
- $date = getdate()[year];
- 
- echo $date;
 
 ?>
 </body>
