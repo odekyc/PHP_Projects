@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "37b816ce86f9d602831c8223357e87e3",
-    "content-hash": "f247fc060c89f4e20542e64a81b4bade",
+    "hash": "a8ca2421b15ae2c0456860436b18cc87",
+    "content-hash": "4192b5abce673eb6cd6193cd12573384",
     "packages": [
         {
             "name": "monolog/monolog",
@@ -58,7 +58,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^5.6.0"
+        "php": "^5.5.0"
     },
     "platform-dev": []
 }
