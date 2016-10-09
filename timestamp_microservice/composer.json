@@ -1,0 +1,13 @@
+{
+    "name": "odelia/timestamp_microservice",
+    "require": {
+        "monolog/monolog": "1.0.*",
+        "php": "^5.6.0"
+    },
+    "authors": [
+        {
+            "name": "odekyc",
+            "email": "odekyc@gmail.com"
+        }
+    ]
+}
