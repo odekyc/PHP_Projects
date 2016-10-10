@@ -32,7 +32,7 @@
       
     }
     else{
-      echo "it's not numeric";
+       print_r (explode("%",$url));
     }
   }
  
