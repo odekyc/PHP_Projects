@@ -17,7 +17,23 @@
     echo "<center><h4 style='color:red; background-color:pink; display: inline'>output: 'Bad Request'</h4></center>";
   }
   else{
-    echo $url;
+    $url=substr($url,1);
+    $answer=is_numeric($url);
+    if($answer){
+      
+      if(strlen($url)<10){
+        echo "Bad Request";
+      }
+      else{
+        $result= date('F d, Y', $url);
+     
+        echo "{ 'unix' : {$url} ,  natural' : {$result} }"; 
+      }
+      
+    }
+    else{
+      echo "it's not numeric";
+    }
   }
  
  
