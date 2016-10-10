@@ -4,6 +4,7 @@
 // Press the 'Run' button on the top to start the web server,
 // then click the URL that is emitted to the Output tab of the console
   $url = $_SERVER['REQUEST_URI'];
+  $months = array("January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December");
    
   if($url==="/"){
     echo "<center><h1>Time Stamp Microservice</h1></center>";
@@ -43,7 +44,17 @@
           echo "Bad Request";
         }
         else{
-          print_r($date_arr[2]);
+          print_r($date_arr);
+          
+          $nmonth = array_search($date_arr[0], $months);
+          
+          if($nmonth or $nmonth===0){
+            $nmonth+=1;
+            echo $nmonth;
+          }
+          else{
+            echo "Bad Request";
+          }
         }
         
       }
