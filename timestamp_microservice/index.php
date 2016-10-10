@@ -27,7 +27,7 @@
     $is_unix=is_numeric($url);
     if($is_unix){
       
-      if(strlen($url)<10){
+      if(strlen($url)<9){
         echo "Bad Request";
         $date_valid=false;
       }
