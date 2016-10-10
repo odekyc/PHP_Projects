@@ -36,19 +36,22 @@
       if($mypos){
         echo "good request string";
         $date_arr=explode( "%",$url);
-        
-        if($date_arr[2]===""){
+        if(sizeof($date_arr)<3){
+          echo "Bad Request";
+        }
+        elseif($date_arr[2]===""){
           echo "Bad Request";
         }
         else{
           print_r($date_arr[2]);
         }
+        
       }
       else{
-        echo "Bad Request";
+        echo 'Bad Request';
       }
-      
     }
+      
   }
  
  
