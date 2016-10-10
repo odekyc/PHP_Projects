@@ -18,8 +18,8 @@
   }
   else{
     $url=substr($url,1);
-    $answer=is_numeric($url);
-    if($answer){
+    $is_unix=is_numeric($url);
+    if($is_unix){
       
       if(strlen($url)<10){
         echo "Bad Request";
@@ -32,7 +32,22 @@
       
     }
     else{
-       print_r (explode("%",$url));
+      $mypos=strpos($url, "%");
+      if($mypos){
+        echo "good request string";
+        $date_arr=explode( "%",$url);
+        
+        if($date_arr[2]===""){
+          echo "Bad Request";
+        }
+        else{
+          print_r($date_arr[2]);
+        }
+      }
+      else{
+        echo "Bad Request";
+      }
+      
     }
   }
  
