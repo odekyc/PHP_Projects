@@ -1,0 +1,27 @@
+html{
+    background-color: #8080ff;
+}
+
+#upper-div{
+    margin: auto;
+    margin-top: -30px;
+    border: 10px solid red;
+    border-radius: 20px;
+    height: 80px;
+    width: 90%;
+    background-color: #ffff99;
+}
+
+#twittersbtnsignin{
+    position: absolute;
+    top: 15px;
+    left: 1170px;
+}
+
+#upper-div-title{
+    color: #cc5200;
+    font-family: Arial;
+    font-weight: 900;
+    position: absolute;
+    left: 120px;
+}
