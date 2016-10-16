@@ -1,5 +1,6 @@
 html{
     background-color: #8080ff;
+    height: 420%;
 }
 
 #upper-div{
@@ -24,4 +25,43 @@ html{
     font-weight: 900;
     position: absolute;
     left: 120px;
+}
+
+#main-div{
+    border: 10px solid red;
+    border-radius: 20px;
+    background-color: #ffff99;
+    position: absolute;
+    top: 120px;
+    height: 390%;
+    width: 90%;
+    left: 66px;
+}
+
+#main-div-title{
+    background-color: #9933ff;
+    position: absolute;
+    top: 80px;
+    left: 97px;
+    width: 85%;
+    height: 370px;
+    z-index: 3;
+}
+
+#main-title-span{
+    color: orange;
+    position:absolute;
+    font-weight: bolder;
+    font-family: Arial;
+    font-size: 6em;
+    top: 30px;
+    left: 180px;
+}
+
+#main-descrpt-span{
+    color: #9de600;
+    font-weight: bolder;
+    font-size: 3em;
+    position: absolute;
+    top: 157px;
 }
