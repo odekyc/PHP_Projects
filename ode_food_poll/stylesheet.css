@@ -39,13 +39,15 @@ html{
 }
 
 #main-div-title{
+    border: 20px solid #ace600;
+    border-radius: 20px;
     background-color: #9933ff;
     position: absolute;
     top: 80px;
     width: 85%;
     height: 370px;
     z-index: 3;
-    left: 97px;
+    left: 82px;
     text-align: center;
 }
 
