@@ -1,5 +1,5 @@
 html{
-    background-color: #8080ff;
+    background-color: #ace600;
     height: 420%;
 }
 
@@ -42,10 +42,11 @@ html{
     background-color: #9933ff;
     position: absolute;
     top: 80px;
-    left: 97px;
     width: 85%;
     height: 370px;
     z-index: 3;
+    left: 97px;
+    text-align: center;
 }
 
 #main-title-span{
@@ -54,14 +55,52 @@ html{
     font-weight: bolder;
     font-family: Arial;
     font-size: 6em;
-    top: 30px;
+    top: 60px;
     left: 180px;
 }
 
 #main-descrpt-span{
-    color: #9de600;
+    color: yellow;
     font-weight: bolder;
-    font-size: 3em;
+    font-size: 2em;
     position: absolute;
-    top: 157px;
+    top: 210px;
+    left: 80px;
+    
+}
+
+#central-div{
+    position: absolute;
+    top: 530px;
+    left: 97px;
+    
+}
+
+.ingredients{
+    border: 10px solid orange;
+    height:40px;
+    width: 1090px;
+    background-color: #a6ff4d;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bolder;
+    color: blue;
+    /*color: #cc5200;*/
+}
+
+.ingre-type{
+    border: 10px solid red;;
+    height:60px;
+    width: 1090px;
+    background-color: blue;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+    color: yellow;
+}
+
+.ingre-name{
+    display: inline-block;
+    margin-top: 10px;
+    
 }
