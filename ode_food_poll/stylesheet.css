@@ -1,6 +1,6 @@
 html{
     background-color: #ace600;
-    height: 420%;
+    height: 900%;
 }
 
 #upper-div{
@@ -20,7 +20,7 @@ html{
 }
 
 #upper-div-title{
-    color: #cc5200;
+    color: blue;
     font-family: Arial;
     font-weight: 900;
     position: absolute;
@@ -33,7 +33,7 @@ html{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 390%;
+    height: 860%;
     width: 90%;
     left: 66px;
 }
@@ -105,4 +105,9 @@ html{
     display: inline-block;
     margin-top: 10px;
     
+}
+
+#twitterlogout{
+    position:absolute;
+    top: 50px;
 }
