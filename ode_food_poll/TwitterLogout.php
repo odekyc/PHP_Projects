@@ -1,7 +1,5 @@
 <?php
-    include ('TwitterLogin.php');
     
-    $loggedin=false;
     
     session_start();
     unset($_SESSION['TwitterUsername']);
