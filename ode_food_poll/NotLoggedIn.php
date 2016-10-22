@@ -1,7 +1,25 @@
-<? php
+<?php
+    
+     include 'EpiCurl.php';
+     include 'EpiOAuth.php';
+     include 'EpiTwitter.php';
+     include 'keys.php';
+
+     $Twitter = new EpiTwitter($consumerKey, $consumerSecret);
      
-     echo '<a id="twitterlogout" href="TwitterLogout.php">Logout</a>';
-     echo "<link rel='stylesheet' type='text/css' href='stylesheet.css' />"; 
+     session_start();
+     
+       if(empty($_SESSION['TwitterUsername']))
+      {
+             header("Location: LoggedIn.php");
+      }
+ 
+  
+     echo '<a id="twitterbtnsignin" href="' . $Twitter->getAuthenticateUrl() . '">
+     <img src="twitterlogin.png" alt="sign in with twitter" />
+     </a>';
+    
+    echo "<link rel='stylesheet' type='text/css' href='stylesheet.css' />"; 
      echo "<div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1></div>";
      echo "<div id='main-div'><div id='main-div-title'><span id='main-title-span'>Ode's Food Poll</span><span id='main-descrpt-span'>Below are polls hosted by Ode<br>Select a poll to see the results and vote, or sign-in to make a new poll.</span></div>
      <div id='central-div'>
@@ -95,6 +113,6 @@
        <div id='div-88' class='ingredients'><span class='ingre-name'>Apple</span></div>
      </div>
      </div>";
-     
-     
-     ?>
+
+  
+?>

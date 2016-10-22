@@ -15,7 +15,7 @@
       
    if(empty($_SESSION['TwitterUsername']))
    {
-       header("Location: LoggedIn.php");
+       header("Location: NotLoggedIn.php");
    }
   
     

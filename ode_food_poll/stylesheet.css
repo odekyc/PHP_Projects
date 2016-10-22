@@ -13,10 +13,17 @@ html{
     background-color: #ffff99;
 }
 
-#twittersbtnsignin{
+#twitterbtnsignin{
     position: absolute;
     top: 15px;
     left: 1170px;
+}
+
+#twitterbtnsignout{
+    position: absolute;
+    top: 15px;
+    left: 1250px;
+    font-size: 1.6em;
 }
 
 #upper-div-title{
