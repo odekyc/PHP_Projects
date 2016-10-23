@@ -126,18 +126,65 @@ h5{
     left: 66px;
 }
 
-#home-div{
+#home-div-out{
     position: absolute;
-    width: 7%;
-    height: 80px;
+
     background-color: #99ceff;
     left: 1050px;
 }
 
 
-#home{
+.block-span{
     position:absolute;
-    top:36px;
-    left: 32px;
+    top: 30px;
+    left: 24px;
+    font-size: 1.5em;
     
+}
+
+.block{
+    width: 7%;
+    height: 80px;
+}
+
+#home-div-in{
+    position: absolute;
+    background-color: #99ceff;
+    left: 910px;
+}
+
+#mypolls{
+     position: absolute;
+     left: 1010px;
+     background-color: yellow;
+}
+
+#mypolls-span{
+    position: absolute;
+    left: 7px;
+}
+
+#newpolls{
+    position: absolute;
+    left: 1111;
+    background-color: orange;
+}
+
+#newpoll-span{
+    position: absolute;
+    left: 5px;
+}
+
+#newpolls:hover{
+    background-color: #ace600;
+    
+}
+
+#mypolls:hover{
+    background-color: #ace600;
+    
+}
+
+#home-div-in:hover{
+    background-color: #ace600;
 }

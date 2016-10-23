@@ -21,7 +21,7 @@
      }
 
         echo "<link rel='stylesheet' type='text/css' href='stylesheet.css' />"; 
-         echo "<div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div'><span id='home'>Home</span></div></div>";
+         echo "<div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-out' class='block'><span class='block-span'>Home</span></div></div>";
          echo "<div id='main-div'><div id='main-div-title'><span id='main-title-span'>Ode's Food Poll</span><span id='main-descrpt-span'>Below are polls hosted by Ode<br>Select a poll to see the results and vote, or sign-in to make a new poll.</span></div>
          <div id='central-div'>
            <div id='div-1' class='ingre-type'><span class='ingre-name'>Meat</span></div>
