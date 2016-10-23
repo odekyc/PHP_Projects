@@ -1,6 +1,6 @@
 html{
     background-color: #ace600;
-    height: 900%;
+    height: 850%;
 }
 
 #upper-div{
@@ -40,7 +40,7 @@ html{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 860%;
+    height: 810%;
     width: 90%;
     left: 66px;
 }
@@ -117,4 +117,27 @@ html{
 #twitterlogout{
     position:absolute;
     top: 50px;
+}
+
+h5{
+    position:absolute;
+    top: 6140px;
+    color: blue;
+    left: 66px;
+}
+
+#home-div{
+    position: absolute;
+    width: 7%;
+    height: 80px;
+    background-color: #99ceff;
+    left: 1050px;
+}
+
+
+#home{
+    position:absolute;
+    top:36px;
+    left: 32px;
+    
 }
