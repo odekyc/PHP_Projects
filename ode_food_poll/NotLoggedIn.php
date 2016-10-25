@@ -1,27 +1,4 @@
-<?php
-    
-     include 'EpiCurl.php';
-     include 'EpiOAuth.php';
-     include 'EpiTwitter.php';
-     include 'keys.php';
 
-     $Twitter = new EpiTwitter($consumerKey, $consumerSecret);
-     
-     session_start();
-     
-      
-     echo "<link rel='stylesheet' type='text/css' href='stylesheet.css' />"; 
-     echo '<a id="twitterbtnsignin" href="' . $Twitter->getAuthenticateUrl() . '">
-     <img src="twitterlogin.png" alt="sign in with twitter" />
-     </a>';
-     
-    if(isset($_GET['oauth_token']))
-     {
-             header("Location: LoggedIn.php");
-     }
-     
-       
-?>
 
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-out' class='block'><span class='block-span'>Home</span></div></div> 
      <div id='main-div'><div id='main-div-title'><span id='main-title-span'>Ode's Food Poll</span><span id='main-descrpt-span'>Below are polls hosted by Ode<br>Select a poll to see the results and vote, or sign-in to make a new poll.</span></div>
@@ -118,3 +95,30 @@
      </div>
       <h5>This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
      
+     
+<?php
+    
+     include 'EpiCurl.php';
+     include 'EpiOAuth.php';
+     include 'EpiTwitter.php';
+     include 'keys.php';
+
+     $Twitter = new EpiTwitter($consumerKey, $consumerSecret);
+     
+     session_start();
+     
+      
+     echo "<link rel='stylesheet' type='text/css' href='stylesheet.css' />"; 
+     echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
+     echo '<script>$("#home-div-out").click(function(){alert("hi");});</script>';
+     echo '<a id="twitterbtnsignin" href="' . $Twitter->getAuthenticateUrl() . '">
+     <img src="twitterlogin.png" alt="sign in with twitter" />
+     </a>';
+     
+    if(isset($_GET['oauth_token']))
+     {
+             header("Location: LoggedIn.php");
+     }
+     
+       
+?>
