@@ -149,7 +149,8 @@ h5{
 
 #home-div-in{
     position: absolute;
-    background-color: #99ceff;
+    background-color: #ace600;
+    /*background-color: #99ceff;*/
     left: 910px;
 }
 
@@ -164,7 +165,7 @@ h5{
     left: 7px;
 }
 
-#newpolls{
+#newpoll{
     position: absolute;
     left: 1111px;
     background-color: orange;
@@ -175,7 +176,7 @@ h5{
     left: 5px;
 }
 
-#newpolls:hover{
+#newpoll:hover{
     background-color: #ace600;
     
 }
@@ -187,4 +188,20 @@ h5{
 
 #home-div-in:hover{
     background-color: #ace600;
+}
+
+#mypolls-main-div{
+    border: 10px solid red;
+    border-radius: 20px;
+    background-color: #ffff99;
+    position: absolute;
+    top: 120px;
+    height: 60%;
+    width: 90%;
+    left: 66px;
+}
+
+#underscript-mypoll{
+    position: absolute;
+    top: 650px;
 }
