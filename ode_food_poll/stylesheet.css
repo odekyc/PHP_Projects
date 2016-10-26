@@ -196,7 +196,7 @@ h5{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 60%;
+    height: 85%;
     width: 90%;
     left: 66px;
 }
@@ -204,4 +204,5 @@ h5{
 #underscript-mypoll{
     position: absolute;
     top: 650px;
+    left: -10px;
 }
