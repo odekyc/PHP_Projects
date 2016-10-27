@@ -1,6 +1,6 @@
 html{
     background-color: #ace600;
-    height: 880%;
+    height: 760%;
 }
 
 #upper-div{
@@ -40,7 +40,7 @@ html{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 860%;
+    height: 720%;
     width: 90%;
     left: 66px;
 }
@@ -196,7 +196,7 @@ h5{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 85%;
+    height: 70%;
     width: 90%;
     left: 66px;
 }

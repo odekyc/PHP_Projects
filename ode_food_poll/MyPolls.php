@@ -18,7 +18,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
     var NumMyPolls=0;
-    var height= NumMyPolls*20+140;
+    var height= NumMyPolls*20+120;
     $('html').height(height+"%");
     $('#home-div-in').css("background-color", "#99ceff");
     $('#home-div-in').hover(function(){   $('#home-div-in').css("background-color", "#ace600");} , function(){ $('#home-div-in').css("background-color", "#99ceff"); });
