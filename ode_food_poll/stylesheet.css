@@ -201,8 +201,14 @@ h5{
     left: 66px;
 }
 
-#underscript-mypoll{
+#underscript-mypolls{
     position: absolute;
     top: 650px;
     left: -10px;
 }
+
+#underscript-newpoll{
+    position: absolute;
+    top: 780px;
+}
+
