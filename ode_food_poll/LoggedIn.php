@@ -116,6 +116,10 @@
         $('#mypolls').css("background-color", "#ace600");
     });
 
-    $("#newpoll").click(function(){ window.location.href = "NewPoll.php"; });
+    $("#newpoll").click(function(){ 
+        window.location.href = "NewPoll.php";
+        $('#home-div-in').css("background-color", "#99ceff");
+         $('#newpoll').css("background-color", "#ace600");
+        });
     </script>
      
