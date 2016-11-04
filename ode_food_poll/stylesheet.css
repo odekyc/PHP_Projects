@@ -59,6 +59,18 @@ html{
 }
 
 
+form{
+    position: absolute;
+    top: 80px;
+    left: 65px;
+}
+
+h1{
+    color: #ace600;
+    font-family: Arial;
+    font-weight: bold;
+}
+
 
 #main-title-span{
     color: orange;
@@ -68,6 +80,16 @@ html{
     font-size: 6em;
     top: 60px;
     left: 180px;
+}
+
+#input-title{
+    position: absolute;
+    left: 40px;
+    height: 40px;
+    width: 390px;
+    background-color: yellow;
+    color: blue;
+    font-size: 1.8em;
 }
 
 #newpoll-main-title-span{
