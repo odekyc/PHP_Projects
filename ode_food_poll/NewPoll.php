@@ -22,6 +22,8 @@
   <h1>Title:</h1>
   <input id="input-title" type="text">
   <br><br>
+  <br>
+  <br>
   <input type="submit" value="Submit">
 </form>
 </div>
