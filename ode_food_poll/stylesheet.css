@@ -52,7 +52,7 @@ html{
     position: absolute;
     top: 80px;
     width: 85%;
-    height: 370px;
+    height: 422px;
     z-index: 3;
     left: 82px;
     text-align: center;
@@ -230,7 +230,7 @@ h5{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 78%;
+    height: 90%;
     width: 90%;
     left: 66px;
 }
