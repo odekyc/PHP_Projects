@@ -52,7 +52,20 @@ html{
     position: absolute;
     top: 80px;
     width: 85%;
-    height: 422px;
+    height: 370px;
+    z-index: 3;
+    left: 82px;
+    text-align: center;
+}
+
+#newpoll-main-div-title{
+    border: 20px solid #ace600;
+    border-radius: 20px;
+    background-color: #9933ff;
+    position: absolute;
+    top: 80px;
+    width: 85%;
+    height: 425px;
     z-index: 3;
     left: 82px;
     text-align: center;
@@ -225,6 +238,17 @@ h5{
 }
 
 #mypolls-main-div{
+    border: 10px solid red;
+    border-radius: 20px;
+    background-color: #ffff99;
+    position: absolute;
+    top: 120px;
+    height: 83%;
+    width: 90%;
+    left: 66px;
+}
+
+#newpoll-main-div{
     border: 10px solid red;
     border-radius: 20px;
     background-color: #ffff99;
