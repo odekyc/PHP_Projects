@@ -26,6 +26,15 @@ html{
     font-size: 1.6em;
 }
 
+textarea{
+    background-color: yellow;
+    color: blue;
+    font-size: 1.8em;
+    position: absolute;
+    top: 225px;
+    left: -1px;
+}
+
 #upper-div-title{
     color: blue;
     font-family: Arial;
@@ -65,7 +74,7 @@ html{
     position: absolute;
     top: 80px;
     width: 85%;
-    height: 425px;
+    height: 560px;
     z-index: 3;
     left: 82px;
     text-align: center;
@@ -83,6 +92,15 @@ form{
     position: absolute;
     left: 0px;
     top: 35px;
+    color: #ace600;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+#form-options{
+    position: absolute;
+    left: 0px;
+    top: 145px;
     color: #ace600;
     font-family: Arial;
     font-weight: bold;
@@ -266,7 +284,7 @@ select{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 90%;
+    height: 110%;
     width: 90%;
     left: 66px;
 }
@@ -279,6 +297,6 @@ select{
 
 #underscript-newpoll{
     position: absolute;
-    top: 780px;
+    top: 950px;
 }
 

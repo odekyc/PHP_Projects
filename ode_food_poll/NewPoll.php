@@ -26,8 +26,12 @@
       <option value="Fruit">Fruit</option>
    </select>
   <h1 id="form-title">Title:</h1>
-  <input id="input-title" type="text">
-  <br><br>
+  <input id="input-title" name="title" type="text">
+ 
+  <h1 id="form-options">Options&nbsp(separated&nbspby&nbspline):</h1>
+  <textarea rows="6" cols="50" name="options">
+   Enter options.....
+  </textarea>
   <br>
   <br>
   <!--<input type="text" >-->
@@ -50,7 +54,7 @@
         $('#mypolls').css("background-color", "#ace600");
     });
     var NumMyPolls=0;
-    var height= NumMyPolls*20+120;
+    var height= NumMyPolls*20+160;
     $('html').height(height+"%");
     $('#home-div-in').css("background-color", "#99ceff");
     $('#home-div-in').hover(function(){   $('#home-div-in').css("background-color", "#ace600");} , function(){ $('#home-div-in').css("background-color", "#99ceff"); });
