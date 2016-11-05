@@ -1,6 +1,6 @@
 html{
     background-color: #ace600;
-    height: 860%;
+    height: 840%;
 }
 
 #upper-div{
@@ -49,7 +49,7 @@ textarea{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 860%;
+    height: 810%;
     width: 90%;
     left: 66px;
 }
@@ -286,7 +286,7 @@ select{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 110%;
+    height: 103%;
     width: 90%;
     left: 66px;
 }
