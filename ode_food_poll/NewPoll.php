@@ -19,12 +19,18 @@
 <br>
 <br>
 <form action="action_page.php">
-  <h1>Title:</h1>
+   <select>
+      <option value="Meat">Meat</option>
+      <option value="Vegetable">Vegetable</option>
+      <option value="Drink">Drink</option>
+      <option value="Fruit">Fruit</option>
+   </select>
+  <h1 id="form-title">Title:</h1>
   <input id="input-title" type="text">
   <br><br>
   <br>
   <br>
-  <input type="submit" value="Submit">
+  <!--<input type="text" >-->
 </form>
 </div>
 </div>

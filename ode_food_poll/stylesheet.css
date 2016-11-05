@@ -78,7 +78,11 @@ form{
     left: 65px;
 }
 
-h1{
+
+#form-title{
+    position: absolute;
+    left: 0px;
+    top: 35px;
     color: #ace600;
     font-family: Arial;
     font-weight: bold;
@@ -97,7 +101,8 @@ h1{
 
 #input-title{
     position: absolute;
-    left: 40px;
+    left: 0px;
+    top: 105px;
     height: 40px;
     width: 390px;
     background-color: yellow;
@@ -246,6 +251,13 @@ h5{
     height: 83%;
     width: 90%;
     left: 66px;
+}
+
+select{
+    
+    width: 150px;
+    height: 40px;
+    font-size: 1.6em;
 }
 
 #newpoll-main-div{
