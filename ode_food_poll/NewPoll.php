@@ -32,9 +32,7 @@
   <textarea rows="6" cols="50" name="options">
   Enter options.....
   </textarea>
-  <br>
-  <br>
-  <!--<input type="text" >-->
+  <input id="submit" type="submit" value="Submit">
 </form>
 </div>
 </div>

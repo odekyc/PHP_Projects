@@ -67,6 +67,8 @@ textarea{
     text-align: center;
 }
 
+
+
 #newpoll-main-div-title{
     border: 20px solid #ace600;
     border-radius: 20px;
@@ -300,3 +302,15 @@ select{
     top: 950px;
 }
 
+
+#submit{
+    background-color: blue;
+    position: absolute;
+    left:780px;
+    top: 385px;
+    color: white;
+    font-weight: bold;
+    width: 140px;
+    font-size: 1.4em;
+    height: 50px;
+}
