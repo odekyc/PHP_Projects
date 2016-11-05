@@ -30,7 +30,7 @@
  
   <h1 id="form-options">Options&nbsp(separated&nbspby&nbspline):</h1>
   <textarea rows="6" cols="50" name="options">
-   Enter options.....
+  Enter options.....
   </textarea>
   <br>
   <br>
