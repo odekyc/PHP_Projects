@@ -51,7 +51,7 @@
         $('#home-div-in').css("background-color", "#99ceff");
         $('#mypolls').css("background-color", "#ace600");
     });
-    $('html').height("120%");
+    $('html').height("800px");
     $('#home-div-in').css("background-color", "#99ceff");
     $('#home-div-in').hover(function(){   $('#home-div-in').css("background-color", "#ace600");} , function(){ $('#home-div-in').css("background-color", "#99ceff"); });
     $('#newpoll').css("background-color", "#ace600");
