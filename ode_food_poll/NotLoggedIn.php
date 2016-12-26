@@ -52,17 +52,19 @@
      <div id='main-div'><div id='main-div-title'><span id='main-title-span'>Ode's Food Poll</span><span id='main-descrpt-span'>Below are polls hosted by Ode<br>Select a poll to see the results and vote, or sign-in to make a new poll.</span></div>
      <div id='central-div' ng-app="myApp" ng-controller="myCtrl">
        <?php
-              $sql = "SELECT * FROM food_list";
+             $sql = "SELECT * FROM food_list";
             $result = $conn->query($sql);
             $cur_category="Meat";
             echo "<div id='div-1' class='ingre-type'><span class='ingre-name'>Meat</span></div>";
+            $row_count=0;
             if ($result->num_rows > 0) {
                 // output data of each row
                
                 while($row = $result->fetch_assoc()) {
+                    $row_count+=1;
                     if($row["category"]!== $cur_category){
                         $cur_category=$row["category"];
-                         echo "<div id='div-1' class='ingre-type'><span class='ingre-name'>".$cur_category."</span></div>";
+                         echo "<div id='div-1' class='ingre-type'><span class='ingre-name'>".$cur_category."cd</span></div>";
                     }
                     echo "<div id='div-2' class='ingredients'><span class='ingre-name'>". $row["foodname"]."</span></div>";
             
@@ -70,10 +72,13 @@
             } else {
                 echo "0 results";
             }
+            
+            // echo "<script type='text/javascript'>$('#central-div').height('20px');</script>";
             $conn->close();
             
     ?>
      
+     </div>
      </div>
       <h5>This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
     <script>
@@ -87,8 +92,8 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
-    $("html").height("1400px");
-  
+    $("html").height("1800px");
+    
     </script>
      
 
