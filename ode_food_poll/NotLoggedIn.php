@@ -69,9 +69,9 @@
                     $row_count+=1;
                     if($row["category"]!== $cur_category){
                         $cur_category=$row["category"];
-                         echo "<div id='div-1' class='ingre-type'><span class='ingre-name'>".$cur_category."</span></div>";
+                         echo "<div id='div-".$row["id"]."' class='ingre-type'><span class='ingre-name'>".$cur_category."</span></div>";
                     }
-                    echo "<div id='div-2' class='ingredients'><span class='ingre-name'>". $row["foodname"]."</span></div>";
+                    echo "<div id='div-".$row["id"]."' class='ingredients'><span class='ingre-name'>". $row["foodname"]."</span></div>";
             
                 }
             } else {
@@ -80,9 +80,11 @@
             
             $main_div_newh=70*$row_count-80;
             $h5_top=$main_div_newh+200;
+            $html_newh=$main_div_newh+300;
             
             echo "<script type='text/javascript'>$('#main-div').height('".$main_div_newh."px');
               $('h5').css('top','20px');
+              $('html').height('".$html_newh."px');
             </script>";
             $conn->close();
             
@@ -108,7 +110,10 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
-    $("html").height("7300px");
+    
+    $(".ingredients").click(function(){
+        alert(this.id);
+    });
    
     </script>
      
