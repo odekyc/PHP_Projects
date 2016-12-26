@@ -1,3 +1,9 @@
+<head>
+     <link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</head>
+
 <?php
     
      include 'EpiCurl.php';
@@ -9,7 +15,7 @@
      session_start();
      
       
-     echo "<link rel='stylesheet' type='text/css' href='stylesheet.css' />"; 
+     echo "<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />"; 
   
      echo '<a id="twitterbtnsignin" href="' . $Twitter->getAuthenticateUrl() . '">
      <img src="twitterlogin.png" alt="sign in with twitter" />
@@ -23,8 +29,7 @@
        
 ?>
 
-
-<?php
+ <?php
     // A simple PHP script demonstrating how to connect to MySQL.
     // Press the 'Run' button on the top to start the web server,
     // then click the URL that is emitted to the Output tab of the console.
@@ -64,7 +69,7 @@
                     $row_count+=1;
                     if($row["category"]!== $cur_category){
                         $cur_category=$row["category"];
-                         echo "<div id='div-1' class='ingre-type'><span class='ingre-name'>".$cur_category."cd</span></div>";
+                         echo "<div id='div-1' class='ingre-type'><span class='ingre-name'>".$cur_category."</span></div>";
                     }
                     echo "<div id='div-2' class='ingredients'><span class='ingre-name'>". $row["foodname"]."</span></div>";
             
@@ -73,7 +78,12 @@
                 echo "0 results";
             }
             
-            // echo "<script type='text/javascript'>$('#central-div').height('20px');</script>";
+            $main_div_newh=70*$row_count-80;
+            $h5_top=$main_div_newh+200;
+            
+            echo "<script type='text/javascript'>$('#main-div').height('".$main_div_newh."px');
+              $('h5').css('top','20px');
+            </script>";
             $conn->close();
             
     ?>
@@ -81,6 +91,12 @@
      </div>
      </div>
       <h5>This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
+     <?php 
+            echo "<script type='text/javascript'>
+            $('h5').css('top','".$h5_top."px');
+            </script>";
+    ?>
+    
     <script>
     
         var app = angular.module("myApp", []);
@@ -92,8 +108,8 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
-    $("html").height("1800px");
-    
+    $("html").height("7300px");
+   
     </script>
      
 
