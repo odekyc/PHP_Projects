@@ -9,7 +9,7 @@ html{
     border: 10px solid red;
     border-radius: 20px;
     height: 80px;
-    width: 90%;
+    width: 1300px;
     background-color: #ffff99;
 }
 
@@ -50,9 +50,21 @@ textarea{
     position: absolute;
     top: 120px;
     height: 7000px;
-    width: 90%;
+    width: 1300px;
     left: 66px;
 }
+
+#voting-poll-div{
+    border: 10px solid red;
+    border-radius: 20px;
+    background-color: #ffff99;
+    position: absolute;
+    top: 120px;
+    height: 1500px;
+    width: 1300px;
+    left: 66px;
+}
+
 
 #main-div-title{
     border: 20px solid #ace600;
@@ -269,7 +281,7 @@ h5{
     position: absolute;
     top: 120px;
     height: 83%;
-    width: 90%;
+    width: 1300px;
     left: 66px;
 }
 
@@ -287,7 +299,8 @@ select{
     position: absolute;
     top: 120px;
     height: 103%;
-    width: 90%;
+    width: 1300px
+    ;
     left: 66px;
 }
 

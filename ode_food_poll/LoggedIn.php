@@ -89,6 +89,15 @@
  
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
+      
+    $(".ingredients").click(function(){
+        window.location.href = "VotingPollIn.php";
+    });
+    
+    $("#upper-div").css("width", "1300px");
+    $("#main-div").css("width", "1300px");
+   
+   
     $("#mypolls").click(function(){
         window.location.href = "MyPolls.php";
         $('#home-div-in').css("background-color", "#99ceff");

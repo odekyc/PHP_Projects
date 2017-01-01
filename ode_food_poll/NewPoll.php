@@ -38,8 +38,12 @@
 </div>
 </div>
 <h5 id="underscript-newpoll">This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
+ 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
+     $("#upper-div").css("width", "1300px");
+    $("#newpoll-main-div").css("width", "1300px");
+   
     $("#home-div-in").click(function(){ 
         window.location.href = "LoggedIn.php";
         $('#home-div-in').css("background-color", "#ace600");

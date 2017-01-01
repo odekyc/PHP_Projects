@@ -112,11 +112,12 @@
     <script type="text/javascript">
     
     $(".ingredients").click(function(){
-        alert(this.id);
+       window.location.href = "VotingPollOut.php";
     });
+    
+    $("#upper-div").css("width", "1300px");
+    $("#main-div").css("width", "1300px");
    
     </script>
      
 
-<?php
- ?>
