@@ -10,7 +10,7 @@
      include 'EpiOAuth.php';
      include 'EpiTwitter.php';
      include 'keys.php';
-     $Twitter = new EpiTwitter($consumerKey, $consumerSecret);
+     $Twitter = new EpiTwitter($consumerKey1, $consumerSecret1);
      
      session_start();
      

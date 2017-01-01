@@ -12,7 +12,7 @@
      include 'keys.php';
      
      
-     echo '<a id="twitterbtnsignout" href="TwitterLogout.php">Logout</a>';
+     echo '<a id="twitterbtnsignout" href="VotingPollOut.php">Logout</a>';
       echo "<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />"; 
      
   
@@ -59,6 +59,11 @@
         window.location.href = "NewPoll.php";
         $('#home-div-in').css("background-color", "#99ceff");
          $('#newpoll').css("background-color", "#ace600");
+        });
+        
+        
+    $("#twitterbtnsignout").click(function(){ 
+        window.location.href = "VotingPollOut.php";
         });
     
        $('h5').css('top','1700px');
