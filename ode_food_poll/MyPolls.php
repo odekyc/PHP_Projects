@@ -10,7 +10,7 @@
 
 ?>
 
-<link rel='stylesheet' type='text/css' href='stylesheet.css' />
+<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />
 
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-in' class='block'><span class='block-span'>Home</span></div><div id='mypolls' class='block'><span id='mypolls-span' class='block-span'><center>My Polls</center></span><</div><div id='newpoll' class='block'><span id='newpoll-span' class='block-span'>New Poll</span><</div></div>
 <div id='mypolls-main-div'> <div id='main-div-title'><span id='main-title-span'>Ode's Food Poll</span><span id='main-descrpt-span'>Below are polls you own<br>Select a poll to see the results of your polls, or <a style="color:#80ffbf;" href="NewPoll.php">make a new poll</a>.</span></div>

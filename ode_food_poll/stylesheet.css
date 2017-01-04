@@ -280,7 +280,7 @@ h5{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 83%;
+    height: 580px;
     width: 1300px;
     left: 66px;
 }
@@ -298,9 +298,8 @@ select{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 103%;
-    width: 1300px
-    ;
+    height: 770px;
+    width: 1300px;
     left: 66px;
 }
 

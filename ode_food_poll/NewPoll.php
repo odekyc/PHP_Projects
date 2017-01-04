@@ -10,7 +10,7 @@
 
 ?>
 
-<link rel='stylesheet' type='text/css' href='stylesheet.css' />
+<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />
 
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-in' class='block'><span class='block-span'>Home</span></div><div id='mypolls' class='block'><span id='mypolls-span' class='block-span'><center>My Polls</center></span><</div><div id='newpoll' class='block'><span id='newpoll-span' class='block-span'>New Poll</span><</div></div>
 <div id='newpoll-main-div'><div id='newpoll-main-div-title'><span id='newpoll-main-title-span'>Make a New Poll:</span>
@@ -43,6 +43,7 @@
 <script type="text/javascript">
      $("#upper-div").css("width", "1300px");
     $("#newpoll-main-div").css("width", "1300px");
+   
    
     $("#home-div-in").click(function(){ 
         window.location.href = "LoggedIn.php";
