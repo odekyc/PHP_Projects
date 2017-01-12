@@ -60,9 +60,9 @@ textarea{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 1500px;
-    width: 1300px;
-    left: 66px;
+    height: 1000px;
+    width: 1000px;
+    left: 56px;
 }
 
 
@@ -325,4 +325,10 @@ select{
     width: 140px;
     font-size: 1.4em;
     height: 50px;
+}
+
+#chart{
+    position: absolute;
+    top: 100px;
+    left: 500px;
 }
