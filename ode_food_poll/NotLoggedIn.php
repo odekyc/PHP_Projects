@@ -78,9 +78,9 @@
                 echo "0 results";
             }
             
-            $main_div_newh=70*$row_count-80;
+            $main_div_newh=70*$row_count-60;
             $h5_top=$main_div_newh+200;
-            $html_newh=$main_div_newh+300;
+            $html_newh=$main_div_newh+360;
             
             echo "<script type='text/javascript'>$('#main-div').height('".$main_div_newh."px');
               $('h5').css('top','20px');
