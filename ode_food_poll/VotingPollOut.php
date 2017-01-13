@@ -14,7 +14,17 @@
      
      session_start();
      
-     $_SESSION["click_id"]=$_GET['click_id'];
+     if(!$_GET['click_id']){
+        $_GET['click_id']=$_SESSION['click_id'];
+      }
+      else{
+          $_SESSION["click_id"]=$_GET['click_id'];
+      }
+      
+      echo $_GET['click_id'];
+      
+     
+     
       
      echo "<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />"; 
   
@@ -64,7 +74,7 @@
                 echo "0 results";
             }
             
-            echo $_GET['click_id'];
+     
             
           
            

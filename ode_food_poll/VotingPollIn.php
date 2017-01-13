@@ -39,10 +39,17 @@
        
       $result=mysqli_query($conn, $sql);
       
-      echo $_SESSION['click_id'];
+      
+      if(!$_GET['click_id']){
+        $_GET['click_id']=$_SESSION['click_id'];
+      }
+       else{
+          $_SESSION["click_id"]=$_GET['click_id'];
+      }
+      
       
       echo $_GET['click_id'];
-
+      
       while($row=mysqli_fetch_array($result,MYSQLI_NUM)){
           
        
