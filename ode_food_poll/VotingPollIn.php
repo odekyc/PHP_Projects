@@ -31,12 +31,17 @@
     $database = "ode_food_poll";
     $dbport = 3306;
 
+    session_start();
     // Create connection
     $conn = new mysqli($servername, $username, $password, $database, $dbport);
     
      $sql = "SELECT actual_serving_count FROM food_list";
        
       $result=mysqli_query($conn, $sql);
+      
+      echo $_SESSION['click_id'];
+      
+      echo $_GET['click_id'];
 
       while($row=mysqli_fetch_array($result,MYSQLI_NUM)){
           
@@ -72,10 +77,16 @@
         $('#home-div-in').css("background-color", "#99ceff");
          $('#newpoll').css("background-color", "#ace600");
         });
+        
+        $("#home-div-in").click(function(){ 
+        window.location.href = "LoggedIn.php";
+        $('#home-div-in').css("background-color", "#ace600");
+         $('#newpoll').css("background-color", "orange");
+    });
     
         
     $("#twitterbtnsignout").click(function(){ 
-        window.location.href = "VotingPollOut.php";
+        window.location.href = "NotLoggedIn.php";
         });
     
        $('h5').css('top','1100px');

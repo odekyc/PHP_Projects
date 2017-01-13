@@ -91,7 +91,13 @@
     <script type="text/javascript">
       
     $(".ingredients").click(function(){
-        window.location.href = "VotingPollIn.php";
+         var id=$(this).attr('id');
+        
+        var id=id.split("-")[1];
+    
+       
+       window.location.href = "VotingPollIn.php?click_id="+id;
+       
     });
     
     $("#upper-div").css("width", "1300px");

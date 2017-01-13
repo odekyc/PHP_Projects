@@ -82,6 +82,8 @@
             $h5_top=$main_div_newh+200;
             $html_newh=$main_div_newh+360;
             
+             
+            
             echo "<script type='text/javascript'>$('#main-div').height('".$main_div_newh."px');
               $('h5').css('top','20px');
               $('html').height('".$html_newh."px');
@@ -112,12 +114,20 @@
     <script type="text/javascript">
     
     $(".ingredients").click(function(){
-       window.location.href = "VotingPollOut.php";
+        
+        var id=$(this).attr('id');
+        
+        var id=id.split("-")[1];
+    
+       
+       window.location.href = "VotingPollOut.php?click_id="+id;
+       
+       
     });
+    
+   
     
     $("#upper-div").css("width", "1300px");
     $("#main-div").css("width", "1300px");
    
     </script>
-     
-
