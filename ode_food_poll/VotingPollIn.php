@@ -33,6 +33,17 @@
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $database, $dbport);
+    
+     $sql = "SELECT actual_serving_count FROM food_list";
+       
+      $result=mysqli_query($conn, $sql);
+
+      while($row=mysqli_fetch_array($result,MYSQLI_NUM)){
+          
+       
+          
+      }
+      
 
     // Check connection
     if ($conn->connect_error) {
@@ -40,7 +51,7 @@
     } 
     
   
-    
+      $conn->close();
 ?>
 
 
@@ -49,7 +60,7 @@
      <div id='voting-poll-div'><div id="chart"></div></div>
 
 <h5 id="underscript-newpoll">This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
-     <script type="text/javascript">
+<script type='text/javascript'>
        $("#mypolls").click(function(){
         window.location.href = "MyPolls.php";
         $('#home-div-in').css("background-color", "#99ceff");
@@ -72,7 +83,11 @@
        
        $('#voting-poll-div').css('height', '900px');
        
+        $('#voting-poll-div').css('width', '1300px');
+       
        $('#voting-poll-div').css('left', '56px');
+       
+
        
        var width=700,
            height=700,

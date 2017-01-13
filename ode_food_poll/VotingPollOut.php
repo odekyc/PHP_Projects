@@ -51,7 +51,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-out' class='block'><span class='block-span'>Home</span></div></div> 
- <div id='voting-poll-div'><div id="chart">hihiih</div> <?php
+ <div id='voting-poll-div'><div id="chart"></div> <?php
              $sql = "SELECT * FROM food_list";
             $result = $conn->query($sql);
             $row_count=0;
@@ -89,6 +89,7 @@
          $('#newpoll').css("background-color", "#ace600");
         });
     
-       $('h5').css('top','1700px');
+       $('h5').css('top','1200px');
+        $('#voting-poll-div').css('width', '1300px');
      </script>
 
