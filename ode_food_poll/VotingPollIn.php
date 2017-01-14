@@ -184,11 +184,30 @@
            .append('g')
            .attr('transform', 'translate('+(width - radius )+ ',' + (height-radius) +')')
            .selectAll('path').data(pie(piedata))
-           .enter().append('path')
+           .enter().append('g')
+           .attr('class','slice');
+           
+  var slices=d3.selectAll('g.slice')
+            .append('path')
            .attr('fill', function(d,i){
                return colors(i);
            })
            .attr( 'd', arc);
            
-     </script>
+           
+   var text = d3.selectAll('g.slice')
+              .append('text')
+              .text(function(d,i){
+                  return d.data.label;
+              })
+              .attr('text-anchor','middle')
+              .attr('fill', 'white' )
+              .attr('font-size', '1.8em')
+              .attr('font-weight','bolder')
+              .attr('transform', function(d){
+                  d.innerRadius=0;
+                  d.outerRadius=radius;
+                  return 'translate('+arc.centroid(d)+')';
+              });
+   </script>
 
