@@ -61,7 +61,19 @@
       
      $actual_ct_row=mysqli_fetch_array($actual_ct_result,MYSQLI_NUM);
      
+     $foodname_row=mysqli_fetch_array($foodname_result,MYSQLI_NUM);
+     
+     $serving_sz_row=mysqli_fetch_array($serving_sz_result,MYSQLI_NUM);
+     
      $actual_ct_data= $actual_ct_row[0]; 
+     
+     $serving_sz_data= $serving_sz_row[0];
+     
+     $foodname_data=$foodname_row[0];
+     
+     echo $foodname_data;
+     
+     echo $serving_sz_data;
           
 
     // Check connection
