@@ -44,9 +44,7 @@
       
       
      $click_id=$_GET['click_id'];
-     
-     echo $click_id;
-      
+
     $conn = new mysqli($servername, $username, $password, $database, $dbport);
     
      $sql = "SELECT actual_serving_count FROM food_list WHERE id=".$click_id;
@@ -55,10 +53,9 @@
       $result=mysqli_query($conn, $sql);
       
      $row=mysqli_fetch_array($result,MYSQLI_NUM);
+     
+     $serving_ct_data= $row[0]; 
           
-      echo $row[0];
-          
-      
 
     // Check connection
     if ($conn->connect_error) {
@@ -67,6 +64,8 @@
     
   
       $conn->close();
+    
+  
 ?>
 
 
@@ -113,35 +112,31 @@
        var width=700,
            height=700,
            radius=350,
-           colors= d3.scale.category20c();
+           colors= d3.scale.category10();
+           
+       var serving_counts="<?php echo $serving_ct_data?>";
+       
+       var serving_counts=serving_counts.slice(1,serving_counts.length-1);
+       
+       var serving_counts_arr=serving_counts.split(",");
+       
+       
            
        var piedata= [
               { 
-                  label : "Ode",
-                  value : 50
+                  value : serving_counts_arr[0]
               },
               { 
-                  label : "Eve",
-                  value : 20
+                  value : serving_counts_arr[1]
               },
             { 
-                  label : "Ode",
-                  value : 50
+                  value : serving_counts_arr[2]
               },
               { 
-                  label : "Eve",
-                  value : 20
-              },
-                 { 
-                  label : "Ode",
-                  value : 50
-              },
-              { 
-                  label : "Eve",
-                  value : 20
+                  value : serving_counts_arr[3]
               }
-           
            ];
+           
            
         var pie = d3.layout.pie()
                   .value(function(d){

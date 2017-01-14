@@ -11,18 +11,7 @@
      include 'EpiTwitter.php';
      include 'keys.php';
      $Twitter = new EpiTwitter($consumerKey2, $consumerSecret2);
-     
-     session_start();
-     
-     if(!$_GET['click_id']){
-        $_GET['click_id']=$_SESSION['click_id'];
-      }
-      else{
-          $_SESSION["click_id"]=$_GET['click_id'];
-      }
-      
-      echo $_GET['click_id'];
-      
+
      
      
       
@@ -47,13 +36,39 @@
     $database = "ode_food_poll";
     $dbport = 3306;
 
+    session_start();
     // Create connection
+    
+         
+      if(!$_GET['click_id']){
+        $_GET['click_id']=$_SESSION['click_id'];
+      }
+       else{
+          $_SESSION["click_id"]=$_GET['click_id'];
+      }
+      
+      
+     $click_id=$_GET['click_id'];
+
     $conn = new mysqli($servername, $username, $password, $database, $dbport);
+    
+     $sql = "SELECT actual_serving_count FROM food_list WHERE id=".$click_id;
+ 
+       
+      $result=mysqli_query($conn, $sql);
+      
+     $row=mysqli_fetch_array($result,MYSQLI_NUM);
+     
+     $serving_ct_data= $row[0]; 
+          
 
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
+    
+  
+      $conn->close();
     
   
     
@@ -62,25 +77,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-out' class='block'><span class='block-span'>Home</span></div></div> 
- <div id='voting-poll-div'><div id="chart"></div> <?php
-             $sql = "SELECT * FROM food_list";
-            $result = $conn->query($sql);
-            $row_count=0;
-            if ($result->num_rows > 0) {
-                // output data of each row
-               
-               
-            } else {
-                echo "0 results";
-            }
-            
-     
-            
-          
-           
-            $conn->close();
-            
-    ?>
+ <div id='voting-poll-div'><div id="chart"></div>
      </div>
 
 <h5 id="underscript-newpoll">This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
@@ -135,34 +132,29 @@
        var width=700,
            height=700,
            radius=350,
-           colors= d3.scale.category20c();
+           colors= d3.scale.category10();
+           
+       var serving_counts="<?php echo $serving_ct_data?>";
+       
+       var serving_counts=serving_counts.slice(1,serving_counts.length-1);
+       
+       var serving_counts_arr=serving_counts.split(",");
+       
+       
            
        var piedata= [
               { 
-                  label : "Ode",
-                  value : 50
+                  value : serving_counts_arr[0]
               },
               { 
-                  label : "Eve",
-                  value : 20
+                  value : serving_counts_arr[1]
               },
             { 
-                  label : "Ode",
-                  value : 50
+                  value : serving_counts_arr[2]
               },
               { 
-                  label : "Eve",
-                  value : 20
-              },
-                 { 
-                  label : "Ode",
-                  value : 50
-              },
-              { 
-                  label : "Eve",
-                  value : 20
+                  value : serving_counts_arr[3]
               }
-           
            ];
            
         var pie = d3.layout.pie()
