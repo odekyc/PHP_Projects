@@ -33,13 +33,8 @@
 
     session_start();
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $database, $dbport);
     
-     $sql = "SELECT actual_serving_count FROM food_list";
-       
-      $result=mysqli_query($conn, $sql);
-      
-      
+         
       if(!$_GET['click_id']){
         $_GET['click_id']=$_SESSION['click_id'];
       }
@@ -48,13 +43,21 @@
       }
       
       
-      echo $_GET['click_id'];
+     $click_id=$_GET['click_id'];
+     
+     echo $click_id;
       
-      while($row=mysqli_fetch_array($result,MYSQLI_NUM)){
-          
+    $conn = new mysqli($servername, $username, $password, $database, $dbport);
+    
+     $sql = "SELECT actual_serving_count FROM food_list WHERE id=".$click_id;
+ 
        
+      $result=mysqli_query($conn, $sql);
+      
+     $row=mysqli_fetch_array($result,MYSQLI_NUM);
           
-      }
+      echo $row[0];
+          
       
 
     // Check connection
