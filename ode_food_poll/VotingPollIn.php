@@ -169,6 +169,11 @@
               }
            ];
            
+        function checkZeroCount(data) {
+            return data.value > 0;
+        }
+        
+        piedata=piedata.filter(checkZeroCount);
            
         var pie = d3.layout.pie()
                   .value(function(d){
