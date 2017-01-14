@@ -52,12 +52,16 @@
      $serving_sz_sql = "SELECT serving_sizes FROM food_list WHERE id=".$click_id;
  
       $foodname_sql = "SELECT foodname FROM food_list WHERE id=".$click_id;
+      
+      $serving_std_sql = "SELECT serving_standard FROM food_list WHERE id=".$click_id;
        
       $actual_ct_result=mysqli_query($conn, $actual_ct_sql);
       
       $foodname_result=mysqli_query($conn, $foodname_sql);
       
      $serving_sz_result=mysqli_query($conn, $serving_sz_sql);
+     
+      $serving_std_result=mysqli_query($conn, $serving_std_sql);
       
      $actual_ct_row=mysqli_fetch_array($actual_ct_result,MYSQLI_NUM);
      
@@ -65,17 +69,17 @@
      
      $serving_sz_row=mysqli_fetch_array($serving_sz_result,MYSQLI_NUM);
      
+     $serving_std_row=mysqli_fetch_array($serving_std_result,MYSQLI_NUM);
+     
      $actual_ct_data= $actual_ct_row[0]; 
      
      $serving_sz_data= $serving_sz_row[0];
      
+     $serving_std_data= $serving_std_row[0];
+     
      $foodname_data=$foodname_row[0];
      
-     echo $foodname_data;
-     
-     echo $serving_sz_data;
-    
-    
+
 
     // Check connection
     if ($conn->connect_error) {
@@ -140,6 +144,8 @@
        var serving_counts="<?php echo $actual_ct_data?>";
        
        var serving_sz="<?php echo $serving_sz_data?>";
+       
+       var serving_std="<?php echo $serving_std_data?>"
        
        var serving_counts=serving_counts.slice(1,serving_counts.length-1);
        
