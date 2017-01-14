@@ -169,6 +169,16 @@ form{
     
 }
 
+#foodname-span{
+    font-size: 6em;
+    color: blue;
+    font-weight: bolder;
+    position: absolute;
+    top: 65px;
+    left: 60px;
+}
+
+
 .ingredients{
     border: 10px solid orange;
     height:40px;
