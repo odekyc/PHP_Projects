@@ -139,25 +139,32 @@
            
        var serving_counts="<?php echo $actual_ct_data?>";
        
-       
+       var serving_sz="<?php echo $serving_sz_data?>";
        
        var serving_counts=serving_counts.slice(1,serving_counts.length-1);
        
+        var serving_sz=serving_sz.slice(1,serving_sz.length-1);
+       
        var serving_counts_arr=serving_counts.split(",");
        
+       var serving_sz_arr=serving_sz.split(",");
        
            
        var piedata= [
               { 
+                  label: serving_sz_arr[0],
                   value : serving_counts_arr[0]
               },
               { 
+                  label: serving_sz_arr[1],
                   value : serving_counts_arr[1]
               },
             { 
+                  label: serving_sz_arr[2],
                   value : serving_counts_arr[2]
               },
               { 
+                  label: serving_sz_arr[3],
                   value : serving_counts_arr[3]
               }
            ];
