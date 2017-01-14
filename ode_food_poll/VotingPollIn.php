@@ -47,14 +47,21 @@
 
     $conn = new mysqli($servername, $username, $password, $database, $dbport);
     
-     $sql = "SELECT actual_serving_count FROM food_list WHERE id=".$click_id;
- 
-       
-      $result=mysqli_query($conn, $sql);
-      
-     $row=mysqli_fetch_array($result,MYSQLI_NUM);
+     $actual_ct_sql = "SELECT actual_serving_count FROM food_list WHERE id=".$click_id;
      
-     $serving_ct_data= $row[0]; 
+     $serving_sz_sql = "SELECT serving_sizes FROM food_list WHERE id=".$click_id;
+ 
+      $foodname_sql = "SELECT foodname FROM food_list WHERE id=".$click_id;
+       
+      $actual_ct_result=mysqli_query($conn, $actual_ct_sql);
+      
+      $foodname_result=mysqli_query($conn, $foodname_sql);
+      
+     $serving_sz_result=mysqli_query($conn, $serving_sz_sql);
+      
+     $actual_ct_row=mysqli_fetch_array($actual_ct_result,MYSQLI_NUM);
+     
+     $actual_ct_data= $actual_ct_row[0]; 
           
 
     // Check connection
@@ -114,7 +121,7 @@
            radius=350,
            colors= d3.scale.category10();
            
-       var serving_counts="<?php echo $serving_ct_data?>";
+       var serving_counts="<?php echo $actual_ct_data?>";
        
        var serving_counts=serving_counts.slice(1,serving_counts.length-1);
        
