@@ -162,6 +162,18 @@ form{
     
 }
 
+
+#foodname-div{
+    position: absolute;
+    width: 660px;
+    height: 115px;
+    top: 40px;
+    left: 35px;
+    margin: auto;
+}
+
+
+
 #central-div{
     position: absolute;
     top: 530px;
@@ -170,12 +182,13 @@ form{
 }
 
 #foodname-span{
-    font-size: 6em;
+    font-size: 4.6em;
     color: blue;
     font-weight: bolder;
     position: absolute;
-    top: 65px;
-    left: 60px;
+    top: 45px;
+    left: 40px;
+    margin: auto;
 }
 
 
