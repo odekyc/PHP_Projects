@@ -304,7 +304,7 @@
       .attr("transform", function(d) {
         return "translate(" + arc.centroid(d) + ")";
       })
-      .attr("dy", "1.5em")
+      .attr("dy", "1.2em")
       .style("text-anchor", "middle")
        .attr('font-size', '1.8em')
        .attr('font-weight','bolder')
