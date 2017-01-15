@@ -141,6 +141,10 @@
         
     });
     
+       var foodname= "<?php echo $foodname_data?>";
+    
+    $("#foodname-span").text(foodname);
+    
      $('h5').css('top','1100px');
        $('html').css('height', '1300px');
        
