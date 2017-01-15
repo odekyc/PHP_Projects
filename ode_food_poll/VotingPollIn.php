@@ -276,18 +276,20 @@
         return colors(i);
       });
 
-    var textG = svg.selectAll(".texts")
+    var labeltxt = svg.selectAll(".labeltxt")
       .data(pie(piedata))
       .enter().append("g")
-      .attr("class", "texts");
+      .attr("class", "labeltxt");
 
     // Append text labels to each arc
-    textG.append("text")
+    labeltxt.append("text")
       .attr("transform", function(d) {
         return "translate(" + arc.centroid(d) + ")";
       })
       .attr("dy", 0)
       .style("text-anchor", "middle")
+       .attr('font-size', '1.8em')
+       .attr('font-weight','bolder')
       .attr("fill", "#fff")
       .text(function(d) {
         return d.data.label;
