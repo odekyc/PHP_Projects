@@ -181,44 +181,118 @@
         
         piedata=piedata.filter(checkZeroCount);
            
-        var pie = d3.layout.pie()
-                  .value(function(d){
-                      return d.value;
-                  });
+//         var pie = d3.layout.pie()
+//                   .value(function(d){
+//                       return d.value;
+//                   });
                   
-        var arc= d3.svg.arc()
-                .outerRadius(radius);
+//         var arc= d3.svg.arc()
+//                 .outerRadius(radius);
                 
-        var myChart = d3.select('#chart').append('svg')
-           .attr('width', width)
-           .attr('height', height)
-           .append('g')
-           .attr('transform', 'translate('+(width - radius )+ ',' + (height-radius) +')')
-           .selectAll('path').data(pie(piedata))
-           .enter().append('g')
-           .attr('class','slice');
+//         var myChart = d3.select('#chart').append('svg')
+//           .attr('width', width)
+//           .attr('height', height)
+//           .append('g')
+//           .attr('transform', 'translate('+(width - radius )+ ',' + (height-radius) +')')
+//           .selectAll('path').data(pie(piedata))
+//           .enter().append('g')
+//           .attr('class','slice');
            
-  var slices=d3.selectAll('g.slice')
-            .append('path')
-           .attr('fill', function(d,i){
-               return colors(i);
-           })
-           .attr( 'd', arc);
-           
-           
-   var text = d3.selectAll('g.slice')
-              .append('text')
-              .text(function(d,i){
-                  return d.data.label;
-              })
-              .attr('text-anchor','middle')
-              .attr('fill', 'white' )
-              .attr('font-size', '1.8em')
-              .attr('font-weight','bolder')
-              .attr('transform', function(d){
-                  d.innerRadius=0;
-                  d.outerRadius=radius;
-                  return 'translate('+arc.centroid(d)+')';
-              });
+//   var slices=d3.selectAll('g.slice')
+//             .append('path')
+//             .attr('z-index','-1')
+//           .attr('fill', function(d,i){
+//               return colors(i);
+//           })
+//           .attr( 'd', arc);
+  
+                       
+//  var serving_sz_text = d3.selectAll('g.slice')
+//               .append('text')
+//               .text(function(d,i){
+//                   return d.data.label+" ("+d.data.value+")";
+//               })
+//               .attr('class','sztext')
+//               .attr('text-anchor','middle')
+//               .attr('z-index','12')
+//               .attr('fill', 'white' )
+//               .attr('font-size', '1.8em')
+//               .attr('font-weight','bolder')
+//               .attr('transform', function(d){
+//                   d.innerRadius=0;
+//                   d.outerRadius=radius;
+//                   return 'translate('+arc.centroid(d)+')';
+//               });
+              
+              
+        // Define arc ranges
+    var arcText = d3.scale.ordinal()
+      .rangeRoundBands([0, width], .1, .3);
+
+    // Determine size of arcs
+    var arc = d3.svg.arc()
+      .innerRadius(radius - 230)
+      .outerRadius(radius - 10);
+
+    // Create the donut pie chart layout
+    var pie = d3.layout.pie()
+      .value(function(d) {
+        return d.value;
+      })
+      .sort(null);
+      
+      
+     // Append SVG attributes and append g to the SVG
+    var mySvg = d3.select('#chart').append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    var svg = mySvg
+      .append("g")
+      .attr("transform", "translate(" + radius + "," + radius + ")");
+
+    var svgText = mySvg
+      .append("g")
+      .attr("transform", "translate(" + radius + "," + radius + ")");
+
+    // Define inner circle
+    svg.append("circle")
+      .attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", radius)
+      .attr("fill", "#fff");
+
+    // Calculate SVG paths and fill in the colours
+    var g = svg.selectAll(".arc")
+      .data(pie(piedata))
+      .enter().append("g")
+      .attr("class", "arc");
+
+    // Append the path to each g
+    g.append("path")
+      .attr("d", arc)
+      //.attr("data-legend", function(d, i){ return parseInt(newData[i].count) + ' ' + newData[i].emote; })
+      .attr("fill", function(d, i) {
+        return colors(i);
+      });
+
+    var textG = svg.selectAll(".texts")
+      .data(pie(piedata))
+      .enter().append("g")
+      .attr("class", "texts");
+
+    // Append text labels to each arc
+    textG.append("text")
+      .attr("transform", function(d) {
+        return "translate(" + arc.centroid(d) + ")";
+      })
+      .attr("dy", 0)
+      .style("text-anchor", "middle")
+      .attr("fill", "#fff")
+      .text(function(d) {
+        return d.data.label;
+      });
+
    </script>
+   
 
