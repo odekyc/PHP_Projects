@@ -294,6 +294,24 @@
       .text(function(d) {
         return d.data.label;
       });
+      
+    var valuetxt = svg.selectAll(".valuetxt")
+      .data(pie(piedata))
+      .enter().append("g")
+      .attr("class", "valuetxt");
+      
+    valuetxt.append("text")
+      .attr("transform", function(d) {
+        return "translate(" + arc.centroid(d) + ")";
+      })
+      .attr("dy", "1.5em")
+      .style("text-anchor", "middle")
+       .attr('font-size', '1.8em')
+       .attr('font-weight','bolder')
+      .attr("fill", "#fff")
+      .text(function(d) {
+        return "("+d.data.value+")";
+      });
 
    </script>
    
