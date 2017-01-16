@@ -192,6 +192,16 @@ form{
 }
 
 
+#serving-std-span{
+    font-size: 3.6em;
+    color: green;
+    font-weight: bolder;
+    position: absolute;
+    top: 135px;
+    left: 40px;
+    margin: auto;
+}
+
 .ingredients{
     border: 10px solid orange;
     height:40px;
