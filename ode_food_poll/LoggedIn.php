@@ -47,10 +47,10 @@
      <div id='main-div'><div id='main-div-title'><span id='main-title-span'>Ode's Food Poll</span><span id='main-descrpt-span'>Below are polls hosted by Ode<br>Select a poll to see the results and vote, or sign-in to make a new poll.</span></div>
      <div id='central-div'>
        <?php
-             $sql = "SELECT * FROM food_list";
+             $sql = "SELECT * FROM food_list ORDER BY category ASC";
             $result = $conn->query($sql);
-            $cur_category="Meat";
-            echo "<div id='div-1' class='ingre-type'><span class='ingre-name'>Meat</span></div>";
+            $cur_category="Beverage";
+            echo "<div id='div-1' class='ingre-type'><span class='ingre-name'>Beverage</span></div>";
             $row_count=0;
             if ($result->num_rows > 0) {
                 // output data of each row
