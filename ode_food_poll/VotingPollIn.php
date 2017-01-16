@@ -155,26 +155,23 @@
        var foodname_arr=foodname.split(' ');
        
  
-       var revised_foodname="aaaa";
+       var revised_foodname="";
        
        var revised_foodname_arr=[];
        
-       var foodname_lines=0;
+       var foodname_lines=1;
        
        var foodnm_chk_hlder="";
        
        var temp_foodname_chk="";
        
        for(var i = 0; i < foodname_arr.length; i++) { 
-           
-            foodname_lines+=1;
             
             foodnm_chk_hlder=foodname_arr[i];
-            
-            while (foodnm_chk_hlder.length > 12 ){
-                foodname_lines+=1;
-                temp_foodname_chk=foodnm_chk_hlder.slice(0,12)+"-<br />";
-                foodnm_chk_hlder=foodnm_chk_hlder.slice(12);
+             
+            while (foodnm_chk_hlder.length > 13 ){
+                temp_foodname_chk=foodnm_chk_hlder.slice(0,13)+"-<br />";
+                foodnm_chk_hlder=foodnm_chk_hlder.slice(13);
                 
             }
             
@@ -184,7 +181,14 @@
             temp_foodname_chk="";
         }
        
-       revised_foodname=revised_foodname_arr.join("<br />");
+
+       revised_foodname=revised_foodname_arr.join(" ");
+       
+       foodname_lines+=Math.floor(foodnameLen/13);
+       
+       if(revised_foodname.indexOf("-")>0){
+           foodname_lines+=1;
+       }
        
         var serving_std_height=(foodname_lines*85)+40;
     
