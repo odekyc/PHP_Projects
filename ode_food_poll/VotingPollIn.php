@@ -157,7 +157,13 @@
  
        var revised_foodname="aaaa";
        
+       var revised_foodname_arr=[];
        
+       for(var i = 0; i < foodname_arr.length; i++) { 
+            if (foodname_arr[i].length > 15 ){
+                
+            }
+        }
        
     
         $("#foodname-span").html(foodname+"<br />a");
