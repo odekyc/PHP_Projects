@@ -165,11 +165,12 @@ form{
 
 #foodname-div{
     position: absolute;
-    width: 660px;
-    height: 115px;
+    width: 440px;
+    height: 805px;
     top: 40px;
     left: 35px;
     margin: auto;
+    background-color: white;
 }
 
 
