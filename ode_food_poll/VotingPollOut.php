@@ -154,6 +154,7 @@
        
        $('#voting-poll-div').css('left', '56px');
        
+       
        var width=700,
            height=700,
            radius=350,
@@ -281,24 +282,48 @@
       .attr("fill", "#fff");
 
     // Calculate SVG paths and fill in the colours
-    var g = svg.selectAll(".arc")
+    var slices = svg.selectAll(".arc")
       .data(pie(piedata))
       .enter().append("g")
       .attr("class", "arc");
 
     // Append the path to each g
-    g.append("path")
+    slices.append("path")
       .attr("d", arc)
       //.attr("data-legend", function(d, i){ return parseInt(newData[i].count) + ' ' + newData[i].emote; })
       .attr("fill", function(d, i) {
         return colors(i);
       });
 
+
+      
+      function tweenPie(finish) {
+            var start = {
+                startAngle: 0,
+                endAngle: 0
+            };
+            var interpolator = d3.interpolate(start, finish);
+            return function(d) { return arc(interpolator(d)); };
+        }
+     
+     
+
+     
+      slices.append('path')
+            .attr({
+                'fill': function (d, i) {
+                    return colors(i);
+                }
+            })
+            .transition()
+            .duration(1000)
+            .attrTween('d', tweenPie);
+
+
     var labeltxt = svg.selectAll(".labeltxt")
       .data(pie(piedata))
       .enter().append("g")
       .attr("class", "labeltxt");
-
     // Append text labels to each arc
     labeltxt.append("text")
       .attr("transform", function(d) {
@@ -306,8 +331,8 @@
       })
       .attr("dy", 0)
       .style("text-anchor", "middle")
-       .attr('font-size', '1.8em')
-       .attr('font-weight','bolder')
+      .attr('font-size', '1.8em')
+      .attr('font-weight','bolder')
       .attr("fill", "#fff")
       .text(function(d) {
         return d.data.label;
@@ -324,15 +349,13 @@
       })
       .attr("dy", "1.2em")
       .style("text-anchor", "middle")
-       .attr('font-size', '1.8em')
-       .attr('font-weight','bolder')
+      .attr('font-size', '1.8em')
+      .attr('font-weight','bolder')
       .attr("fill", "#fff")
       .text(function(d) {
         return "("+d.data.value+")";
       });
-       
-      
-           
+
       
      </script>
 
