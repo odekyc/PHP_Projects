@@ -159,7 +159,7 @@
        
        var revised_foodname_arr=[];
        
-       var foodname_lines=1;
+       var foodname_lines=0;
        
        var foodnm_chk_hlder="";
        
@@ -184,7 +184,7 @@
 
        revised_foodname=revised_foodname_arr.join(" ");
        
-       foodname_lines+=Math.floor(foodnameLen/13);
+       foodname_lines+=Math.ceil(foodnameLen/13);
        
        if(revised_foodname.indexOf("-")>0){
            foodname_lines+=1;
