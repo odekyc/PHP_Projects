@@ -165,7 +165,7 @@ form{
 
 #foodname-div{
     position: absolute;
-    width: 440px;
+    width: 470px;
     height: 805px;
     top: 40px;
     left: 35px;
@@ -188,7 +188,7 @@ form{
     font-weight: bolder;
     position: absolute;
     top: 45px;
-    left: 40px;
+    left: 0px;
     margin: auto;
 }
 
