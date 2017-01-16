@@ -150,11 +150,17 @@
        
        
        
-       var serving_std_height=(Math.floor(foodnameLen/12)*85)+135;
+       var serving_std_height=(Math.floor(foodnameLen/16)*85)+135;
+       
+       var foodname_arr=foodname.split(' ');
+       
+ 
+       var revised_foodname="aaaa";
+       
        
        
     
-        $("#foodname-span").text(foodname);
+        $("#foodname-span").html(foodname+"<br />a");
         
         $("#serving-std-span").text(serving_std+"(s)");
         

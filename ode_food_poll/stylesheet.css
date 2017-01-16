@@ -165,7 +165,7 @@ form{
 
 #foodname-div{
     position: absolute;
-    width: 470px;
+    width: 510px;
     height: 805px;
     top: 40px;
     left: 35px;
@@ -364,7 +364,7 @@ select{
 #chart{
     position: absolute;
     top: 100px;
-    left: 500px;
+    left: 560px;
 }
 
 
