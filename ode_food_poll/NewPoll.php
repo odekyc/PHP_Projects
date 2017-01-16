@@ -25,7 +25,7 @@
       <option value="Drink">Drink</option>
       <option value="Fruit">Fruit</option>
    </select>
-  <h1 id="form-title">Title:</h1>
+  <h1 id="form-title">Foodname&nbsp(Max&nbsp56&nbspChars):</h1>
   <input id="input-title" name="title" type="text">
  
   <h1 id="form-options">Options&nbsp(separated&nbspby&nbspline):</h1>
