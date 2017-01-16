@@ -150,7 +150,7 @@
        
        
        
-       var serving_std_height=(Math.floor(foodnameLen/16)*85)+135;
+      
        
        var foodname_arr=foodname.split(' ');
        
@@ -159,18 +159,42 @@
        
        var revised_foodname_arr=[];
        
+       var foodname_lines=0;
+       
+       var foodnm_chk_hlder="";
+       
+       var temp_foodname_chk="";
+       
        for(var i = 0; i < foodname_arr.length; i++) { 
-            if (foodname_arr[i].length > 15 ){
+           
+            foodname_lines+=1;
+            
+            foodnm_chk_hlder=foodname_arr[i];
+            
+            while (foodnm_chk_hlder.length > 12 ){
+                foodname_lines+=1;
+                temp_foodname_chk=foodnm_chk_hlder.slice(0,12)+"-<br />";
+                foodnm_chk_hlder=foodnm_chk_hlder.slice(12);
                 
             }
+            
+            temp_foodname_chk+=foodnm_chk_hlder;
+            
+            revised_foodname_arr.push(temp_foodname_chk);
+            temp_foodname_chk="";
         }
        
+       revised_foodname=revised_foodname_arr.join("<br />");
+       
+        var serving_std_height=(foodname_lines*85)+40;
     
-        $("#foodname-span").html(foodname+"<br />a");
+        $("#foodname-span").html(revised_foodname);
         
         $("#serving-std-span").text(serving_std+"(s)");
         
         $("#serving-std-span").css("top",serving_std_height+"px");
+        
+        $("#serving-std-span").css("left","0px");
            
        var serving_counts=serving_counts.slice(1,serving_counts.length-1);
        
