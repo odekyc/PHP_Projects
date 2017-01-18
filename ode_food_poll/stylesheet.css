@@ -392,7 +392,31 @@ select{
     color: #ff8000;
     position: absolute;
     font-weight: bolder;
-    font-size: 1.4em;
-    top: 215px;
+    font-size: 1.2em;
+    top: 235px;
     left:0px;
+}
+
+
+#votesubmit{
+    background-color: blue;
+    position: absolute;
+    left: -65px;
+    top: 400px;
+    color: white;
+    font-weight: bold;
+    width: 140px;
+    font-size: 1.2em;
+    height: 30px;
+}
+
+#voteselect{
+    background-color: white;
+    width: 250px;
+    height: 40px;
+    font-size: 1.6em;
+    position: absolute;
+    left: -65px;
+    top: 325px;
+    
 }
