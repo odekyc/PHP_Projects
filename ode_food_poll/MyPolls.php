@@ -34,8 +34,8 @@
     var NumMyPolls=0;
     var height= NumMyPolls*20+120;
     $('html').height(height+"%");
-    $('#home-div-in').css("background-color", "#99ceff");
-    $('#home-div-in').hover(function(){   $('#home-div-in').css("background-color", "#ace600");} , function(){ $('#home-div-in').css("background-color", "#99ceff"); });
+    $('#home-div-in').css("background-color", "#e5ffcc");
+    $('#home-div-in').hover(function(){   $('#home-div-in').css("background-color", "#ace600");} , function(){ $('#home-div-in').css("background-color", "#e5ffcc"); });
     $('#mypolls').css("background-color", "#ace600");
     
 </script>

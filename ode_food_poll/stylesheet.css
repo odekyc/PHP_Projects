@@ -1,16 +1,16 @@
 html{
-    background-color: #ace600;
+    background-color: #e5ffcc;
     height: 1400px;
 }
 
 #upper-div{
     margin: auto;
     margin-top: -30px;
-    border: 10px solid red;
+    border: 10px solid green;
     border-radius: 20px;
     height: 80px;
     width: 1300px;
-    background-color: #ffff99;
+    background-color: #b3d7ff;
 }
 
 #twitterbtnsignin{
@@ -44,9 +44,9 @@ textarea{
 }
 
 #main-div{
-    border: 10px solid red;
+    border: 10px solid green;
     border-radius: 20px;
-    background-color: #ffff99;
+    background-color: #b3d7ff;
     position: absolute;
     top: 120px;
     height: 7000px;
@@ -55,7 +55,7 @@ textarea{
 }
 
 #voting-poll-div{
-    border: 10px solid red;
+    border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
     position: absolute;
@@ -67,9 +67,9 @@ textarea{
 
 
 #main-div-title{
-    border: 20px solid #ace600;
+    border: 20px solid green;
     border-radius: 20px;
-    background-color: #9933ff;
+    background-color: #e5ffcc;
     position: absolute;
     top: 80px;
     width: 85%;
@@ -82,9 +82,9 @@ textarea{
 
 
 #newpoll-main-div-title{
-    border: 20px solid #ace600;
+    border: 20px solid green;
     border-radius: 20px;
-    background-color: #9933ff;
+    background-color: #b3d7ff;
     position: absolute;
     top: 80px;
     width: 85%;
@@ -106,7 +106,7 @@ form{
     position: absolute;
     left: 0px;
     top: 35px;
-    color: #ace600;
+    color: green;
     font-family: Arial;
     font-weight: bold;
 }
@@ -115,14 +115,14 @@ form{
     position: absolute;
     left: 0px;
     top: 145px;
-    color: #ace600;
+    color: green;
     font-family: Arial;
     font-weight: bold;
 }
 
 
 #main-title-span{
-    color: orange;
+    color: blue;
     position:absolute;
     font-weight: bolder;
     font-family: Arial;
@@ -153,7 +153,7 @@ form{
 }
 
 #main-descrpt-span{
-    color: yellow;
+    color: orange;
     font-weight: bolder;
     font-size: 2em;
     position: absolute;
@@ -204,7 +204,7 @@ form{
 }
 
 .ingredients{
-    border: 10px solid orange;
+    border: 5px solid green;
     height:40px;
     width: 1090px;
     background-color: #a6ff4d;
@@ -216,7 +216,7 @@ form{
 }
 
 .ingre-type{
-    border: 10px solid red;;
+    border: 10px solid green;;
     height:60px;
     width: 1090px;
     background-color: blue;
@@ -247,7 +247,7 @@ h5{
 #home-div-out{
     position: absolute;
 
-    background-color: #99ceff;
+    background-color: #e5ffcc;
     left: 1050px;
 }
 
@@ -267,7 +267,7 @@ h5{
 
 #home-div-in{
     position: absolute;
-    background-color: #ace600;
+    background-color: #e5ffcc;
     /*background-color: #99ceff;*/
     left: 910px;
 }
@@ -275,7 +275,7 @@ h5{
 #mypolls{
      position: absolute;
      left: 1010px;
-     background-color: yellow;
+     background-color: #ffff99;
 }
 
 #mypolls-span{
@@ -286,7 +286,7 @@ h5{
 #newpoll{
     position: absolute;
     left: 1111px;
-    background-color: orange;
+    background-color: #ffb366;
 }
 
 #newpoll-span{
@@ -309,7 +309,7 @@ h5{
 }
 
 #mypolls-main-div{
-    border: 10px solid red;
+    border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
     position: absolute;
@@ -327,7 +327,7 @@ select{
 }
 
 #newpoll-main-div{
-    border: 10px solid red;
+    border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
     position: absolute;

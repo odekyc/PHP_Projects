@@ -135,7 +135,7 @@
         
     }, function(){ 
      
-        $('#home-div-out').css("background-color", "#99ceff");
+        $('#home-div-out').css("background-color", "#e5ffcc");
         
     });
     $("#newpoll").click(function(){ 

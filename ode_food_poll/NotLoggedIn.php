@@ -78,7 +78,7 @@
                 echo "0 results";
             }
             
-            $main_div_newh=70*$row_count-60;
+            $main_div_newh=60*$row_count-60;
             $h5_top=$main_div_newh+200;
             $html_newh=$main_div_newh+360;
             
