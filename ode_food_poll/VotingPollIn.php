@@ -96,10 +96,10 @@
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-in' class='block'><span class='block-span'>Home</span></div><div id='mypolls' class='block'><span id='mypolls-span' class='block-span'><center>My Polls</center></span><</div><div id='newpoll' class='block'><span id='newpoll-span' class='block-span'>New Poll</span><</div></div>  
      <div id='voting-poll-div'><div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Daily Serving Sizes</span><span id="actual_serving_ct">(Actual Daily Servings Vote Counts)</span><span id="idliketovote">I'd Like to Vote For(Daily Serving Size):</span> <a id="tweet-but" href="https://twitter.com/share/tweet?text=Ode's%20Food%20Poll%20@" data-size="large" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> <form action="" id="voteform">
            <select id="voteselect">
-              <option id="firstvoteop" value="">first</option>
-              <option id="secondvoteop" value="">second</option>
-              <option id="thirdvoteop" value="">third</option>
-              <option id="fourthvoteop" value="">fourth</option>
+              <option id="firstvoteop" value="0">first</option>
+              <option id="secondvoteop" value="1">second</option>
+              <option id="thirdvoteop" value="2">third</option>
+              <option id="fourthvoteop" value="3">fourth</option>
            </select>
          
           <input id="votesubmit" type="submit" value="Submit">
@@ -144,7 +144,9 @@
        
        $('#voting-poll-div').css('left', '56px');
        
+       var voteselect_val=$( "#voteselect" ).val();
        
+       alert(voteselect_val);
        
         var width=700,
            height=700,

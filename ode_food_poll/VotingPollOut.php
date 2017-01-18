@@ -104,10 +104,10 @@
        <div id='voting-poll-div'><div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Daily Serving Size</span><span id="actual_serving_ct">(Actual Daily Servings Vote Counts)</span><span id="idliketovote">I'd Like to Vote For(Daily Serving Size):</span>
        <form action="" id="voteform">
            <select id="voteselect">
-              <option id="firstvoteop" value="">first</option>
-              <option id="secondvoteop" value="">second</option>
-              <option id="thirdvoteop" value="">third</option>
-              <option id="fourthvoteop" value="">fourth</option>
+              <option id="firstvoteop" value="0">first</option>
+              <option id="secondvoteop" value="1">second</option>
+              <option id="thirdvoteop" value="2">third</option>
+              <option id="fourthvoteop" value="3">fourth</option>
            </select>
          
           <input id="votesubmit" type="submit" value="Submit">
@@ -227,6 +227,8 @@
          var idliketovote_top=(foodname_lines*85)+275;
          
          var voteform_top=(foodname_lines*85)+315;
+         
+        $("#foodname-span").css("top", "25px");         
     
         $("#foodname-span").html(revised_foodname);
         
