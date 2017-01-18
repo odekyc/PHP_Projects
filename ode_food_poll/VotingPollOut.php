@@ -208,7 +208,7 @@
        
        foodname_lines+=Math.ceil(foodnameLen/13);
        
-       if(revised_foodname.indexOf("-")>0){
+       if(revised_foodname.indexOf("<br />")>0){
            foodname_lines+=1;
        }
        
