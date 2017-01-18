@@ -153,10 +153,7 @@
         
     });
 
-    
-    $("#foodname-span").text(foodname);
-    
-    
+
     
      $('h5').css('top','1300px');
        $('html').css('height', '1500px');
