@@ -144,9 +144,7 @@
        
        $('#voting-poll-div').css('left', '56px');
        
-       var voteselect_val=$( "#voteselect" ).val();
-       
-       alert(voteselect_val);
+      
        
         var width=700,
            height=700,
@@ -217,6 +215,12 @@
         
     
         $("#foodname-span").html(revised_foodname);
+        
+        $("#votesubmit").click(function(){
+             var voteselect_val=$( "#voteselect" ).val();
+       
+             alert(voteselect_val);
+        });
         
         $("#serving_sz").css("top", serving_sz_top+"px");
         
