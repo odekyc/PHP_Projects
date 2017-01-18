@@ -166,11 +166,11 @@ form{
 #foodname-div{
     position: absolute;
     width: 510px;
-    height: 1000px;
+    height: 1200px;
     top: 40px;
     left: 35px;
     margin: auto;
-    background-color: #ffff99;
+    background-color: #ffff00;
 }
 
 
@@ -402,7 +402,7 @@ select{
     background-color: blue;
     position: absolute;
     left: -65px;
-    top: 400px;
+    top: 60px;
     color: white;
     font-weight: bold;
     width: 140px;
@@ -417,6 +417,5 @@ select{
     font-size: 1.6em;
     position: absolute;
     left: -65px;
-    top: 325px;
     
 }

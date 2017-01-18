@@ -101,13 +101,13 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-out' class='block'><span class='block-span'>Home</span></div></div> 
-       <div id='voting-poll-div'><div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Daily Serving Sizes</span><span id="actual_serving_ct">(Actual Daily Servings Vote Counts)</span><span id="idliketovote">I'd Like to Vote For:</span>
+       <div id='voting-poll-div'><div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Daily Serving Size</span><span id="actual_serving_ct">(Actual Daily Servings Vote Counts)</span><span id="idliketovote">I'd Like to Vote For(Daily Serving Size):</span>
        <form action="" id="voteform">
            <select id="voteselect">
-              <option value="first">first</option>
-              <option value="second">second</option>
-              <option value="third">third</option>
-              <option value="fourth">fourth</option>
+              <option id="firstvoteop" value="">first</option>
+              <option id="secondvoteop" value="">second</option>
+              <option id="thirdvoteop" value="">third</option>
+              <option id="fourthvoteop" value="">fourth</option>
            </select>
          
           <input id="votesubmit" type="submit" value="Submit">
@@ -152,10 +152,11 @@
         $('#home-div-out').css("background-color", "#ace600");
         
     });
-    
-       var foodname= "<?php echo $foodname_data?>";
+
     
     $("#foodname-span").text(foodname);
+    
+    
     
      $('h5').css('top','1300px');
        $('html').css('height', '1500px');
@@ -180,11 +181,7 @@
        var foodname= "<?php echo $foodname_data?>";
        
        var foodnameLen= foodname.length;
-       
-       
-       
-      
-       
+
        var foodname_arr=foodname.split(' ');
        
  
@@ -224,25 +221,28 @@
            foodname_lines+=1;
        }
        
-        var serving_std_height=(foodname_lines*85)+40;
+        var serving_std_top=(foodname_lines*85)+40;
         
-        var serving_sz_height=(foodname_lines*85)+125;
+        var serving_sz_top=(foodname_lines*85)+125;
         
-        var actual_servingct_height=(foodname_lines*85)+175;
+        var actual_servingct_top=(foodname_lines*85)+175;
         
-         var idliketovote_height=(foodname_lines*85)+285;
+         var idliketovote_top=(foodname_lines*85)+275;
+         
+         var voteform_top=(foodname_lines*85)+315;
     
         $("#foodname-span").html(revised_foodname);
         
-        $("#serving_sz").css("top", serving_sz_height);
+        $("#serving_sz").css("top", serving_sz_top+"px");
         
-         $("#actual_serving_ct").css("top", actual_servingct_height);
+         $("#actual_serving_ct").css("top", actual_servingct_top+"px");
          
-          $("#idliketovote").css("top", idliketovote_height);
-        
+          $("#idliketovote").css("top", idliketovote_top+"px");
+          
+
         $("#serving-std-span").text(serving_std+"(s)");
         
-        $("#serving-std-span").css("top",serving_std_height+"px");
+        $("#serving-std-span").css("top",serving_std_top+"px");
         
         $("#serving-std-span").css("left","0px");
         
@@ -250,7 +250,9 @@
         
         $("#foodname-div").css("background-color","#ffff99");
         
-        $("#chart").css("top","140px");
+        $("#chart").css("top","240px");
+        
+        $("#voteform").css("top",voteform_top+"px");
            
        var serving_counts=serving_counts.slice(1,serving_counts.length-1);
        
@@ -260,6 +262,13 @@
        
        var serving_sz_arr=serving_sz.split(",");
        
+       $("#firstvoteop").text(serving_sz_arr[0]);
+       
+       $("#secondvoteop").text(serving_sz_arr[1]);
+       
+       $("#thirdvoteop").text(serving_sz_arr[2]);
+       
+       $("#fourthvoteop").text(serving_sz_arr[3]);
            
        var piedata= [
               { 
