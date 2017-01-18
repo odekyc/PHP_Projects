@@ -131,6 +131,7 @@
         window.location.href = "NotLoggedIn.php";
         });
     
+   
     
     
      $('h5').css('top','1300px');
@@ -141,6 +142,8 @@
         $('#voting-poll-div').css('width', '1300px');
        
        $('#voting-poll-div').css('left', '56px');
+       
+       
        
         var width=700,
            height=700,

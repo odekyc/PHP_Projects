@@ -100,6 +100,8 @@
        
     });
     
+    $(".ingredients").css("background-color"," #e5ffcc");
+    
     $("#upper-div").css("width", "1300px");
     $("#main-div").css("width", "1300px");
    
