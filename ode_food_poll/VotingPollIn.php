@@ -103,7 +103,8 @@
            </select>
          
           <input id="votesubmit" type="submit" value="Submit">
-        </form></div><div id="chart"></div></div>
+        </form>
+<a id="tweet-but" href="https://twitter.com/share/tweet?text=Ode's%20Food%20Poll%20@" data-size="large" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div><div id="chart"></div></div>
 
 <h5 id="underscript-newpoll">This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
 <script type='text/javascript'>
@@ -199,15 +200,19 @@
            foodname_lines+=1;
        }
        
-        var serving_std_top=(foodname_lines*85)+40;
+        var serving_std_top=(foodname_lines*85)+100;
         
-        var serving_sz_top=(foodname_lines*85)+125;
+        var serving_sz_top=(foodname_lines*85)+185;
         
-        var actual_servingct_top=(foodname_lines*85)+175;
+        var actual_servingct_top=(foodname_lines*85)+235;
         
-         var idliketovote_top=(foodname_lines*85)+275;
+         var idliketovote_top=(foodname_lines*85)+335;
          
-         var voteform_top=(foodname_lines*85)+315;
+         var voteform_top=(foodname_lines*85)+375;
+         
+         var tweet_but_top=(foodname_lines*85)+425;
+         
+        
     
         $("#foodname-span").html(revised_foodname);
         
@@ -216,8 +221,9 @@
          $("#actual_serving_ct").css("top", actual_servingct_top+"px");
          
           $("#idliketovote").css("top", idliketovote_top+"px");
-          
-
+ 
+        $("#foodname-span").css("top", "75px");         
+ 
         $("#serving-std-span").text(serving_std+"(s)");
         
         $("#serving-std-span").css("top",serving_std_top+"px");
@@ -231,6 +237,8 @@
         $("#chart").css("top","240px");
         
         $("#voteform").css("top",voteform_top+"px");
+        
+         $("#tweet-but").css("top", tweet_but_top+"px");
            
        var serving_counts=serving_counts.slice(1,serving_counts.length-1);
        

@@ -187,7 +187,7 @@ form{
     color: blue;
     font-weight: bolder;
     position: absolute;
-    top: 45px;
+    top: 105px;
     left: 0px;
     margin: auto;
 }
@@ -417,5 +417,13 @@ select{
     font-size: 1.6em;
     position: absolute;
     left: -65px;
+    
+}
+
+
+#tweet-button{
+
+    position: absolute;
+    left: 0px;
     
 }
