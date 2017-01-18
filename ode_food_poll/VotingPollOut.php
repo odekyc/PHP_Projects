@@ -214,9 +214,9 @@
        
         var serving_std_height=(foodname_lines*85)+40;
         
-        var serving_sz_height=(foodname_lines*85)+115;
+        var serving_sz_height=(foodname_lines*85)+125;
         
-        var actual_servingct_height=(foodname_lines*85)+180;
+        var actual_servingct_height=(foodname_lines*85)+175;
     
         $("#foodname-span").html(revised_foodname);
         
