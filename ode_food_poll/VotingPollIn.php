@@ -94,7 +94,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-in' class='block'><span class='block-span'>Home</span></div><div id='mypolls' class='block'><span id='mypolls-span' class='block-span'><center>My Polls</center></span><</div><div id='newpoll' class='block'><span id='newpoll-span' class='block-span'>New Poll</span><</div></div>  
-     <div id='voting-poll-div'><div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span></div><div id="chart"></div></div>
+     <div id='voting-poll-div'><div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Serving Sizes</span><span id="actual_serving_ct">(Actual Daily Servings)</span></div><div id="chart"></div></div>
 
 <h5 id="underscript-newpoll">This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
 <script type='text/javascript'>
@@ -122,10 +122,10 @@
         window.location.href = "NotLoggedIn.php";
         });
     
-       $('h5').css('top','1100px');
-       $('html').css('height', '1300px');
+       $('h5').css('top','1300px');
+       $('html').css('height', '1500px');
        
-       $('#voting-poll-div').css('height', '900px');
+       $('#voting-poll-div').css('height', '1100px');
        
         $('#voting-poll-div').css('width', '1300px');
        
@@ -192,14 +192,28 @@
        }
        
         var serving_std_height=(foodname_lines*85)+40;
+        
+        var serving_sz_height=(foodname_lines*85)+115;
+        
+        var actual_servingct_height=(foodname_lines*85)+180;
     
         $("#foodname-span").html(revised_foodname);
+        
+        $("#serving_sz").css("top", serving_sz_height);
+        
+         $("#actual_serving_ct").css("top", actual_servingct_height);
         
         $("#serving-std-span").text(serving_std+"(s)");
         
         $("#serving-std-span").css("top",serving_std_height+"px");
         
         $("#serving-std-span").css("left","0px");
+        
+        $("#foodname-div").css("height","1000px");
+        
+        $("#foodname-div").css("background-color","#ffff99");
+        
+        $("#chart").css("top","130px");
            
        var serving_counts=serving_counts.slice(1,serving_counts.length-1);
        

@@ -60,7 +60,7 @@ textarea{
     background-color: #ffff99;
     position: absolute;
     top: 120px;
-    height: 1000px;
+    height: 1100px;
     width: 1000px;
     left: 66px;
 }
@@ -166,11 +166,11 @@ form{
 #foodname-div{
     position: absolute;
     width: 510px;
-    height: 805px;
+    height: 1000px;
     top: 40px;
     left: 35px;
     margin: auto;
-    background-color: white;
+    background-color: #ffff99;
 }
 
 
@@ -363,8 +363,26 @@ select{
 
 #chart{
     position: absolute;
-    top: 100px;
+    top: 130px;
     left: 560px;
 }
 
+#serving_sz{
+    color: red;
+    position: absolute;
+    font-weight: bolder;
+    font-size: 3em;
+    top: 135px;
+    left:0px;
+    
+}
 
+#actual_serving_ct{
+    color: red;
+    position: absolute;
+    font-weight: bolder;
+    font-size: 3em;
+    top: 165px;
+    left:0px;
+    
+}
