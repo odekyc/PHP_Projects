@@ -18,7 +18,7 @@
 <br>
 <br>
 <br>
-<form action="action_page.php">
+<form action="NewPoll.php">
    <select>
       <option value="Meat">Meat</option>
       <option value="Vegetable">Vegetable</option>
@@ -26,10 +26,10 @@
       <option value="Fruit">Fruit</option>
    </select>
   <h1 id="form-title">Foodname&nbsp(Max&nbsp56&nbspChars):</h1>
-  <input id="input-title" name="title" type="text">
+  <input id="input-title" name="title" type="text" maxlength="56" required>
  
   <h1 id="form-options">Options&nbsp(separated&nbspby&nbspline):</h1>
-  <textarea rows="6" cols="50" name="options">
+  <textarea rows="6" cols="50" name="options" required>
   Enter options.....
   </textarea>
   <input id="submit" type="submit" value="Submit">
