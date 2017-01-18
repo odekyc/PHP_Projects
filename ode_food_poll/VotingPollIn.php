@@ -213,7 +213,7 @@
         
         $("#foodname-div").css("background-color","#ffff99");
         
-        $("#chart").css("top","130px");
+        $("#chart").css("top","140px");
            
        var serving_counts=serving_counts.slice(1,serving_counts.length-1);
        
