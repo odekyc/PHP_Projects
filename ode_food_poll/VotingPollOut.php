@@ -228,6 +228,12 @@
          
          var voteform_top=(foodname_lines*85)+315;
          
+         $("#votesubmit").click(function(){
+             var voteselect_val=$( "#voteselect" ).val();
+       
+             alert(voteselect_val);
+        });
+         
         $("#foodname-span").css("top", "25px");         
     
         $("#foodname-span").html(revised_foodname);
