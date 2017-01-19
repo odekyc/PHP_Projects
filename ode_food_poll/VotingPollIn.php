@@ -373,7 +373,7 @@
       .attr("cx", 0)
       .attr("cy", 0)
       .attr("r", radius)
-      .attr("fill", "#fff");
+      .attr("fill", "yellow");
 
     // Calculate SVG paths and fill in the colours
     var slices = svg.selectAll(".arc")
