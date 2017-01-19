@@ -113,7 +113,7 @@
           <input id="votesubmit" type="submit" value="Submit">
         </form>
        
-       </div><div id="chart"></div></div>
+       </div><div id="chart"><span id="totalvotes"></span></div></div>
 
 <h5 id="underscript-newpoll">This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
  
@@ -164,6 +164,7 @@
        
        $('#voting-poll-div').css('left', '56px');
        
+     
         var width=700,
            height=700,
            radius=350,
@@ -218,33 +219,35 @@
            foodname_lines+=1;
        }
        
-        var serving_std_top=(foodname_lines*85)+40;
+        var serving_std_top=(foodname_lines*85)+100;
         
-        var serving_sz_top=(foodname_lines*85)+125;
+        var serving_sz_top=(foodname_lines*85)+185;
         
-        var actual_servingct_top=(foodname_lines*85)+175;
+        var actual_servingct_top=(foodname_lines*85)+235;
         
-         var idliketovote_top=(foodname_lines*85)+275;
+         var idliketovote_top=(foodname_lines*85)+335;
          
-         var voteform_top=(foodname_lines*85)+315;
+         var voteform_top=(foodname_lines*85)+375;
          
-         $("#votesubmit").click(function(){
+
+        
+    
+        $("#foodname-span").html(revised_foodname);
+        
+        $("#votesubmit").click(function(){
              var voteselect_val=$( "#voteselect" ).val();
        
              alert(voteselect_val);
         });
-         
-        $("#foodname-span").css("top", "25px");         
-    
-        $("#foodname-span").html(revised_foodname);
         
         $("#serving_sz").css("top", serving_sz_top+"px");
         
          $("#actual_serving_ct").css("top", actual_servingct_top+"px");
          
           $("#idliketovote").css("top", idliketovote_top+"px");
-          
-
+ 
+        $("#foodname-span").css("top", "75px");         
+ 
         $("#serving-std-span").text(serving_std+"(s)");
         
         $("#serving-std-span").css("top",serving_std_top+"px");
@@ -255,9 +258,10 @@
         
         $("#foodname-div").css("background-color","#ffff99");
         
-        $("#chart").css("top","240px");
+        $("#chart").css("top","170px");
         
         $("#voteform").css("top",voteform_top+"px");
+        
            
        var serving_counts=serving_counts.slice(1,serving_counts.length-1);
        
@@ -274,6 +278,10 @@
        $("#thirdvoteop").text(serving_sz_arr[2]);
        
        $("#fourthvoteop").text(serving_sz_arr[3]);
+       
+       var totalVotesCnt=Number(serving_counts_arr[0])+Number(serving_counts_arr[1])+Number(serving_counts_arr[2])+Number(serving_counts_arr[3]);
+       
+     $("#totalvotes").text(totalVotesCnt+" Votes");
            
        var piedata= [
               { 
@@ -350,7 +358,7 @@
 
     // Determine size of arcs
     var arc = d3.svg.arc()
-      .innerRadius(radius - 230)
+      .innerRadius(radius - 180)
       .outerRadius(radius - 10);
 
     // Create the donut pie chart layout
@@ -379,7 +387,8 @@
       .attr("cx", 0)
       .attr("cy", 0)
       .attr("r", radius)
-      .attr("fill", "#b3d7ff");
+      .attr("fill", "#b3d7ff")
+      .attr("id", "skycircle");
 
     // Calculate SVG paths and fill in the colours
     var slices = svg.selectAll(".arc")
@@ -455,6 +464,6 @@
       .text(function(d) {
         return "("+d.data.value+")";
       });
-      
+
      </script>
 

@@ -46,7 +46,7 @@ textarea{
 #main-div{
     border: 10px solid green;
     border-radius: 20px;
-    background-color: #b3d7ff;
+    background-color: #ffff99;
     position: absolute;
     top: 120px;
     height: 7000px;
@@ -363,9 +363,11 @@ select{
 
 #chart{
     position: absolute;
-    top: 140px;
-    left: 560px;
-   
+    top: 240px;
+    left: 510px;
+    text-align: center;
+    width: 700px;
+    height: 763px;
 }
 
 #serving_sz{
@@ -427,4 +429,13 @@ select{
     position: absolute;
     left: 0px;
     
+}
+
+#totalvotes{
+    display: inline-block;
+    position: relative;
+    color: green;
+    font-size: 2.1em;
+    top:368px;
+    font-weight: bolder;
 }
