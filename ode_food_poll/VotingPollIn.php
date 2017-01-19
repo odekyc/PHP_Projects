@@ -225,10 +225,39 @@
         
         $("#votesubmit").click(function(){
              var voteselect_val=$( "#voteselect" ).val();
-       
-             alert(voteselect_val);
+             
+        
+             if(voteselect_val== 0){
+                 serving_counts_arr[0]=Number(serving_counts_arr[0])+1;
+             }
+             else if(voteselect_val== 1){
+                 serving_counts_arr[1]=Number(serving_counts_arr[1])+1;
+             }
+             else if(voteselect_val== 2){
+                 serving_counts_arr[2]=Number(serving_counts_arr[2])+1;
+             }
+             else if(voteselect_val== 3){
+                 serving_counts_arr[3]=Number(serving_counts_arr[3])+1;
+             }
+             
+            var updated_serving_counts="("+String(serving_counts_arr[0])+","+String(serving_counts_arr[1])+","+String(serving_counts_arr[2])+","+String(serving_counts_arr[3])+")";
+     
+            alert(updated_serving_counts);
+            
+            document.cookie = "updated_serving_counts="+updated_serving_counts;
+            
+            <?php
+                  
+                //   $submit_sql="UPDATE food_list SET actual_serving_count=";
+                 if($_GET['updated_serving_counts']){
+                    $servingcnts=$_GET['updated_serving_counts'];
+                  }
+                  echo $servingcnts;
+            ?>
         });
         
+        
+         
         $("#serving_sz").css("top", serving_sz_top+"px");
         
          $("#actual_serving_ct").css("top", actual_servingct_top+"px");
