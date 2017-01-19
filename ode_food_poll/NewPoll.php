@@ -47,13 +47,15 @@
    
     $("#home-div-in").click(function(){ 
         window.location.href = "LoggedIn.php";
-        $('#home-div-in').css("background-color", "#ace600");
+        $('#home-div-in').css("background-color", "#e5ffcc");
+        $('#home-div-out').css("background-color", "#e5ffcc");
          $('#newpoll').css("background-color", "orange");
     });
     
     $("#mypolls").click(function(){
         window.location.href = "MyPolls.php";
-        $('#home-div-in').css("background-color", "#99ceff");
+        $('#home-div-in').css("background-color", "#e5ffcc");
+        $('#home-div-out').css("background-color", "#e5ffcc");
         $('#mypolls').css("background-color", "#ace600");
     });
     $('html').height("800px");

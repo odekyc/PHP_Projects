@@ -108,15 +108,22 @@
 
 <h5 id="underscript-newpoll">This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
 <script type='text/javascript'>
+
+      
+       
+       
+       
        $("#mypolls").click(function(){
         window.location.href = "MyPolls.php";
-        $('#home-div-in').css("background-color", "#99ceff");
+        $('#home-div-in').css("background-color", "#e5ffcc");
+        $('#home-div-out').css("background-color", "#e5ffcc");
         $('#mypolls').css("background-color", "#ace600");
     });
 
     $("#newpoll").click(function(){ 
         window.location.href = "NewPoll.php";
-        $('#home-div-in').css("background-color", "#99ceff");
+        $('#home-div-in').css("background-color", "#e5ffcc");
+        $('#home-div-out').css("background-color", "#e5ffcc");
          $('#newpoll').css("background-color", "#ace600");
         });
         
@@ -127,7 +134,7 @@
     });
     
   
-        
+       
     $("#twitterbtnsignout").click(function(){ 
         window.location.href = "NotLoggedIn.php";
         });

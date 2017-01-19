@@ -19,16 +19,20 @@
 <script type="text/javascript">
       $("#upper-div").css("width", "1300px");
     $("#mypolls-main-div").css("width", "1300px");
+    
+    
    
     $("#newpoll").click(function(){ 
         window.location.href = "NewPoll.php";
-        $('#home-div-in').css("background-color", "#99ceff");
+        $('#home-div-in').css("background-color", "#e5ffcc");
+        $('#home-div-out').css("background-color", "#e5ffcc");
          $('#newpoll').css("background-color", "#ace600");
     });
     
      $("#home-div-in").click(function(){ 
         window.location.href = "LoggedIn.php";
-        $('#home-div-in').css("background-color", "#ace600");
+        $('#home-div-in').css("background-color", "#e5ffcc");
+        $('#home-div-out').css("background-color", "#e5ffcc");
          $('#newpoll').css("background-color", "orange");
     });
     var NumMyPolls=0;

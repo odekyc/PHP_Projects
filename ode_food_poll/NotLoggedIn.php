@@ -113,6 +113,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
     
+     $("#home-div-out").css("background-color", "#ace600"); 
+    
     $(".ingredients").click(function(){
         
         var id=$(this).attr('id');
@@ -125,7 +127,7 @@
        
     });
     
-    $(".ingredients").css("background-color"," #e5ffcc");
+    $(".ingredients").css("background-color","#e5ffcc");
     
     $("#upper-div").css("width", "1300px");
     $("#main-div").css("width", "1300px");
