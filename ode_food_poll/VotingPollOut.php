@@ -119,6 +119,8 @@
  
    <script type="text/javascript">
    
+      
+   
         $("#twitterbtnsignin").click(function(){ 
         window.location.href = "VotingPollIn.php";
         });

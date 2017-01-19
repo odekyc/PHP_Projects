@@ -251,7 +251,7 @@
              
             var updated_serving_counts="("+String(serving_counts_arr[0])+","+String(serving_counts_arr[1])+","+String(serving_counts_arr[2])+","+String(serving_counts_arr[3])+")";
      
-            
+            window.location.href = "UpdateVote.php?click_id="+food_id;
              
             
             <?php
