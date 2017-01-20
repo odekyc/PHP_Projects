@@ -13,8 +13,6 @@
      include 'keys.php';
      
      
-     echo '<a id="twitterbtnsignout" href="VotingPollOut.php">Logout</a>';
-      echo "<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />"; 
      
   
 ?>
@@ -44,6 +42,12 @@
       
       
      $click_id=$_GET['click_id'];
+     
+     $signout_href="VotingPollOut.php?click_id=".$click_id;  
+     
+     echo '<a id="twitterbtnsignout" href='.$signout_href.'>Logout</a>';
+      echo "<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />"; 
+     
 
     $conn = new mysqli($servername, $username, $password, $database, $dbport);
     
@@ -111,7 +115,7 @@
 <script type='text/javascript'>
 
       
-       
+        var food_id="<?php echo $click_id?>";
        
        
        $("#mypolls").click(function(){
@@ -137,7 +141,7 @@
   
        
     $("#twitterbtnsignout").click(function(){ 
-        window.location.href = "NotLoggedIn.php";
+        window.location.href = "VotingPollOut.php?click_id="+food_id;
         });
     
    
@@ -167,7 +171,7 @@
        
        var foodname= "<?php echo $foodname_data?>";
        
-       var food_id="<?php echo $click_id?>";
+     
        
        var foodnameLen= foodname.length;
 
