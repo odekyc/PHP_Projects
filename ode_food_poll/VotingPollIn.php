@@ -98,8 +98,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-in' class='block'><span class='block-span'>Home</span></div><div id='mypolls' class='block'><span id='mypolls-span' class='block-span'><center>My Polls</center></span><</div><div id='newpoll' class='block'><span id='newpoll-span' class='block-span'>New Poll</span></div></div>  
-     <div id='voting-poll-div'> <div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Serving Size</span><span id="actual_serving_ct">(Servings Count)</span><span id="idliketovote">I'd Like to Vote For(Daily Serving Size):</span> <a id="tweet-but" href="https://twitter.com/share/tweet?text=Ode's%20Food%20Poll%20@" data-size="large" class="twitter-share-button" data-show-count="false">Share on Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><form action="UpdateVote.php" id="voteform" method="post">
-           <select id="voteselect">
+     <div id='voting-poll-div'> <div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Serving Size</span><span id="actual_serving_ct">(Servings Count)</span><span id="idliketovote">I'd Like to Vote For(Daily Serving Size):</span> <a id="tweet-but" href="https://twitter.com/share/tweet?text=Ode's%20Food%20Poll%20@" data-size="large" class="twitter-share-button" data-show-count="false">Share on Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+     <form action="UpdateVote.php" id="voteform" method="post">
+           <select id="voteselect" name="votevalue">
               <option id="firstvoteop" value="0">first</option>
               <option id="secondvoteop" value="1">second</option>
               <option id="thirdvoteop" value="2">third</option>
@@ -204,10 +205,10 @@
             temp_foodname_chk="";
         }
        
-        $( "#firstvoteop" ).val("0-"+food_id);
-        $( "#secondvoteop" ).val("1-"+food_id);
-        $( "#thirdvoteop" ).val("2-"+food_id);
-        $( "#fourthvoteop" ).val("3-"+food_id);
+        // $( "#firstvoteop" ).val("0-"+food_id);
+        // $( "#secondvoteop" ).val("1-"+food_id);
+        // $( "#thirdvoteop" ).val("2-"+food_id);
+        // $( "#fourthvoteop" ).val("3-"+food_id);
 
        revised_foodname=revised_foodname_arr.join(" ");
        
@@ -232,39 +233,34 @@
     
         $("#foodname-span").html(revised_foodname);
         
-        $("#votesubmit").click(function(){
-             var voteselect_val=$( "#voteselect" ).val();
+        // $("#votesubmit").click(function(){
+        //      var voteselect_val=$( "#voteselect" ).val();
              
             
               
-              alert(voteselect_val);
+        //       alert(voteselect_val);
              
         
-             if(voteselect_val== 0){
-                 serving_counts_arr[0]=Number(serving_counts_arr[0])+1;
-             }
-             else if(voteselect_val== 1){
-                 serving_counts_arr[1]=Number(serving_counts_arr[1])+1;
-             }
-             else if(voteselect_val== 2){
-                 serving_counts_arr[2]=Number(serving_counts_arr[2])+1;
-             }
-             else if(voteselect_val== 3){
-                 serving_counts_arr[3]=Number(serving_counts_arr[3])+1;
-             }
+        //      if(voteselect_val== 0){
+        //          serving_counts_arr[0]=Number(serving_counts_arr[0])+1;
+        //      }
+        //      else if(voteselect_val== 1){
+        //          serving_counts_arr[1]=Number(serving_counts_arr[1])+1;
+        //      }
+        //      else if(voteselect_val== 2){
+        //          serving_counts_arr[2]=Number(serving_counts_arr[2])+1;
+        //      }
+        //      else if(voteselect_val== 3){
+        //          serving_counts_arr[3]=Number(serving_counts_arr[3])+1;
+        //      }
              
-            var updated_serving_counts="("+String(serving_counts_arr[0])+","+String(serving_counts_arr[1])+","+String(serving_counts_arr[2])+","+String(serving_counts_arr[3])+")";
+        //     var updated_serving_counts="("+String(serving_counts_arr[0])+","+String(serving_counts_arr[1])+","+String(serving_counts_arr[2])+","+String(serving_counts_arr[3])+")";
      
-            window.location.href = "UpdateVote.php?click_id="+food_id;
+        //     window.location.href = "UpdateVote.php?click_id="+food_id;
              
             
-            <?php
-                  
-                //   $submit_sql="UPDATE food_list SET actual_serving_count=";
-          
-                  
-            ?>
-        });
+      
+        // });
         
         
          

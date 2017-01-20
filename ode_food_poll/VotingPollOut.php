@@ -14,13 +14,7 @@
 
      
      
-      
-     echo "<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />"; 
-  
-     echo '<a id="twitterbtnsignin" href="' . $Twitter->getAuthenticateUrl() . '">
-     <img src="twitterlogin.png" alt="sign in with twitter" />
-     </a>';
-     
+ 
 
 ?>
 
@@ -49,6 +43,14 @@
       
       
      $click_id=$_GET['click_id'];
+     
+          
+     echo "<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />"; 
+  
+     echo '<a id="twitterbtnsignin" href='. $Twitter->getAuthenticateUrl().'>
+     <img src="twitterlogin.png" alt="sign in with twitter" />
+     </a>';
+     
 
    $conn = new mysqli($servername, $username, $password, $database, $dbport);
     
@@ -85,7 +87,6 @@
      $foodname_data=$foodname_row[0];
      
 
-
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -102,8 +103,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-out' class='block'><span class='block-span'>Home</span></div></div> 
        <div id='voting-poll-div'><div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Serving Size</span><span id="actual_serving_ct">(Servings Count)</span><span id="idliketovote">I'd Like to Vote For(Daily Serving Size):</span>
-       <form action="" id="voteform">
-           <select id="voteselect">
+       <form action="UpdateVote.php" id="voteform" method="post">
+           <select id="voteselect" name="votevalue">
               <option id="firstvoteop" value="0">first</option>
               <option id="secondvoteop" value="1">second</option>
               <option id="thirdvoteop" value="2">third</option>
@@ -117,9 +118,9 @@
 
 <h5 id="underscript-newpoll">This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
  
-   <script type="text/javascript">
-   
-      
+<script type="text/javascript">
+$(document).ready(function(){ 
+      var food_id="<?php echo $click_id ?>";
    
         $("#twitterbtnsignin").click(function(){ 
         window.location.href = "VotingPollIn.php";
@@ -167,6 +168,8 @@
        $('#voting-poll-div').css('left', '56px');
        
      
+          
+       
         var width=700,
            height=700,
            radius=350,
@@ -179,6 +182,8 @@
        var serving_std="<?php echo $serving_std_data?>"
        
        var foodname= "<?php echo $foodname_data?>";
+       
+     
        
        var foodnameLen= foodname.length;
 
@@ -236,12 +241,37 @@
     
         $("#foodname-span").html(revised_foodname);
         
-        $("#votesubmit").click(function(){
-             var voteselect_val=$( "#voteselect" ).val();
-       
-             alert(voteselect_val);
-        });
+//         $("#voteform").submit(function(){
+//              var voteselect_val=$( "#voteselect" ).val();
+             
+            
+              
+//               alert(voteselect_val);
+             
         
+//             //  if(voteselect_val== 0){
+//             //      serving_counts_arr[0]=Number(serving_counts_arr[0])+1;
+//             //  }
+//             //  else if(voteselect_val== 1){
+//             //      serving_counts_arr[1]=Number(serving_counts_arr[1])+1;
+//             //  }
+//             //  else if(voteselect_val== 2){
+//             //      serving_counts_arr[2]=Number(serving_counts_arr[2])+1;
+//             //  }
+//             //  else if(voteselect_val== 3){
+//             //      serving_counts_arr[3]=Number(serving_counts_arr[3])+1;
+//             //  }
+             
+//             // var updated_serving_counts="("+String(serving_counts_arr[0])+","+String(serving_counts_arr[1])+","+String(serving_counts_arr[2])+","+String(serving_counts_arr[3])+")";
+    
+//   \
+             
+            
+      
+//         });
+        
+        
+         
         $("#serving_sz").css("top", serving_sz_top+"px");
         
          $("#actual_serving_ct").css("top", actual_servingct_top+"px");
@@ -360,7 +390,7 @@
 
     // Determine size of arcs
     var arc = d3.svg.arc()
-      .innerRadius(radius - 180)
+      .innerRadius(radius - 175)
       .outerRadius(radius - 10);
 
     // Create the donut pie chart layout
@@ -466,6 +496,8 @@
       .text(function(d) {
         return "("+d.data.value+")";
       });
+      
+   });
 
-     </script>
+</script>
 
