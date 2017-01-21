@@ -43,6 +43,8 @@
       
      $click_id=$_GET['click_id'];
      
+     $_SESSION['which_page']="In";
+     
      $signout_href="VotingPollOut.php?click_id=".$click_id;  
      
      echo '<a id="twitterbtnsignout" href='.$signout_href.'>Logout</a>';

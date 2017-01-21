@@ -44,6 +44,8 @@
       
      $click_id=$_GET['click_id'];
      
+     $_SESSION['which_page']="Out";
+     
           
      echo "<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />"; 
   
