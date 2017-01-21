@@ -101,11 +101,11 @@
       
       
       if($_SESSION["which_page"]=="In"){
-         header("Location: VotingPollIn.php");
+         header("Location: VotingPollIn.php?click_id=".$click_id);
       }
       elseif($_SESSION["which_page"]=="Out"){
         
-         header("Location: VotingPollOut.php");
+         header("Location: VotingPollOut.php?click_id=".$click_id);
       }
  
  ?>
