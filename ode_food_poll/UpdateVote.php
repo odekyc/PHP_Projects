@@ -23,6 +23,8 @@
       echo "<br />";
       echo $_POST["votevalue"];
       
+      $votevalue=$_POST["votevalue"];
+      
       $click_id=$_SESSION['click_id'];
       
       $actual_ct_sql = "SELECT actual_serving_count FROM food_list WHERE id=".$click_id;
@@ -41,8 +43,18 @@
       
       $data_arr=strtok($data_trimmed, ",");
       
-      echo $data_arr[0];
-      
+      if($votevalue==0){
+        echo 0;
+      }
+      elseif($votevalue==1){
+        echo 1;
+      }
+       elseif($votevalue==2){
+        echo 2;
+      }
+       else{
+        echo 3;
+      }
         // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
