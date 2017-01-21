@@ -35,6 +35,13 @@
       
       echo $actual_ct_data;
       
+      echo strlen($actual_ct_data);
+      
+      $data_trimmed=substr($actual_ct_data,1, strlen($actual_ct_data)-2);
+      
+      $data_arr=strtok($data_trimmed, ",");
+      
+      echo $data_arr[0];
       
         // Check connection
     if ($conn->connect_error) {
