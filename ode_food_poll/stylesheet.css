@@ -2,31 +2,35 @@ html{
     background-color: #e5ffcc;
     height: 1400px;
     text-align: center;
-    position: relative;
+    position: absolute;
 }
 
 #upper-div{
     margin: auto;
-    margin-top: -30px;
     border: 10px solid green;
     border-radius: 20px;
     height: 80px;
     width: 1300px;
     background-color: #b3d7ff;
-
+    position: absolute;
+    top:-25px;
+    z-index: 3;
 }
 
 #twitterbtnsignin{
-    position: absolute;
-    top: 15px;
-    left: 1115px;
+    position: relative;
+    left: 535px;
+    top: 10px;
+    z-index: 7;
+    
 }
 
 #twitterbtnsignout{
-    position: absolute;
-    top: 15px;
-    left: 1185px;
+    position: relative;
+    top: 5px;
+    left: 560px;
     font-size: 1.6em;
+    z-index: 7;
 }
 
 textarea{
@@ -43,7 +47,7 @@ textarea{
     font-family: Arial;
     font-weight: 900;
     position: absolute;
-    left: 97px;
+    left: 70px;
 }
 
 #main-div{
@@ -52,7 +56,7 @@ textarea{
     background-color: #ffff99;
     position: relative;
     margin: auto;
-    margin-top: 30px;
+    top: 45px;
     height: 7000px;
     width: 1300px;
 }
@@ -61,11 +65,10 @@ textarea{
     border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
-    position: absolute;
+    position: relative;
 
-    top: 7%;
-    
-    left: 1%;
+    top: 75px;
+    margin: 0 auto;
 
     height: 1100px;
     width: 1300px;
@@ -321,7 +324,7 @@ h5{
     background-color: #ffff99;
     position: relative;
     margin: auto;
-    margin-top: 30px;
+    top: 45px;
     height: 580px;
     width: 1300px;
    
@@ -340,7 +343,7 @@ select{
     background-color: #ffff99;
     position: relative;
     margin: auto;
-    margin-top: 30px;
+    top: 45px;
     height: 770px;
     width: 1300px;
 }
