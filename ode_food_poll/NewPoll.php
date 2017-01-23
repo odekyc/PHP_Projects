@@ -13,27 +13,32 @@
 <link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />
 
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-in' class='block'><span class='block-span'>Home</span></div><div id='mypolls' class='block'><span id='mypolls-span' class='block-span'><center>My Polls</center></span><</div><div id='newpoll' class='block'><span id='newpoll-span' class='block-span'>New Poll</span><</div></div>
-<div id='newpoll-main-div'><div id='newpoll-main-div-title'><span id='newpoll-main-title-span'>Make a New Poll:</span>
+<div id='newpoll-main-div'><div id='newpoll-main-inner-div'><span id='newpoll-main-title-span'>Make a New Poll:</span>
 <div>
 <br>
 <br>
 <br>
-<div id="form-div"></div>
+<div id="form-div">
 <form action="NewPoll.php">
+    <input id="submit" type="submit" value="Submit">
    <select>
       <option value="Meat">Meat</option>
       <option value="Vegetable">Vegetable</option>
       <option value="Drink">Drink</option>
       <option value="Fruit">Fruit</option>
    </select>
+   
+   
   <h1 id="form-title">Foodname&nbsp(Max&nbsp56&nbspChars):</h1>
   
 
   <input id="input-title" name="title" type="text" maxlength="56" required>
- 
+ <br>
+ <div id="serving-stnd">
+  <h1 id="serving-stnd-title">Serving Standard:</h1>
+  <h1><input id="serving-stnd-input" name="serving-stnd" type="text" maxlength="20" required>(s)</h1>
+ </div> 
   
-  
-  <input id="submit" type="submit" value="Submit">
   <div id="radio-div">
       <br>
       <input type="radio" name="radioservings" value="preset" checked><span class="radio-title"> (0,1,2,more than 3)</span> 
@@ -44,7 +49,9 @@
       <br>
       <br>
      <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ( Less than <input id="customval1" class="customval" name="customvalues" type="number" min="1" max="10" readonly> , <input id="customval3" class="customval" name="customvalues" type="number" min="1" max="100" readonly> - <input id="customval2" class="customval" name="customvalues" type="number" min="1" max="100" readonly> , <input id="customval5" class="customval" name="customvalues" type="number" min="100" max="900" readonly> - <input id="customval4" class="customval" name="customvalues" type="number" min="100" max="900" readonly> , More than <input id="customval6" class="customval" name="customvalues" type="number" min="100" max="900" readonly> ) </h3>
+  
   </div>
+  
 </form>
 </div>
 </div>
@@ -57,9 +64,9 @@
      $("#upper-div").css("width", "1300px");
     $("#newpoll-main-div").css("width", "1300px");
     
-     $("#ode-h5-div").css("top", "1000px");
+     $("#ode-h5-div").css("top", "1200px");
      
-     $("h5").css("margin-top", "150px");
+     $("h5").css("margin-top", "190px");
    
      $("#newpoll-main-div").css({"position" : "relative",
         "margin" : "auto",
@@ -79,7 +86,7 @@
         $('#home-div-out').css("background-color", "#e5ffcc");
         $('#mypolls').css("background-color", "#ace600");
     });
-    $('html').height("1200px");
+    $('html').height("1400px");
     $('#home-div-in').css("background-color", "#e5ffcc");
     $('#home-div-in').hover(function(){   $('#home-div-in').css("background-color", "#ace600");} , function(){ $('#home-div-in').css("background-color", "#e5ffcc"); });
     $('#newpoll').css("background-color", "#ace600");
