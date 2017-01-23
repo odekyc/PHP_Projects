@@ -17,13 +17,13 @@ html{
 #twitterbtnsignin{
     position: absolute;
     top: 15px;
-    left: 1170px;
+    left: 1115px;
 }
 
 #twitterbtnsignout{
     position: absolute;
     top: 15px;
-    left: 1250px;
+    left: 1185px;
     font-size: 1.6em;
 }
 
@@ -251,7 +251,7 @@ h5{
     position: absolute;
 
     background-color: #e5ffcc;
-    left: 1030px;
+    left: 973px;
 }
 
 
@@ -272,12 +272,12 @@ h5{
     position: absolute;
     background-color: #e5ffcc;
     /*background-color: #99ceff;*/
-    left: 910px;
+    left: 830px;
 }
 
 #mypolls{
      position: absolute;
-     left: 1010px;
+     left: 935px;
      background-color: #ffff99;
 }
 
@@ -288,7 +288,7 @@ h5{
 
 #newpoll{
     position: absolute;
-    left: 1111px;
+    left: 1040px;
     background-color: #ffb366;
 }
 

@@ -144,7 +144,7 @@
     $("#voting-poll-div").css({"position" : "relative",
         "margin" : "auto",
         "margin-top" : "30px",
-        "margin-right" : "117px"
+        "margin-left" : "-55px"
     });
     
     

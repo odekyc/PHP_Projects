@@ -122,5 +122,7 @@
         $('#home-div-in').css("background-color", "#99ceff");
          $('#newpoll').css("background-color", "#ace600");
         });
+   
+    
     </script>
      
