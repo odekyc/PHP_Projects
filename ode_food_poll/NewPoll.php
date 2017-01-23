@@ -18,6 +18,7 @@
 <br>
 <br>
 <br>
+<div id="form-div"></div>
 <form action="NewPoll.php">
    <select>
       <option value="Meat">Meat</option>
@@ -37,12 +38,17 @@
 </div>
 </div>
 </div>
-<h5 id="underscript-newpoll">This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
- 
+</div>
+<div id="#ode-h5-div"><h5>This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
+ </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
      $("#upper-div").css("width", "1300px");
     $("#newpoll-main-div").css("width", "1300px");
+    
+     $("#ode-h5-div").css("top", "1100px");
+     
+     $("h5").css("margin-top", "150px");
    
      $("#newpoll-main-div").css({"position" : "relative",
         "margin" : "auto",
@@ -62,7 +68,7 @@
         $('#home-div-out').css("background-color", "#e5ffcc");
         $('#mypolls').css("background-color", "#ace600");
     });
-    $('html').height("800px");
+    $('html').height("1260px");
     $('#home-div-in').css("background-color", "#e5ffcc");
     $('#home-div-in').hover(function(){   $('#home-div-in').css("background-color", "#ace600");} , function(){ $('#home-div-in').css("background-color", "#e5ffcc"); });
     $('#newpoll').css("background-color", "#ace600");
