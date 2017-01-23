@@ -20,7 +20,10 @@
       $("#upper-div").css("width", "1300px");
     $("#mypolls-main-div").css("width", "1300px");
     
-    
+      $("#mypolls-main-div").css({"position" : "relative",
+        "margin" : "auto",
+        "margin-top" : "30px"
+    });
    
     $("#newpoll").click(function(){ 
         window.location.href = "NewPoll.php";

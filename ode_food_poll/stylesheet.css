@@ -11,6 +11,7 @@ html{
     height: 80px;
     width: 1300px;
     background-color: #b3d7ff;
+
 }
 
 #twitterbtnsignin{
@@ -40,29 +41,31 @@ textarea{
     font-family: Arial;
     font-weight: 900;
     position: absolute;
-    left: 120px;
+    left: 97px;
 }
 
 #main-div{
     border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
-    position: absolute;
-    top: 40px;
+    position: relative;
+    margin: auto;
+    margin-top: 30px;
     height: 7000px;
     width: 1300px;
-    left: 7px;
 }
 
 #voting-poll-div{
     border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
-    position: absolute;
-    top: 120px;
+    position: relative;
+    margin: auto;
+    margin-top: 30px;
+    margin-right : 117px;
     height: 1100px;
     width: 1000px;
-    left: 66px;
+    
 }
 
 
@@ -248,7 +251,7 @@ h5{
     position: absolute;
 
     background-color: #e5ffcc;
-    left: 1050px;
+    left: 1030px;
 }
 
 
@@ -312,11 +315,12 @@ h5{
     border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
-    position: absolute;
-    top: 120px;
+    position: relative;
+    margin: auto;
+    margin-top: 30px;
     height: 580px;
     width: 1300px;
-    left: 66px;
+   
 }
 
 select{
@@ -330,11 +334,11 @@ select{
     border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
-    position: absolute;
-    top: 120px;
+    position: relative;
+    margin: auto;
+    margin-top: 30px;
     height: 770px;
     width: 1300px;
-    left: 66px;
 }
 
 #underscript-mypolls{

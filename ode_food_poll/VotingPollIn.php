@@ -141,8 +141,13 @@
          $('#newpoll').css("background-color", "orange");
     });
     
-  
-       
+    $("#voting-poll-div").css({"position" : "relative",
+        "margin" : "auto",
+        "margin-top" : "30px",
+        "margin-right" : "117px"
+    });
+    
+    
     $("#twitterbtnsignout").click(function(){ 
         window.location.href = "VotingPollOut.php?click_id="+food_id;
         });

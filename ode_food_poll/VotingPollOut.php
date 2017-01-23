@@ -133,6 +133,12 @@ $(document).ready(function(){
         $('#home-div-in').css("background-color", "#99ceff");
         $('#mypolls').css("background-color", "#ace600");
     });
+    
+      $("#voting-poll-div").css({"position" : "relative",
+        "margin" : "auto",
+        "margin-top" : "30px",
+        "margin-right" : "117px"
+    });
 
   $("#home-div-out").hover(function(){ 
      

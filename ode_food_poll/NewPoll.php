@@ -44,6 +44,10 @@
      $("#upper-div").css("width", "1300px");
     $("#newpoll-main-div").css("width", "1300px");
    
+     $("#newpoll-main-div").css({"position" : "relative",
+        "margin" : "auto",
+        "margin-top" : "30px"
+    });
    
     $("#home-div-in").click(function(){ 
         window.location.href = "LoggedIn.php";

@@ -131,6 +131,9 @@
     
     $("#upper-div").css("width", "1300px");
     $("#main-div").css("width", "1300px");
-    $("#main-div").css("top", "40px");
+    $("#main-div").css({"position" : "relative",
+        "margin" : "auto",
+        "margin-top" : "30px"
+    });
    
     </script>
