@@ -1,6 +1,8 @@
 html{
     background-color: #e5ffcc;
     height: 1400px;
+    text-align: center;
+    position: relative;
 }
 
 #upper-div{
@@ -59,10 +61,12 @@ textarea{
     border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
-    position: relative;
-    margin: auto;
-    margin-top: 30px;
-    margin-right : 117px;
+    position: absolute;
+
+    top: 7%;
+    
+    left: 1%;
+
     height: 1100px;
     width: 1000px;
     

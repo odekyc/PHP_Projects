@@ -141,11 +141,11 @@
          $('#newpoll').css("background-color", "orange");
     });
     
-    $("#voting-poll-div").css({"position" : "relative",
-        "margin" : "auto",
-        "margin-top" : "30px",
-        "margin-left" : "-55px"
-    });
+    // $("#voting-poll-div").css({"position" : "relative",
+    //     "margin" : "auto",
+    //     "margin-top" : "30px"
+    //     // "margin-left" : "-55px"
+    // });
     
     
     $("#twitterbtnsignout").click(function(){ 
@@ -162,8 +162,7 @@
        
         $('#voting-poll-div').css('width', '1300px');
        
-       $('#voting-poll-div').css('left', '56px');
-       
+
       
        
         var width=700,

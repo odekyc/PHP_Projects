@@ -134,11 +134,11 @@ $(document).ready(function(){
         $('#mypolls').css("background-color", "#ace600");
     });
     
-      $("#voting-poll-div").css({"position" : "relative",
-        "margin" : "auto",
-        "margin-top" : "30px",
-        "margin-left" : "-55px"
-    });
+    //   $("#voting-poll-div").css({"position" : "relative",
+    //     "margin" : "0 auto",
+    //     "display" : "inline-block",
+    //     "margin-top" : "30px"
+    // });
 
   $("#home-div-out").hover(function(){ 
      
@@ -173,10 +173,6 @@ $(document).ready(function(){
        
         $('#voting-poll-div').css('width', '1300px');
        
-       $('#voting-poll-div').css('left', '56px');
-       
-     
-          
        
         var width=700,
            height=700,
