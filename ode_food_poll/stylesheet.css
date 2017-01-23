@@ -33,14 +33,7 @@ html{
     z-index: 7;
 }
 
-textarea{
-    background-color: yellow;
-    color: blue;
-    font-size: 1.8em;
-    position: absolute;
-    top: 225px;
-    left: -1px;
-}
+
 
 #upper-div-title{
     color: blue;
@@ -150,6 +143,21 @@ form{
     background-color: yellow;
     color: blue;
     font-size: 1.8em;
+}
+
+#radio-div{
+    position: absolute;
+    top: 170px;
+    width: 500px;
+    height: 350px;
+    text-align: left;
+    
+}
+
+.radio-title{
+    font-size: 1.8em;
+    color: green;
+    font-weight: bolder;
 }
 
 #newpoll-main-title-span{
@@ -358,16 +366,6 @@ select{
     width: 1300px;
 }
 
-#underscript-mypolls{
-    position: absolute;
-    top: 650px;
-    left: -10px;
-}
-
-#underscript-newpoll{
-    position: absolute;
-    top: 950px;
-}
 
 
 #submit{

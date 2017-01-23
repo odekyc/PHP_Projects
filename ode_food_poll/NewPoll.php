@@ -27,13 +27,19 @@
       <option value="Fruit">Fruit</option>
    </select>
   <h1 id="form-title">Foodname&nbsp(Max&nbsp56&nbspChars):</h1>
+  
+
   <input id="input-title" name="title" type="text" maxlength="56" required>
  
-  <h1 id="form-options">Options&nbsp(separated&nbspby&nbspline):</h1>
-  <textarea rows="6" cols="50" name="options" required>
-  Enter options.....
-  </textarea>
+  
+  
   <input id="submit" type="submit" value="Submit">
+  <div id="radio-div">
+      <input type="radio" name="actualsvings" value="preset" checked><span class="radio-title">(0,1,2,more than 3)</span> 
+      <br>
+      <br>
+      <input type="radio" name="actualsvings" value="custom"><span class="radio-title">Custom(please enter below):</span>
+  </div>
 </form>
 </div>
 </div>
