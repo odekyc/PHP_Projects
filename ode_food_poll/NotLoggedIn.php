@@ -131,5 +131,6 @@
     
     $("#upper-div").css("width", "1300px");
     $("#main-div").css("width", "1300px");
+    $("#main-div").css("top", "40px");
    
     </script>

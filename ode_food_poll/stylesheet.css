@@ -47,22 +47,22 @@ textarea{
     border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
-    position: relative;
-    top: 80px;
+    position: absolute;
+    top: 40px;
     height: 7000px;
     width: 1300px;
-    margin: auto;
+    left: 7px;
 }
 
 #voting-poll-div{
     border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
-    position: relative;
+    position: absolute;
     top: 120px;
     height: 1100px;
     width: 1000px;
-    margin: auto;
+    left: 66px;
 }
 
 
@@ -312,11 +312,11 @@ h5{
     border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
-    position: relative;
-    top: 80px;
+    position: absolute;
+    top: 120px;
     height: 580px;
     width: 1300px;
-    margin: auto;
+    left: 66px;
 }
 
 select{
@@ -330,11 +330,11 @@ select{
     border: 10px solid green;
     border-radius: 20px;
     background-color: #ffff99;
-    position: relative;
-    top: 80px;
+    position: absolute;
+    top: 120px;
     height: 770px;
     width: 1300px;
-    margin: auto;
+    left: 66px;
 }
 
 #underscript-mypolls{
