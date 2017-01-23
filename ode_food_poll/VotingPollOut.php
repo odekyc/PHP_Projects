@@ -166,12 +166,12 @@ $(document).ready(function(){
 
 
     
-     $('h5').css('top','1300px');
-       $('html').css('height', '1500px');
+     $('h5').css('top','1400px');
+       $('html').css('height', '1600px');
        
-       $('#voting-poll-div').css('height', '1100px');
+       $('#voting-poll-div').css('height', '1200px');
        
-        $('#voting-poll-div').css('width', '1300px');
+
        
        
         var width=700,
@@ -290,7 +290,7 @@ $(document).ready(function(){
         
         $("#serving-std-span").css("left","0px");
         
-        $("#foodname-div").css("height","1000px");
+        $("#foodname-div").css("height","1100px");
         
         $("#foodname-div").css("background-color","#ffff99");
         

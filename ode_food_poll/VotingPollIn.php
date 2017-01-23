@@ -100,7 +100,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-in' class='block'><span class='block-span'>Home</span></div><div id='mypolls' class='block'><span id='mypolls-span' class='block-span'><center>My Polls</center></span><</div><div id='newpoll' class='block'><span id='newpoll-span' class='block-span'>New Poll</span></div></div>  
-     <div id='voting-poll-div'> <div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Serving Size</span><span id="actual_serving_ct">(Servings Count)</span><span id="idliketovote">I'd Like to Vote For(Daily Serving Size):</span> <a id="tweet-but" href="https://twitter.com/share/tweet?text=Ode's%20Food%20Poll%20@" data-size="large" class="twitter-share-button" data-show-count="false">Share on Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+     <div id='voting-poll-div'> <div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Serving Size</span><span id="actual_serving_ct">(Servings Count)</span><span id="idliketovote">I'd Like to Vote For(Daily Serving Size):</span> <div id="tweet-but-container"><a href="https://twitter.com/share/tweet?text=Ode's%20Food%20Poll%20@" data-size="large" class="twitter-share-button" data-show-count="false">Share on Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
      <form action="UpdateVote.php" id="voteform" method="post">
            <select id="voteselect" name="votevalue">
               <option id="firstvoteop" value="0">first</option>
@@ -155,12 +155,11 @@
    
     
     
-     $('h5').css('top','1300px');
-       $('html').css('height', '1500px');
+     $('h5').css('top','1400px');
+       $('html').css('height', '1600px');
        
-       $('#voting-poll-div').css('height', '1100px');
+       $('#voting-poll-div').css('height', '1200px');
        
-        $('#voting-poll-div').css('width', '1300px');
        
 
       
@@ -199,9 +198,9 @@
             
             foodnm_chk_hlder=foodname_arr[i];
              
-            while (foodnm_chk_hlder.length > 13 ){
-                temp_foodname_chk=foodnm_chk_hlder.slice(0,13)+"-<br />";
-                foodnm_chk_hlder=foodnm_chk_hlder.slice(13);
+            while (foodnm_chk_hlder.length > 12 ){
+                temp_foodname_chk=foodnm_chk_hlder.slice(0,12)+"-<br />";
+                foodnm_chk_hlder=foodnm_chk_hlder.slice(12);
                 
             }
             
@@ -218,7 +217,7 @@
 
        revised_foodname=revised_foodname_arr.join(" ");
        
-       foodname_lines+=Math.ceil(foodnameLen/13);
+       foodname_lines+=Math.ceil(foodnameLen/12);
        
        if(revised_foodname.indexOf("<br />")>0){
            foodname_lines+=1;
@@ -233,6 +232,8 @@
          var idliketovote_top=(foodname_lines*85)+335;
          
          var voteform_top=(foodname_lines*85)+375;
+         
+         var tweetbut_top=(foodname_lines*85)+500;
          
 
         
@@ -284,7 +285,7 @@
         
         $("#serving-std-span").css("left","0px");
         
-        $("#foodname-div").css("height","1000px");
+        $("#foodname-div").css("height","1100px");
         
         $("#foodname-div").css("background-color","#ffff99");
         
@@ -292,6 +293,7 @@
         
         $("#voteform").css("top",voteform_top+"px");
         
+         $("#tweet-but-container").css("top",tweetbut_top+"px");
            
        var serving_counts=serving_counts.slice(1,serving_counts.length-1);
        

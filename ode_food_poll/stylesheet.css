@@ -68,7 +68,7 @@ textarea{
     left: 1%;
 
     height: 1100px;
-    width: 1000px;
+    width: 1300px;
     
 }
 
@@ -432,12 +432,7 @@ select{
 }
 
 
-#tweet-but{
 
-    position: absolute;
-    left: 0px;
-    
-}
 
 #totalvotes{
     display: inline-block;
@@ -446,4 +441,11 @@ select{
     font-size: 2.1em;
     top:368px;
     font-weight: bolder;
+}
+
+#tweet-but-container{
+    
+    position: absolute;
+    left: 0px;
+    top: 600px;
 }
