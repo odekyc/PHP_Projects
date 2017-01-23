@@ -118,8 +118,8 @@
        
        </div><div id="chart"><span id="totalvotes"></span></div></div>
 
-<h5 id="underscript-newpoll">This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
- 
+<div id='ode-h5-div'><h5 >This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
+ </div>
 <script type="text/javascript">
 $(document).ready(function(){ 
       var food_id="<?php echo $click_id ?>";
@@ -155,7 +155,7 @@ $(document).ready(function(){
          $('#newpoll').css("background-color", "#ace600");
         });
     
-       $('h5').css('top','1200px');
+       $('#ode-h5-div').css('top','1200px');
         $('#voting-poll-div').css('width', '1300px');
         
       $("#home-div-out").click(function(){ 
@@ -166,7 +166,7 @@ $(document).ready(function(){
 
 
     
-     $('h5').css('top','1400px');
+     $('#ode-h5-div').css('top','1400px');
        $('html').css('height', '1600px');
        
        $('#voting-poll-div').css('height', '1200px');
