@@ -57,7 +57,7 @@
      $("#upper-div").css("width", "1300px");
     $("#newpoll-main-div").css("width", "1300px");
     
-     $("#ode-h5-div").css("top", "1100px");
+     $("#ode-h5-div").css("top", "1000px");
      
      $("h5").css("margin-top", "150px");
    
@@ -79,7 +79,7 @@
         $('#home-div-out').css("background-color", "#e5ffcc");
         $('#mypolls').css("background-color", "#ace600");
     });
-    $('html').height("1260px");
+    $('html').height("1200px");
     $('#home-div-in').css("background-color", "#e5ffcc");
     $('#home-div-in').hover(function(){   $('#home-div-in').css("background-color", "#ace600");} , function(){ $('#home-div-in').css("background-color", "#e5ffcc"); });
     $('#newpoll').css("background-color", "#ace600");
