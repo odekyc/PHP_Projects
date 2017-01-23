@@ -148,7 +148,7 @@ form{
 #radio-div{
     position: absolute;
     top: 170px;
-    width: 500px;
+    width: 900px;
     height: 350px;
     text-align: left;
     
@@ -464,3 +464,4 @@ select{
 .customval{
     width="5px";
 }
+
