@@ -153,16 +153,17 @@ form{
 }
 #serving-stnd{
     position: absolute;
-    left: -60px;
+    left: 0px;
     top: 150px;
     color: green;
     font-size: 1.1em;
     width: 400px;
     height: 240px;
+    text-align: left;
 }
 
 #serving-stnd-input{
-    margin-left: -110px;
+    
     height: 40px;
     margin-top: 0px;
 }
