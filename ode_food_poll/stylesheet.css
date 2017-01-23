@@ -460,3 +460,7 @@ select{
     left: 0px;
     top: 600px;
 }
+
+.customval{
+    width="5px";
+}

@@ -39,6 +39,10 @@
       <br>
       <br>
       <input id="radiocustom" type="radio" name="radioservings" value="custom"><span class="radio-title">Custom(please enter below):</span>
+      
+     <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp* Less than <input id="customval1" class="customval" name="customvalues" type="number" min="1" max="10"></h3> 
+     <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp* <input id="customval3" class="customval" name="customvalues" type="number" min="1" max="100" > - <input id="customval2" class="customval" name="customvalues" type="number" min="1" max="100" ></h3> 
+     <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp* <input id="customval5" class="customval" name="customvalues" type="number" min="100" max="900" > - <input id="customval4" class="customval" name="customvalues" type="number" min="100" max="900" ></h3> 
   </div>
 </form>
 </div>
