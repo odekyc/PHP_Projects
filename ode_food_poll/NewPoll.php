@@ -19,9 +19,9 @@
 <br>
 <br>
 <div id="form-div">
-<form action="NewPoll.php">
+<form action="NewPollSubmitted.php" method="post">
     <input id="submit" type="submit" value="Submit">
-   <select>
+   <select name="category">
       <option value="Meat">Meat</option>
       <option value="Vegetable">Vegetable</option>
       <option value="Drink">Drink</option>
@@ -99,6 +99,8 @@
     $('#home-div-in').css("background-color", "#e5ffcc");
     $('#home-div-in').hover(function(){   $('#home-div-in').css("background-color", "#ace600");} , function(){ $('#home-div-in').css("background-color", "#e5ffcc"); });
     $('#newpoll').css("background-color", "#ace600");
+    
+    
     
 </script>
 
