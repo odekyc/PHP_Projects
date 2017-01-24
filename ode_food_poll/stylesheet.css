@@ -166,6 +166,9 @@ form{
     
     height: 40px;
     margin-top: 0px;
+    color: blue;
+    font-size: 0.8em;
+    width: 280px;
 }
 
 #radio-div{
