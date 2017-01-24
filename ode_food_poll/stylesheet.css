@@ -171,6 +171,12 @@ form{
     width: 280px;
 }
 
+.customval{
+    color: blue;
+    font-size: 0.8em;
+    font-weight: bolder;
+}
+
 #radio-div{
     position: absolute;
     top: 300px;

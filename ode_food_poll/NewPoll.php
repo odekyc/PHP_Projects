@@ -41,14 +41,14 @@
   
   <div id="radio-div">
       <br>
-      <input type="radio" name="radioservings" value="preset" checked><span class="radio-title"> (0,1,2,more than 3)</span> 
+      <input id="radiopreset" type="radio" name="radioservings" value="preset" checked><span class="radio-title"> (0,1,2,more than 3)</span> 
       <br>
       <br>
       <br>
       <input id="radiocustom" type="radio" name="radioservings" value="custom"><span class="radio-title"> Custom(please enter below):</span>
       <br>
       <br>
-     <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ( Less than <input id="customval1" class="customval" name="customvalues" type="number" min="1" max="10" readonly> , <input id="customval3" class="customval" name="customvalues" type="number" min="1" max="100" readonly> - <input id="customval2" class="customval" name="customvalues" type="number" min="1" max="100" readonly> , <input id="customval5" class="customval" name="customvalues" type="number" min="100" max="900" readonly> - <input id="customval4" class="customval" name="customvalues" type="number" min="100" max="900" readonly> , More than <input id="customval6" class="customval" name="customvalues" type="number" min="100" max="900" readonly> ) </h3>
+     <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ( Less than <input id="customval1" class="customval" name="customvalues" type="number" min="1" max="100" readonly> , <input id="customval3" class="customval" name="customvalues" type="number" min="1" max="100" readonly> - <input id="customval2" class="customval" name="customvalues" type="number" min="1" max="100" readonly> , <input id="customval5" class="customval" name="customvalues" type="number" min="100" max="900" readonly> - <input id="customval4" class="customval" name="customvalues" type="number" min="100" max="900" readonly> , More than <input id="customval6" class="customval" name="customvalues" type="number" min="100" max="900" readonly> ) </h3>
   
   </div>
   
@@ -67,7 +67,16 @@
      $("#ode-h5-div").css("top", "1200px");
      
      $("h5").css("margin-top", "190px");
+     
+     $("#radiocustom").click(function(){
+         $(".customval").css("background-color", "white");
+         $(".customval").removeAttr("readonly");
+     });
    
+      $("#radiopreset").click(function(){
+         $(".customval").css("background-color", "gray");
+         $(".customval").attr("readonly", "readonly");
+     });
      $("#newpoll-main-div").css({"position" : "relative",
         "margin" : "auto",
         "margin-top" : "30px"
