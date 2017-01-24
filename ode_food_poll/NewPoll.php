@@ -36,7 +36,7 @@
  <br>
  <div id="serving-stnd">
   <h1 id="serving-stnd-title">Serving Standard:</h1>
-  <h1><input id="serving-stnd-input" name="serving-stnd" type="text" maxlength="20" required>(s)</h1>
+  <h1><input id="serving-stnd-input" name="serving-stnd" type="text" maxlength="30" required>(s)</h1>
  </div> 
   
   <div id="radio-div">
