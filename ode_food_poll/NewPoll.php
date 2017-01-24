@@ -19,7 +19,7 @@
 <br>
 <br>
 <div id="form-div">
-<form action="NewPollSubmitted.php" method="post">
+<form action="NewPoll.php" method="post">
     <input id="submit" type="submit" value="Submit">
    <select name="category">
       <option value="Meat">Meat</option>
@@ -48,7 +48,7 @@
       <input id="radiocustom" type="radio" name="radioservings" value="custom"><span class="radio-title"> Custom(please enter below):</span>
       <br>
       <br>
-     <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ( Less than <input id="customval1" class="customval" name="customvalues" type="number" min="1" max="100" readonly> , <input id="customval3" class="customval" name="customvalues" type="number" min="1" max="100" readonly> - <input id="customval2" class="customval" name="customvalues" type="number" min="1" max="100" readonly> , <input id="customval5" class="customval" name="customvalues" type="number" min="100" max="900" readonly> - <input id="customval4" class="customval" name="customvalues" type="number" min="100" max="900" readonly> , More than <input id="customval6" class="customval" name="customvalues" type="number" min="100" max="900" readonly> ) </h3>
+    <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ( Less than <input id="customval1" class="customval" name="customvalues" type="number" min="1" max="100" readonly required> , <input id="customval3" class="customval" name="customvalues" type="number" min="1" max="900" readonly required> - <input id="customval2" class="customval" name="customvalues" type="number" min="1" max="900" readonly required> , <input id="customval5" class="customval" name="customvalues" type="number" min="1" max="900" readonly required> - <input id="customval4" class="customval" name="customvalues" type="number" min="1" max="900" readonly required> , More than <input id="customval6" class="customval" name="customvalues" type="number" min="100" max="900" readonly required> ) </h3>
   
   </div>
   
@@ -104,3 +104,15 @@
     
 </script>
 
+<?php
+   $which_radio=$_POST['radioservings'];
+   
+   echo $which_radio;
+
+?>
+
+<script type="text/javascript">
+    
+    var radio_which= "<?php echo $_POST['radioservings'] ?>";
+    
+</script>
