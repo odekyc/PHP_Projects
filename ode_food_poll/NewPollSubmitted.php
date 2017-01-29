@@ -7,6 +7,9 @@
      
      
      echo '<a id="twitterbtnsignout" href="TwitterLogout.php">Logout</a>';
+     
+
+     
 
 ?>
 
@@ -77,6 +80,12 @@
          $(".customval").css("background-color", "gray");
          $(".customval").attr("readonly", "readonly");
      });
+     
+       $("#submit").click(function(){
+         <?php $_SESSION["just_submitted"]=true; ?>
+     });
+     
+     
      $("#newpoll-main-div").css({"position" : "relative",
         "margin" : "auto",
         "margin-top" : "30px"
@@ -108,9 +117,11 @@
 
 <?php
    $which_radio=$_POST['radioservings'];
+   if($_SESSION["just_submitted"] == true){
+       echo "hhihihi";
+   }
    
-   echo $which_radio;
-
+ 
 ?>
 
 <script type="text/javascript">

@@ -100,12 +100,20 @@
     $('#home-div-in').hover(function(){   $('#home-div-in').css("background-color", "#ace600");} , function(){ $('#home-div-in').css("background-color", "#e5ffcc"); });
     $('#newpoll').css("background-color", "#ace600");
     
+     $("#submit").click(function(){
+         <?php $_SESSION["just_submitted"]=true; ?>
+     });
     
     
 </script>
 
 <?php
    $which_radio=$_POST['radioservings'];
+   
+   $which_radio=$_POST['radioservings'];
+   if($_SESSION["just_submitted"] == true){
+       
+   }
    
    echo $which_radio;
 
