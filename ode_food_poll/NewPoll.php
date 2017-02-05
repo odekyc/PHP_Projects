@@ -8,6 +8,15 @@
      
      echo '<a id="twitterbtnsignout" href="TwitterLogout.php">Logout</a>';
 
+     $servername = 'localhost';
+    $username = 'ode';
+    $password = 'doctor78';
+    $database = "ode_food_poll";
+    $dbport = 3306;
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $database);
+
 ?>
 
 <link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />

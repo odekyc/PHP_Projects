@@ -9,14 +9,15 @@
  
  <?php
       session_start();
-      $servername = getenv('IP');
-      $username = getenv('C9_USER');
-      $password = "";
-      $database = "ode_food_poll";
-      $dbport = 3306;
       
-      
-    $conn = new mysqli($servername, $username, $password, $database, $dbport);
+      $servername = 'localhost';
+    $username = 'ode';
+    $password = 'doctor78';
+    $database = "ode_food_poll";
+    $dbport = 3306;
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $database);
     
     
       

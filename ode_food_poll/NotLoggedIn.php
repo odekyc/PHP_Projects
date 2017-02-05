@@ -34,14 +34,14 @@
     // Press the 'Run' button on the top to start the web server,
     // then click the URL that is emitted to the Output tab of the console.
 
-    $servername = getenv('IP');
-    $username = getenv('C9_USER');
-    $password = "";
-    $database = "ode_food_poll";
+    $servername = 'localhost:3306';
+    $username = 'ode';
+    $password = 'doctor78';
+    $database = 'ode_food_poll';
     $dbport = 3306;
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $database, $dbport);
+    $conn = new mysqli($servername, $username, $password, $database);
 
     // Check connection
     if ($conn->connect_error) {
