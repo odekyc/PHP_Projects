@@ -10,23 +10,23 @@
  </script>
  
  <?php
-      session_start();
+
       include 'database.php';
 
+      session_start();
 
       // $servername = getenv('IP');
       // $username = getenv('C9_USER');
       // $password = "";
       // $database = "ode_food_poll";
       // $dbport = 3306;
-
+      
     $servername = $cleardb_server;
     $username = $cleardb_username;
     $password = $cleardb_password;
     $database = $cleardb_db;
     $dbport = 3306;
 
-      
       
     $conn = new mysqli($servername, $username, $password, $database, $dbport);
     
@@ -36,7 +36,7 @@
       
       $click_id=$_SESSION['click_id'];
       
-      $user_saved=$_POST["userpoll-chk"];
+      $user_saved="checked";
       
       $actual_ct_sql = "SELECT actual_serving_count FROM food_list WHERE id=".$click_id;
       
@@ -173,7 +173,7 @@
           }
     }
     elseif($user_saved== ""){
-       $delete_usersaved_sql="DELETE FROM user_saved WHERE saver_username= '".$_SESSION["username"]."' AND food_list_id = ".$click_id;
+       $delete_usersaved_sql="DELETE FROM user_saved WHERE food_list_id = ".$click_id;
           
           $delete_usersaved_result=mysqli_query($conn, $delete_usersaved_sql);
           
@@ -189,7 +189,7 @@
               $_SESSION['dbupdate-error']= $conn->error;
           }
           
-        $delete_uservotes_sql="DELETE FROM user_votes WHERE username= '".$_SESSION["username"]."' AND food_list_id=".$click_id;
+        $delete_uservotes_sql="DELETE FROM user_votes WHERE food_list_id=".$click_id;
         $delete_uservotes_result = mysqli_query($conn, $delete_uservotes_sql);
         if ($delete_uservotes_result === TRUE) {
               if($_SESSION['dbupdated']="success"){

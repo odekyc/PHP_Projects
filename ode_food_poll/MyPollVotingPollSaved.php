@@ -2,22 +2,24 @@
      <link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
      <script src="https://d3js.org/d3.v3.min.js"></script>
+
 </head>
 
 <?php
-      
+     
      include 'EpiCurl.php';
      include 'EpiOAuth.php';
      include 'EpiTwitter.php';
      include 'keys.php';
      include 'database.php';
 
-     $twitterObj = new EpiTwitter($consumerKey2, $consumerSecret2);
-
-     $_SESSION['whichupdatevote']="regular";
+     session_start();
      
+     $_SESSION['whichupdatevote']="saved";
      $_SESSION['mypoll-deleted']=false;
-
+ 
+     
+  
 ?>
 
 
@@ -39,7 +41,7 @@
     $dbport = 3306;
 
 
-    session_start();
+    
     // Create connection
     
          
@@ -53,45 +55,15 @@
       
      $click_id=$_GET['click_id'];
      
-     $_SESSION['which_page']="Out";
+     $_SESSION['which_page']="In";
      
-          
-     echo "<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />"; 
-  
-     echo '<a id="twitterbtnsignin" href='. $twitterObj->getAuthenticateUrl().'>
-     <img src="twitterlogin.png" alt="sign in with twitter" />
-     </a>';
+     $signout_href="VotingPollOut.php?click_id=".$click_id;  
      
-       if(isset($_GET['oauth_token']))
-     {       
-         $oauth_token = $_GET['oauth_token'];
-         $oauth_verifier = $_GET['oauth_verifier'];
-    
-        $_SESSION['oauth_token'] = $_GET['oauth_token'];
-        $_SESSION['oauth_verifier'] = $_GET['oauth_verifier'];
-    
-        $twitterObj->setToken($_GET['oauth_token']);
-        $token = $twitterObj->getAccessToken();
-        $twitterObj->setToken($token->oauth_token, $token->oauth_token_secret);
-        $_SESSION['ot'] = $token->oauth_token;
-        $_SESSION['ots'] = $token->oauth_token_secret;
-        $twitterInfo= $twitterObj->get_accountVerify_credentials();
-        $twitterInfo->response;
-
-        $username = $twitterInfo->screen_name;
-        $profilepic = $twitterInfo->profile_image_url;
- 
-        $_SESSION['username'] = $username;
-        $_SESSION['profilepic'] = $profilepic;
-
-     
-        $header_str="Location: VotingPollIn.php?click_id=".$click_id."&oauth_token=".$oauth_token."&oauth_verifier=".$oauth_verifier; 
-     
-                header($header_str);
-        }
+     echo '<a id="twitterbtnsignout" href='.$signout_href.'>Logout</a>';
+      echo "<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />"; 
      
 
-   $conn = new mysqli($servername, $username, $password, $database, $dbport);
+    $conn = new mysqli($servername, $username, $password, $database, $dbport);
     
      $actual_ct_sql = "SELECT actual_serving_count FROM food_list WHERE id=".$click_id;
      
@@ -100,6 +72,8 @@
       $foodname_sql = "SELECT foodname FROM food_list WHERE id=".$click_id;
       
       $serving_std_sql = "SELECT serving_standard FROM food_list WHERE id=".$click_id;
+      
+       $usersaved_sql = "SELECT * FROM user_saved WHERE saver_username = '".$_SESSION["username"]."' AND food_list_id =".$click_id; 
        
       $actual_ct_result=mysqli_query($conn, $actual_ct_sql);
       
@@ -109,6 +83,15 @@
      
       $serving_std_result=mysqli_query($conn, $serving_std_sql);
       
+      $usersaved_result=mysqli_query($conn, $usersaved_sql);
+      
+      if ($usersaved_result->num_rows > 0) {
+           $usersaved_data="checked";
+      }
+      elseif ($usersaved_result->num_rows == 0) {
+           $usersaved_data="unchecked";
+      }
+      
      $actual_ct_row=mysqli_fetch_array($actual_ct_result,MYSQLI_NUM);
      
      $foodname_row=mysqli_fetch_array($foodname_result,MYSQLI_NUM);
@@ -116,6 +99,8 @@
      $serving_sz_row=mysqli_fetch_array($serving_sz_result,MYSQLI_NUM);
      
      $serving_std_row=mysqli_fetch_array($serving_std_result,MYSQLI_NUM);
+     
+     
      
      $actual_ct_data= $actual_ct_row[0]; 
      
@@ -125,24 +110,29 @@
      
      $foodname_data=$foodname_row[0];
      
+    
+     $_SESSION['foodname']= $foodname_data;
+     
 
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
     
-  
-      $conn->close();
+    $_SESSION['oauth_token']=$_GET['oauth_token'];
+     
+    $_SESSION['oauth_verifier']=$_GET['oauth_verifier'];
     
+      
   
-    
 ?>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-out' class='block'><span class='block-span'>Home</span></div></div> 
-       <div id='voting-poll-div'><div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Serving Size</span><span id="actual_serving_ct">(Servings Count)</span><span id="idliketovote">I'd Like to Vote For(Daily Serving Size):</span>
-       <form action="UpdateVote.php" id="voteform" method="post">
+<div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-in' class='block'><span class='block-span'>Home</span></div><div id='mypolls' class='block'><span id='mypolls-span' class='block-span'><center>My Polls</center></span><</div><div id='newpoll' class='block'><span id='newpoll-span' class='block-span'>New Poll</span></div></div>  
+     <div id='voting-poll-div'> <div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Serving Size</span><span id="actual_serving_ct">(Servings Count)</span><span id="idliketovote">I'd Like to Vote For(Daily Serving Size):</span> <div id="tweet-but-container"><a href="https://twitter.com/share/tweet?text=Ode's%20Food%20Poll%20@" data-size="large" class="twitter-share-button" data-show-count="false">Share on Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+     <form action="UpdateVote.php" id="voteform" method="post">
+           
            <select id="voteselect" name="votevalue">
               <option id="firstvoteop" value="0">first</option>
               <option id="secondvoteop" value="1">second</option>
@@ -150,67 +140,114 @@
               <option id="fourthvoteop" value="3">fourth</option>
            </select>
          
-          <input id="votesubmit" type="submit" value="Submit">
+         <input id="userpoll-ckbox" type="checkbox" name="userpoll-chk" value="unchecked"><h1 id="userpoll-ckbox-text">Saved To Your Polls</h1> 
+        
+          <input id="votesubmit-in" type="submit" value="Submit">
+          
+           
+         
         </form>
-       
-       </div><div id="chart"><span id="totalvotes"></span></div></div>
+        
+</div><div id="chart"><span id="totalvotes"></span></div></div>
 
-<div id='ode-h5-div'><h5 >This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
- </div>
-<script type="text/javascript">
-$(document).ready(function(){ 
-      var food_id="<?php echo $click_id ?>";
-   
-        // $("#twitterbtnsignin").click(function(){ 
-        // window.location.href = "VotingPollIn.php?click_id="+food_id+"&oauth_token="+"<?php echo $_SESSION["oauth_token"] ?>"+"&oauth_verifier="+"<?php echo $_SESSION["oauth_verifier"] ?>";
-  
-        // });
+<div id="usermade-votes-div"><span id="usermade-votes-div-title"></span>
+<?php
+    $serving_sz_data_len=strlen($serving_sz_data);
+    $temp_serving_sz_data=substr($serving_sz_data,1,$serving_sz_data_len-2);
+    $serving_sz_arr = explode(",", $temp_serving_sz_data);
     
+    
+    $uservotes_sql = "SELECT * FROM user_votes WHERE food_list_id=".$click_id." AND username= '".$_SESSION['username']."'";
+     
+     $uservotes_result=mysqli_query($conn, $uservotes_sql);
+     
+     $votes_count=0;
+     
+     
+     
+     if ($uservotes_result->num_rows > 0) {
+                // output data of each row
+            while($row = $uservotes_result->fetch_assoc()) {
+                
+                $votes_count+=1;
+                 echo "<div class='vote-div'><span class='vote-option-span'>".$serving_sz_arr[$row['vote']-1]." serving</span><br/><span class='vote-timestamp-span'><span style='color:green;'>Voted On : </span>". $row["vote_timestamp"]." (".date_default_timezone_get().")</span></div>";   
+               
+            }
+      } 
+      else {
+            echo "0 votes";
+      }
+ 
+ 
+      $conn->close();
+      
+      $usermade_votes_div_height=$votes_count*80+220;
+      $ode_h5_div_top= $usermade_votes_div_height+1740;
+      $html_height=$ode_h5_div_top+140;
+
+?>
+</div>
+
+<div id="ode-h5-div"><h5>This "Ode Food Poll" app is built by <a href="https://github.com/odekyc">@Ode</a> of freecodecamp<br><br> following the instructions of <a href="https://www.freecodecamp.com/challenges/build-a-voting-app">"Basejump: Build a Voting App | Free Code Camp"</a><br><br>Github repository: <a href="https://github.com/odekyc">https://github.com/odekyc</a><br><br>Code Pen: <a href="http://codepen.io/odekyc/">http://codepen.io/odekyc/</a></h5>
+</div>
+<script type='text/javascript'>
+
+      
+        var food_id="<?php echo $click_id?>";
+        
+        var username="<?php echo $_SESSION['username']?>";
+        
+         $('#upper-div-title').text(username+" Saved Poll");
+        
+        $("#usermade-votes-div-title").text(username+"'s Votes:");
+        
+        $("#usermade-votes-div").css("height","<?php echo $usermade_votes_div_height?>"+"px");
+       
+       
        $("#mypolls").click(function(){
-        window.location.href = "MyPolls.php";
-        $('#home-div-in').css("background-color", "#99ceff");
+        window.location.href = "MyPolls.php?oauth_token="+"<?php echo $_SESSION["oauth_token"] ?>"+"&oauth_verifier="+"<?php echo $_SESSION["oauth_verifier"] ?>";
+
+        $('#home-div-in').css("background-color", "#e5ffcc");
+        $('#home-div-out').css("background-color", "#e5ffcc");
         $('#mypolls').css("background-color", "#ace600");
     });
-    
-    //   $("#voting-poll-div").css({"position" : "relative",
-    //     "margin" : "0 auto",
-    //     "display" : "inline-block",
-    //     "margin-top" : "30px"
-    // });
 
-  $("#home-div-out").hover(function(){ 
-     
-        $('#home-div-out').css("background-color", "#ace600");
-        
-    }, function(){ 
-     
-        $('#home-div-out').css("background-color", "#e5ffcc");
-        
-    });
     $("#newpoll").click(function(){ 
-        window.location.href = "NewPoll.php";
-        $('#home-div-in').css("background-color", "#99ceff");
+        window.location.href = "NewPoll.php?oauth_token="+"<?php echo $_SESSION["oauth_token"] ?>"+"&oauth_verifier="+"<?php echo $_SESSION["oauth_verifier"] ?>";
+
+        $('#home-div-in').css("background-color", "#e5ffcc");
+        $('#home-div-out').css("background-color", "#e5ffcc");
          $('#newpoll').css("background-color", "#ace600");
         });
-    
-       $('#ode-h5-div').css('top','1200px');
-        $('#voting-poll-div').css('width', '1300px');
         
-      $("#home-div-out").click(function(){ 
-        window.location.href = "NotLoggedIn.php";
-        $('#home-div-out').css("background-color", "#ace600");
-        
+        $("#home-div-in").click(function(){ 
+        window.location.href = "LoggedIn.php?oauth_token="+"<?php echo $_SESSION["oauth_token"] ?>"+"&oauth_verifier="+"<?php echo $_SESSION["oauth_verifier"] ?>";
+
+        $('#home-div-in').css("background-color", "#ace600");
+         $('#newpoll').css("background-color", "orange");
     });
-
-
     
-     $('#ode-h5-div').css('top','1400px');
-       $('html').css('height', '1600px');
+    // $("#voting-poll-div").css({"position" : "relative",
+    //     "margin" : "auto",
+    //     "margin-top" : "30px"
+    //     // "margin-left" : "-55px"
+    // });
+    
+    
+    $("#twitterbtnsignout").click(function(){ 
+        window.location.href = "VotingPollOut.php?click_id="+food_id;
+        });
+    
+   
+    
+      $('#ode-h5-div').css('top',"<?php echo $ode_h5_div_top?>"+"px");
+       $('html').css('height', "<?php echo $html_height?>"+"px");
        
-       $('#voting-poll-div').css('height', '1200px');
+       $('#voting-poll-div').css('height', '1400px');
+       
        
 
-       
+      
        
         var width=700,
            height=700,
@@ -224,6 +261,8 @@ $(document).ready(function(){
        var serving_std="<?php echo $serving_std_data?>"
        
        var foodname= "<?php echo $foodname_data?>";
+       
+       var db_usersaved="<?php echo $usersaved_data?>";
        
      
        
@@ -258,7 +297,10 @@ $(document).ready(function(){
             temp_foodname_chk="";
         }
        
-
+        // $( "#firstvoteop" ).val("0-"+food_id);
+        // $( "#secondvoteop" ).val("1-"+food_id);
+        // $( "#thirdvoteop" ).val("2-"+food_id);
+        // $( "#fourthvoteop" ).val("3-"+food_id);
 
        revised_foodname=revised_foodname_arr.join(" ");
        
@@ -268,89 +310,51 @@ $(document).ready(function(){
            foodname_lines+=1;
        }
        
-  var serving_stdLen= serving_std.length;
-
-       var serving_std_arr=serving_std.split(' ');
-       
-        var revised_serving_std="";
-        
-        var revised_serving_std_arr=[];
-        
-         var serving_std_lines=0;
-         
-         var serving_std_chk_hlder="";
-       
-        var temp_serving_std_chk="";
-        
-       for(var i = 0; i < serving_std_arr.length; i++) { 
-            
-            serving_std_chk_hlder=serving_std_arr[i];
-             
-            while (serving_std_chk_hlder.length > 14 ){
-                temp_serving_std_chk+=serving_std_chk_hlder.slice(0,14)+"-<br />";
-                serving_std_chk_hlder=serving_std_chk_hlder.slice(14);
-                
-            }
-            
-            temp_serving_std_chk+=serving_std_chk_hlder;
-            
-            revised_serving_std_arr.push(temp_serving_std_chk);
-            temp_serving_std_chk="";
-        }
-       
-       revised_serving_std=revised_serving_std_arr.join(" ");
-       
-       serving_std_lines+=Math.ceil(serving_stdLen/14);
-       
-       if(revised_serving_std.indexOf("<br />")>0){
-           serving_std_lines+=1;
-       }
-       
         var serving_std_top=(foodname_lines*85)+100;
         
-        var serving_sz_top=((foodname_lines+serving_std_lines-1)*85)+185;
+        var serving_sz_top=(foodname_lines*85)+185;
         
-        var actual_servingct_top=((foodname_lines+serving_std_lines-1)*85)+235;
+        var actual_servingct_top=(foodname_lines*85)+235;
         
-         var idliketovote_top=((foodname_lines+serving_std_lines-1)*85)+335;
+         var idliketovote_top=(foodname_lines*85)+335;
          
-         var voteform_top=((foodname_lines+serving_std_lines-1)*85)+375;
+         var voteform_top=(foodname_lines*85)+375;
          
-         var tweetbut_top=((foodname_lines+serving_std_lines-1)*85)+500;
+         var tweetbut_top=(foodname_lines*85)+500;
          
 
         
     
         $("#foodname-span").html(revised_foodname);
         
-//         $("#voteform").submit(function(){
-//              var voteselect_val=$( "#voteselect" ).val();
+        // $("#votesubmit").click(function(){
+        //      var voteselect_val=$( "#voteselect" ).val();
              
             
               
-//               alert(voteselect_val);
+        //       alert(voteselect_val);
              
         
-//             //  if(voteselect_val== 0){
-//             //      serving_counts_arr[0]=Number(serving_counts_arr[0])+1;
-//             //  }
-//             //  else if(voteselect_val== 1){
-//             //      serving_counts_arr[1]=Number(serving_counts_arr[1])+1;
-//             //  }
-//             //  else if(voteselect_val== 2){
-//             //      serving_counts_arr[2]=Number(serving_counts_arr[2])+1;
-//             //  }
-//             //  else if(voteselect_val== 3){
-//             //      serving_counts_arr[3]=Number(serving_counts_arr[3])+1;
-//             //  }
+        //      if(voteselect_val== 0){
+        //          serving_counts_arr[0]=Number(serving_counts_arr[0])+1;
+        //      }
+        //      else if(voteselect_val== 1){
+        //          serving_counts_arr[1]=Number(serving_counts_arr[1])+1;
+        //      }
+        //      else if(voteselect_val== 2){
+        //          serving_counts_arr[2]=Number(serving_counts_arr[2])+1;
+        //      }
+        //      else if(voteselect_val== 3){
+        //          serving_counts_arr[3]=Number(serving_counts_arr[3])+1;
+        //      }
              
-//             // var updated_serving_counts="("+String(serving_counts_arr[0])+","+String(serving_counts_arr[1])+","+String(serving_counts_arr[2])+","+String(serving_counts_arr[3])+")";
-    
-//   \
+        //     var updated_serving_counts="("+String(serving_counts_arr[0])+","+String(serving_counts_arr[1])+","+String(serving_counts_arr[2])+","+String(serving_counts_arr[3])+")";
+     
+        //     window.location.href = "UpdateVote.php?click_id="+food_id;
              
             
       
-//         });
+        // });
         
         
          
@@ -376,6 +380,7 @@ $(document).ready(function(){
         
         $("#voteform").css("top",voteform_top+"px");
         
+         $("#tweet-but-container").css("top",tweetbut_top+"px");
            
        var serving_counts=serving_counts.slice(1,serving_counts.length-1);
        
@@ -579,10 +584,33 @@ $(document).ready(function(){
         return "("+d.data.value+")";
       });
       
-   });
-
-</script>
-
+      
+      if(db_usersaved !="unchecked"){
+          document.getElementById("userpoll-ckbox").checked=true;
+          var tempval=$( "#userpoll-ckbox" ).val("checked");
+         
+      }
+     
+     
+     var usersaved=false;
+     
+     
+      
+      $("#userpoll-ckbox").click(function(){
+           usersaved = document.getElementById("userpoll-ckbox").checked;
+          if(usersaved ==true){
+              $( "#userpoll-ckbox" ).val("checked");
+          }
+          else if(usersaved == false){
+              $( "#userpoll-ckbox" ).val("unchecked");
+          }
+          var value= $( "#userpoll-ckbox" ).val();
+        
+      });
+      
+    
+   </script>
+   
 <?php
    if($_SESSION['dbupdated']=="success"){
        $_SESSION['dbupdated']="none";

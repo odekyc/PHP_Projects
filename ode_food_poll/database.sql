@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
--- http://www.phpmyadmin.net
+-- version 4.6.6
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 05, 2017 at 08:47 PM
--- Server version: 5.5.50-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.19
+-- Host: localhost:3306
+-- Generation Time: Jul 12, 2017 at 03:07 PM
+-- Server version: 10.1.20-MariaDB
+-- PHP Version: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,137 +14,147 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `c9`
---
---
--- Database: `ode_food_poll`
+-- Database: `u703581934_ode`
+-- --
+-- CREATE DATABASE IF NOT EXISTS `u703581934_ode` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+-- USE `u703581934_ode`;
+
+
+
+DROP TABLE IF EXISTS `food_list` ;
+DROP TABLE IF EXISTS `user_votes`;
+DROP TABLE IF EXISTS `user_polls`;
+DROP TABLE IF EXISTS `user_saved`;
 --
 
--- --------------------------------------------------------
-
---
--- Table structure for table `food_list`
---
-
-CREATE TABLE IF NOT EXISTS `food_list` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `category` varchar(30) NOT NULL,
-  `foodname` varchar(300) DEFAULT NULL,
-  `serving_standard` varchar(80) NOT NULL,
-  `serving_sizes` varchar(300) NOT NULL,
-  `actual_serving_count` varchar(300) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=104 ;
+CREATE TABLE `food_list` (
+  `id` int(50) NOT NULL,
+  `category` varchar(250) CHARACTER SET utf8 NOT NULL,
+  `foodname` varchar(250) CHARACTER SET utf8 NOT NULL,
+  `serving_standard` varchar(300) CHARACTER SET utf8 NOT NULL,
+  `serving_sizes` varchar(370) CHARACTER SET utf8 NOT NULL,
+  `actual_serving_count` varchar(300) CHARACTER SET utf8 NOT NULL,
+  `saved` varchar(300) CHARACTER SET utf8 NOT NULL,
+  `usermade` varchar(73) CHARACTER SET utf8 NOT NULL,
+  `creator_username` varchar(370) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `food_list`
 --
 
-INSERT INTO `food_list` (`id`, `category`, `foodname`, `serving_standard`, `serving_sizes`, `actual_serving_count`) VALUES
-(1, 'Meat', 'Steak', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(3,3,6,8)'),
-(2, 'Meat', 'Pork', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(1,3,7,9)'),
-(3, 'Meat', 'Fish', 'ounce', '(less than 6,6-9,9-12,more than 12)', '(3,4,7,6)'),
-(4, 'Meat', 'Lamb', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(4,6,6,4)'),
-(5, 'Meat', 'Chicken', 'ounce', '(less than 4,4-7,7-10,more than 10)', '(2,3,9,8)'),
-(6, 'Meat', 'Shrimp', 'ounce', '(less than 4,4-7,7-10,more than 10)', '(4,6,6,4)'),
-(7, 'Meat', 'Crab', 'ounce', '(less than 2,2-5,5-8,more than 8)', '(4,8,6,2)'),
-(8, 'Meat', 'Lobster', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(12,1,3,4)'),
-(9, 'Meat', 'Clam', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(11,1,3,5)'),
-(10, 'Meat', 'Mussel', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(10,2,3,5)'),
-(11, 'Meat', 'Squid', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(11,2,4,3)'),
-(12, 'Meat', 'Scallop', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(11,1,3,5)'),
-(13, 'Meat', 'Oyster', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(12,1,3,4)'),
-(14, 'Meat', 'Octopus', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(12,1,3,4)'),
-(15, 'Meat', 'Abalone', 'ounce', '(less than 1,1-4,4-7,more than 7)', '(14,5,1,0)'),
-(16, 'Vegetable', 'Onions', 'cup', '(less than 2,2-3,3-4,more than 4)', '(5,6,6,3)'),
-(17, 'Vegetable', 'Eggplant', 'cup', '(less than 2,2-4,4-6,more than 6)', '(5,5,5,5)'),
-(18, 'Vegetable', 'Lettuce', 'cup', '(less than 2,2-4,4-6,more than 6)', '(3,7,7,3)'),
-(19, 'Vegetable', 'Turnip', 'medium whole', '(0,1,2,more than 2)', '(8,2,2,8)'),
-(20, 'Vegetable', 'Spinach', 'cup', '(0,1,2,more than 2)', '(2,4,7,7)'),
-(21, 'Vegetable', 'Tomato', 'medium whole', '(0,1,2,more than 2)', '(1,9,6,4)'),
-(22, 'Vegetable', 'Potato', 'medium whole', '(0,1,2,more than 2)', '(2,4,6,8)'),
-(23, 'Vegetable', 'Radish', 'cup', '(0,1,2,more than 2)', '(4,4,5,7)'),
-(24, 'Vegetable', 'Mushroom', 'sliced cup', '(1,2-3,3-4,more than 4)', '(2,6,5,7)'),
-(25, 'Vegetable', 'Kaffir Leaves', 'cup', '(0,1,2,more than 2)', '(5,0,7,8)'),
-(26, 'Vegetable', 'Gourd', 'cup', '(0,1,2,more than 2)', '(12,1,3,4)'),
-(27, 'Vegetable', 'Spring Onions', 'chopped cup', '(0,1,2,more than 2)', '(1,12,6,1)'),
-(28, 'Vegetable', 'Chili', 'whole', '(0,1-2,3-4,more than 4)', '(4,2,9,5)'),
-(29, 'Vegetable', 'Chili Pepper', 'whole', '(0,1,2,more than 2)', '(5,9,4,2)'),
-(30, 'Vegetable', 'Jalapeno', 'whole', '(0,1,2,more than 2)', '(7,3,6,4)'),
-(31, 'Vegetable', 'Sweet Potato', 'medium whole', '(0,1,2,more than 2)', '(5,4,4,7)'),
-(32, 'Vegetable', 'Yam', 'medium whole', '(0,1,2,more than 2)', '(6,4,4,7)'),
-(33, 'Vegetable', 'Chinese Yam', 'cup', '(0,1,2,more than 2)', '(15,0,2,3)'),
-(34, 'Vegetable', 'Garlic', 'clove', '(less than 2,2-3,4-5,more than 5)', '(0,3,8,9)'),
-(35, 'Vegetable', 'Zucchini', 'cup', '(0,1,2,more than 2)', '(7,1,5,7)'),
-(36, 'Vegetable', 'Cucumber', 'medium whole', '(less than 2,2-3,4-5,more than 5)', '(2,6,8,4)'),
-(37, 'Vegetable', 'Green Peas', 'cup', '(0,1,2,more than 2)', '(3,4,5,8)'),
-(38, 'Vegetable', 'Leek', 'cup', '(0,1,2,more than 2)', '(12,7,1,0)'),
-(39, 'Vegetable', 'Corn', 'cup', '(0,1,2,more than 2)', '(1,7,8,4)'),
-(40, 'Vegetable', 'Celery', 'cup', '(0,1,2,more than 2)', '(10,2,4,4)'),
-(41, 'Vegetable', 'Carrot', 'cup', '(0,1,2,more than 2)', '(0,14,5,1)'),
-(42, 'Vegetable', 'Cauliflower', 'cup', '(0,1,2,more than 2)', '(2,6,6,6)'),
-(43, 'Vegetable', 'Shiitake Mushroom', 'cup', '(0,1,2,more than 2)', '(12,7,1,0)'),
-(44, 'Vegetable', 'Cabbage', 'chopped cup', '(0,1,2,more than 2)', '(0,5,9,6)'),
-(45, 'Vegetable', 'Bamboo Shoots', 'sliced cup', '(0,1,2,more than 2)', '(17,1,1,1)'),
-(46, 'Vegetable', 'Lotus Root', 'per ten slices', '(less than 2,2-3,4-5,more than 5)', '(12,1,5,2)'),
-(47, 'Vegetable', 'Ginger', 'tsp', '(0,1,2,more than 2)', '(2,6,8,4)'),
-(48, 'Vegetable', 'Asparagus', 'cup', '(0,1,2,more than 2)', '(3,7,7,3)'),
-(49, 'Vegetable', 'Artichoke', 'medium whole', '(0,1,2,more than 2)', '(6,6,6,2)'),
-(50, 'Vegetable', 'Baby Corn', 'ear', '(less than 3,3-5,6-8,more than 8)', '(3,3,7,7)'),
-(51, 'Vegetable', 'Avocado', 'medium whole', '(0,1,2,more than 2)', '(2,6,8,4)'),
-(52, 'Vegetable', 'Beans', 'cup', '(0,1,2,more than 2)', '(2,6,6,6)'),
-(53, 'Vegetable', 'Luffa', 'cup', '(0,1,2,more than 2)', '(3,2,8,7)'),
-(54, 'Vegetable', 'Squash', 'cup', '(0,1,2,more than 2)', '(7,3,6,4)'),
-(55, 'Vegetable', 'Beetroot', 'per ten slices', '(0,1,2,more than 2)', '(7,7,3,3)'),
-(56, 'Beverage', 'Black Tea', 'cup', '(0,1,2,more than 2)', '(2,11,4,3)'),
-(57, 'Beverage', 'Green Tea', 'cup', '(0,1,2,more than 2)', '(4,7,6,5)'),
-(58, 'Beverage', 'Non-Fat Milk', 'cup', '(0,1,2,more than 2)', '(1,8,6,7)'),
-(59, 'Beverage', '2% Milk', 'cup', '(0,1,2,more than 2)', '(0,8,6,6)'),
-(60, 'Beverage', 'Whole Milk', 'cup', '(0,1,2,more than 2)', '(5,7,5,5)'),
-(61, 'Beverage', 'Goat Milk', 'cup', '(0,1,2,more than 2)', '(7,7,3,3)'),
-(62, 'Beverage', 'Coke', 'cup', '(0,1,2,more than 2)', '(2,6,5,7)'),
-(63, 'Beverage', 'Coffee', 'cup', '(0,1,2,more than 2)', '(0,6,6,8)'),
-(64, 'Beverage', 'Fruit Juice', 'cup', '(0,1,2,more than 2)', '(10,5,4,2)'),
-(65, 'Fruit', 'Grape', 'cup', '(less than 2,2-3,4-5,more than 5)', '(3,7,5,5)'),
-(66, 'Fruit', 'Apricot', 'medium whole', '(0,1,2,more than 2)', '(3,5,6,6)'),
-(67, 'Fruit', 'Cherry', 'cup', '(less than 2,2-3,4-5,more than 5)', '(6,5,5,4)'),
-(68, 'Fruit', 'Loquat', 'medium whole', '(less than 2,2-3,4-5,more than 5)', '(5,6,7,4)'),
-(69, 'Fruit', 'Kiwi Fruit', 'medium whole', '(0,1,2,more than 2)', '(3,4,7,6)'),
-(70, 'Fruit', 'Peach', 'medium whole', '(0,1,2,more than 2)', '(3,5,6,6)'),
-(71, 'Fruit', 'Pear', 'medium whole', '(0,1,2,more than 2)', '(3,6,6,6)'),
-(72, 'Fruit', 'Jujube', 'medium whole', '(less than 2,2-3,4-5,more than 5)', '(3,7,7,3)'),
-(73, 'Fruit', 'Coconut', 'shredded cup', '(0,1,2,more than 2)', '(7,9,3,1)'),
-(74, 'Fruit', 'Raspberry', 'cup', '(0,1,2,more than 2)', '(7,6,7,0)'),
-(75, 'Fruit', 'Persimmon', 'medium whole', '(0,1,2,more than 2)', '(7,6,3,4)'),
-(76, 'Fruit', 'Plum', 'medium whole', '(0,1,2,more than 2)', '(7,3,6,4)'),
-(77, 'Fruit', 'Jackfruit', 'sliced cup', '(less than 2,2-3,4-5,more than 5)', '(6,2,6,6)'),
-(78, 'Fruit', 'Cranberries', 'cup', '(0,1,2,more than 2)', '(6,8,3,3)'),
-(79, 'Fruit', 'Durian', 'cup', '(less than 2,2-3,4-5,more than 5)', '(6,2,3,9)'),
-(80, 'Fruit', 'Lychee', 'cup', '(less than 2,2-3,4-5,more than 5)', '(12,1,1,6)'),
-(81, 'Fruit', 'Pineapple', 'diced cup', '(less than 2,2-3,4-5,more than 5)', '(12,7,1,0)'),
-(82, 'Fruit', 'Rambutan', 'sliced cup', '(less than 2,2-3,4-5,more than 5)', '(7,12,2,1)'),
-(83, 'Fruit', 'Mango', 'medium whole', '(0,1,2,more than 2)', '(9,6,3,2)'),
-(84, 'Fruit', 'Watermelon', 'diced cup', '(less than 2,2-4,5-7,more than 7)', '(6,9,3,3)'),
-(85, 'Fruit', 'Fig', 'medium whole', '(less than 2,2-3,4-5,more than 5)', '(6,3,6,5)'),
-(86, 'Fruit', 'Guava', 'medium whole', '(0,1,2,more than 2)', '(7,3,3,7)'),
-(87, 'Fruit', 'Grapefruit', 'medium whole', '(0,1,2,more than 2)', '(12,7,1,0)'),
-(88, 'Fruit', 'Dragonfruit', 'medium whole', '(0,1,2,more than 2)', '(12,8,0,0)'),
-(89, 'Fruit', 'Olive', 'per 3 wholes', '(0,1,2,more than 2)', '(12,3,3,2)'),
-(90, 'Fruit', 'Miracle Fruit', 'per 3 wholes', '(0,1,2,more than 2)', '(12,3,3,2)'),
-(91, 'Fruit', 'Blackberries', 'cup', '(0,1,2,more than 2)', '(8,5,6,3)'),
-(92, 'Fruit', 'Lime', 'medium whole', '(0,1,2,more than 2)', '(4,14,1,1)'),
-(93, 'Fruit', 'Orange', 'medium whole', '(0,1,2,more than 2)', '(3,3,7,7)'),
-(94, 'Fruit', 'Kumquat', 'per 2 wholes', '(0,1,2,more than 2)', '(7,3,5,5)'),
-(95, 'Fruit', 'Strawberry', 'per 3 wholes', '(0,1,2,more than 2)', '(3,6,5,6)'),
-(96, 'Fruit', 'Starfruit', 'per 4 slices', '(0,1,2,more than 2)', '(12,2,3,3)'),
-(97, 'Fruit', 'Apple', 'medium whole', '(0,1,2,more than 2)', '(3,6,5,6)'),
-(98, 'Fruit', 'Mulberries', 'cup', '(0,1,2,more than 2)', '(3,6,6,5)'),
-(99, 'Fruit', 'Huckleberries', 'cup', '(0,1,2,more than 2)', '(7,12,1,1)'),
-(100, 'Fruit', 'Gooseberries', 'per 2 whole', '(0,1,2,more than 2)', '(7,12,1,0)'),
-(103, 'Beverage', 'Krungthepmahanakhon Amornrattanakosin Mahintharayutthaya', 'cup', '(0,1,2,more than 2)', '(6,4,4,7)');
+INSERT INTO `food_list` (`id`, `category`, `foodname`, `serving_standard`, `serving_sizes`, `actual_serving_count`, `saved`, `usermade`, `creator_username`) VALUES
+(1, 'Meat', 'Steak', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(3,3,6,8)', 'unchecked', 'no', ''),
+(2, 'Meat', 'Pork', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(1,3,7,9)', 'unchecked', 'no', ''),
+(3, 'Seafood', 'Fish', 'ounce', '(less than 6,6-9,9-12,more than 12)', '(3,4,7,6) ', 'unchecked', 'no', ''),
+(4, 'Meat', 'Lamb', 'ounce', '(less than 3,3-6,6-9,more than 9) ', '(4,6,6,4) ', 'unchecked', 'no', ''),
+(5, 'Meat', 'Chicken', 'ounce', '(less than 4,4-7,7-10,more than 10)', '(2,3,9,8) ', 'unchecked', 'no', ''),
+(6, 'Seafood', 'Shrimp', 'ounce', '(less than 4,4-7,7-10,more than 10)', '(4,6,6,4)', 'unchecked', 'no', ''),
+(7, 'Seafood', 'Crab', 'ounce', '(less than 2,2-5,5-8,more than 8) ', '(4,8,6,2) ', 'unchecked', 'no', ''),
+(8, 'Seafood', 'Lobster', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(12,1,3,4) ', 'unchecked', 'no', ''),
+(9, 'Seafood', 'Clam', 'ounce', '(less than 3,3-6,6-9,more than 9) ', '(11,1,3,5) ', 'unchecked', 'no', ''),
+(10, 'Seafood', 'Mussel', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(10,2,3,5) ', 'unchecked', 'no', ''),
+(11, 'Seafood', 'Squid', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(11,2,4,3)', 'unchecked', 'no', ''),
+(12, 'Seafood', 'Scallop', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(11,1,3,5) ', 'unchecked', 'no', ''),
+(13, 'Seafood', 'Oyster', 'ounce', '(less than 3,3-6,6-9,more than 9)', '(12,2,3,4)', 'unchecked', 'no', ''),
+(14, 'Seafood', 'Octopus', 'ounce', '(less than 3,3-6,6-9,more than 9) ', '(12,1,3,4)', 'unchecked', 'no', ''),
+(15, 'Seafood', 'Abalone', 'ounce', '(less than 1,1-4,4-7,more than 7)', '(16,5,1,0)', 'ElvaChao1', 'no', ''),
+(16, 'Vegetable', 'Onions', 'cup', '(less than 2,2-3,3-4,more than 4)', '(5,6,6,3)', 'unchecked', 'no', ''),
+(17, 'Vegetable', 'Eggplant', 'cup', '(less than 2,2-4,4-6,more than 6)', '(5,5,5,5) ', 'unchecked', 'no', ''),
+(18, 'Vegetable', 'Lettuce', 'cup', '(less than 2,2-4,4-6,more than 6)', '(3,7,7,3)', 'unchecked', 'no', ''),
+(19, 'Vegetable', 'Turnip', 'medium whole', '(0,1,2,more than 2) ', '(8,2,2,8)', 'unchecked', 'no', ''),
+(20, 'Vegetable', 'Spinach', 'cup', '(0,1,2,more than 2) ', '(2,4,7,7) ', 'unchecked', 'no', ''),
+(21, 'Vegetable', 'Tomato', 'medium whole', '(0,1,2,more than 2)', '(1,9,6,4)', 'unchecked ', 'no', ''),
+(22, 'Vegetable', 'Potato', 'medium whole', '(0,1,2,more than 2)', '(2,4,6,8) ', 'unchecked', 'no', ''),
+(23, 'Vegetable', 'Radish', 'cup', '(0,1,2,more than 2) ', '(9,4,5,7) ', 'unchecked', 'no', ''),
+(24, 'Vegetable', 'Mushroom', 'sliced cup', '(1,2-3,3-4,more than 4) ', '(2,6,5,7) ', 'unchecked ', 'no', ''),
+(25, 'Vegetable', 'Kaffir Leaves  ', 'cup', '(0,1,2,more than 2) ', '(5,0,7,8)', 'unchecked', 'no', ''),
+(26, 'Vegetable', 'Gourd', 'cup', '(0,1,2,more than 2)', '(12,1,3,4)', 'unchecked', 'no', ''),
+(27, 'Vegetable', 'Spring Onions', 'chopped cup', '(0,1,2,more than 2)', '(1,12,6,1)', 'unchecked', 'no', ''),
+(28, 'Vegetable', 'Chili', 'whole', '(0,1-2,3-4,more than 4) ', '(4,2,9,5)', 'unchecked', 'no', ''),
+(29, 'Vegetable', 'Chili Pepper', 'whole', '(0,1,2,more than 2)', '(5,9,4,2)', 'unchecked', 'no', ''),
+(30, 'Vegetable', 'Jalapeno', 'whole', '(0,1,2,more than 2)', '(7,3,6,4)', 'unchecked', 'no', ''),
+(31, 'Vegetable', 'Sweet Potato', 'medium whole', '(0,1,2,more than 2) ', '(5,4,4,7)', 'unchecked ', 'no', ''),
+(32, 'Vegetable', 'Yam', 'medium whole', '(0,1,2,more than 2) ', '(6,4,4,7)', 'unchecked', 'no', ''),
+(33, 'Vegetable', 'Chinese Yam', 'cup', '(0,1,2,more than 2)', '(15,0,2,3)', 'unchecked', 'no', ''),
+(34, 'Vegetable', 'Garlic', 'clove', '(less than 2,2-3,4-5,more than 5)', '(0,3,8,9)', 'unchecked', 'no', ''),
+(35, 'Vegetable', 'Zucchini ', 'cup', '(0,1,2,more than 2)', '(7,1,5,7)', 'unchecked ', 'no', ''),
+(36, 'Vegetable', 'Cucumber', 'medium whole', '(less than 2,2-3,4-5,more than 5)', '(2,6,8,4)', 'unchecked', 'no', ''),
+(37, 'Vegetable', 'Green Peas', 'cup', '(0,1,2,more than 2)', '(3,4,5,8)', 'unchecked', 'no', ''),
+(38, 'Vegetable', 'Leek', 'cup', '(0,1,2,more than 2)', '(12,7,1,1)', 'unchecked', 'no', ''),
+(39, 'Vegetable', 'Corn', 'cup', '(0,1,2,more than 2) ', '(1,7,8,4)', 'unchecked', 'no', ''),
+(40, 'Vegetable', 'Celery', 'cup', '(0,1,2,more than 2) ', '(10,2,4,4)', 'unchecked', 'no', ''),
+(41, 'Vegetable', 'Carrot', 'cup', '(0,1,2,more than 2)', '(0,14,5,1)', 'unchecked', 'no', ''),
+(42, 'Vegetable', 'Cauliflower', 'cup', '(0,1,2,more than 2)', '(2,6,6,6)', 'unchecked', 'no', ''),
+(43, 'Vegetable', 'Cabbage', 'chopped cup', '(0,1,2,more than 2) ', '(0,5,9,6)', 'unchecked', 'no', ''),
+(44, 'Vegetable', 'Bamboo Shoots', 'sliced cup', '(0,1,2,more than 2) ', '(17,1,1,1)', 'unchecked', 'no', ''),
+(45, 'Vegetable', 'Lotus Root', 'per ten slices', '(less than 2,2-3,4-5,more than 5)', '(12,1,5,2)', 'unchecked', 'no', ''),
+(46, 'Vegetable', 'Ginger', 'tsp', '(0,1,2,more than 2)', '(2,6,8,4)', 'unchecked', 'no', ''),
+(47, 'Vegetable', 'Shiitake Mushroom', 'cup', '(0,1,2,more than 2) ', '(12,7,1,0)', 'unchecked', 'no', ''),
+(48, 'Vegetable', 'Asparagus', 'cup', '(0,1,2,more than 2)', '(3,7,7,3)', 'unchecked', 'no', ''),
+(49, 'Vegetable', 'Artichoke', 'medium whole', '(0,1,2,more than 2)', '(6,6,6,2)', 'unchecked', 'no', ''),
+(50, 'Vegetable', 'Baby Corn', 'ear', '(less than 3,3-5,6-8,more than 8)', '(3,3,7,7)', 'unchecked', 'no', ''),
+(51, 'Vegetable', 'Avocado', 'medium whole', '(0,1,2,more than 2)', '(2,6,8,4)', 'unchecked', 'no', ''),
+(52, 'Vegetable', 'Beans', 'cup', '(0,1,2,more than 2)', '(2,6,6,6)', 'unchecked', 'no', ''),
+(53, 'Vegetable', 'Luffa', 'cup', '(0,1,2,more than 2) ', '(3,2,8,7)', 'unchecked', 'no', ''),
+(54, 'Vegetable', 'Squash', 'cup', '(0,1,2,more than 2)', '(7,3,6,4)', 'unchecked', 'no', ''),
+(55, 'Vegetable', 'Beetroot', 'per ten slices ', '(0,1,2,more than 2)', '(7,7,3,3)', 'unchecked', 'no', ''),
+(56, 'Beverage', 'Black Tea', 'cup', '(0,1,2,more than 2)', '(2,11,5,3)', 'unchecked', 'no', ''),
+(57, 'Beverage', 'Green Tea ', 'cup', '(0,1,2,more than 2)', '(5,8,8,5)', 'unchecked', 'no', ''),
+(58, 'Beverage', 'Non-Fat Milk', 'cup ', '(0,1,2,more than 2)', '(1,8,6,8)', 'unchecked', 'no', ''),
+(59, 'Beverage', '2% Milk ', 'cup', '(0,1,2,more than 2)', '(0,8,7,7)', 'unchecked', 'no', ''),
+(60, 'Beverage', 'Whole Milk', 'cup ', '(0,1,2,more than 2)', '(5,8,5,5)', 'unchecked', 'no', ''),
+(61, 'Beverage', 'Goat Milk', 'cup', '(0,1,2,more than 2)', '(12,11,5,4) ', 'ElvaChao1', 'no', ''),
+(62, 'Beverage', 'Coke', 'cup', '(0,1,2,more than 2)', '(5,7,6,9)', 'ElvaChao1', 'no', ''),
+(63, 'Beverage', 'Fruit Juice', 'cup', '(0,1,2,more than 2)', '(11,5,7,2)', 'unchecked', 'no', ''),
+(64, 'Beverage', 'Coffee', 'cup', '(0,1,2,more than 2)', '(0,6,6,8)', 'unchecked', 'no', ''),
+(65, 'Fruit', 'Grape', 'cup', '(less than 2,2-3,4-5,more than 5)', '(3,7,5,5)', 'unchecked', 'no', ''),
+(66, 'Fruit', 'Apricot ', 'medium whole', '(0,1,2,more than 2)', '(4,5,7,6)', 'unchecked', 'no', ''),
+(67, 'Fruit', 'Cherry', 'cup', '(less than 2,2-3,4-5,more than 5)', '(6,5,5,5)', 'ElvaChao1', 'no', ''),
+(68, 'Fruit', 'Loquat', 'medium whole', '(less than 2,2-3,4-5,more than 5)', '(7,8,7,4)', 'ElvaChao1', 'no', ''),
+(69, 'Fruit', 'Kiwi Fruit ', 'medium whole', '(0,1,2,more than 2)', '(5,4,8,7)', 'ElvaChao1', 'no', ''),
+(70, 'Fruit', 'Peach', 'medium whole', '(0,1,2,more than 2) ', '(3,5,6,6)', 'unchecked', 'no', ''),
+(71, 'Fruit', 'Pear', 'medium whole', '(0,1,2,more than 2)', '(3,6,6,6)', 'unchecked', 'no', ''),
+(72, 'Fruit', 'Jujube', 'medium whole', '(less than 2,2-3,4-5,more than 5)', '(3,7,7,3)', 'unchecked', 'no', ''),
+(73, 'Fruit', 'Coconut', 'shredded cup', '(0,1,2,more than 2)', '(7,11,3,3)', 'ElvaChao1', 'no', ''),
+(74, 'Fruit', 'Raspberry', 'cup', '(0,1,2,more than 2)', '(7,6,7,0)', 'unchecked', 'no', ''),
+(75, 'Fruit', 'Persimmon', 'medium whole', '(0,1,2,more than 2)', '(7,6,3,4)', 'unchecked', 'no', ''),
+(76, 'Fruit', 'Plum', 'medium whole', '(0,1,2,more than 2)', '(7,3,6,4)', 'unchecked', 'no', ''),
+(77, 'Fruit', 'Jackfruit', 'sliced cup', '(less than 2,2-3,4-5,more than 5)', '(6,2,6,6)', 'unchecked', 'no', ''),
+(78, 'Fruit', 'Cranberries ', 'cup', '(0,1,2,more than 2)', '(6,8,4,3)', 'unchecked', 'no', ''),
+(79, 'Fruit', 'Durian', 'cup ', '(less than 2,2-3,4-5,more than 5)', '(6,2,3,9)', 'unchecked', 'no', ''),
+(80, 'Fruit', 'Lychee', 'cup', '(less than 2,2-3,4-5,more than 5)', '(12,1,1,6)', 'unchecked', 'no', ''),
+(81, 'Fruit', 'Pineapple', 'diced cup', '(less than 2,2-3,4-5,more than 5)', '(12,7,1,0)', 'unchecked', 'no', ''),
+(82, 'Fruit', 'Rambutan', 'sliced cup', '(less than 2,2-3,4-5,more than 5)', '(7,12,2,1)', 'unchecked', 'no', ''),
+(83, 'Fruit', 'Mango', 'medium whole', '(0,1,2,more than 2)', '(9,6,3,2)', 'unchecked', 'no', ''),
+(84, 'Fruit', 'Watermelon', 'diced cup', '(less than 2,2-4,5-7,more than 7)', '(6,9,3,3)', 'unchecked', 'no', ''),
+(85, 'Fruit', 'Fig', 'medium whole ', '(less than 2,2-3,4-5,more than 5)', '(6,3,6,5)', 'unchecked', 'no', ''),
+(86, 'Fruit', 'Guava', 'medium whole', '(0,1,2,more than 2)', '(7,3,3,7)', 'unchecked', 'no', ''),
+(87, 'Fruit', 'Grapefruit', 'medium whole', '(0,1,2,more than 2)', '(12,7,1,0)', 'unchecked', 'no', ''),
+(88, 'Fruit', 'Dragonfruit', 'medium whole', '(0,1,2,more than 2) ', '(12,8,0,0)', 'unchecked', 'no', ''),
+(89, 'Fruit', 'Olive', 'per 3 wholes', '(0,1,2,more than 2)', '(12,3,3,2)', 'unchecked', 'no', ''),
+(90, 'Fruit', 'Miracle Fruit', 'per 3 wholes', '(0,1,2,more than 2) ', '(12,3,3,2)', 'unchecked', 'no', ''),
+(91, 'Fruit', 'Blackberries', 'cup', '(0,1,2,more than 2)', '(8,5,6,3)', 'unchecked', 'no', ''),
+(92, 'Fruit', 'Lime', 'medium whole', '(0,1,2,more than 2)', '(4,14,1,1)', 'unchecked', 'no', ''),
+(93, 'Fruit', 'Orange', 'medium whole', '(0,1,2,more than 2)', '(3,3,7,7)', 'unchecked', 'no', ''),
+(94, 'Fruit', 'Kumquat ', 'per 2 wholes', '(0,1,2,more than 2)', '(7,3,5,5)', 'unchecked', 'no', ''),
+(95, 'Fruit', 'Strawberry', 'per 3 wholes', '(0,1,2,more than 2)', '(3,6,5,6)', 'unchecked', 'no', ''),
+(96, 'Fruit', 'Starfruit', 'per 4 slices', '(0,1,2,more than 2)', '(12,2,3,3)', 'unchecked', 'no', ''),
+(97, 'Fruit', 'Apple', 'medium whole', '(0,1,2,more than 2)', '(3,6,5,6) ', 'unchecked', 'no', ''),
+(98, 'Fruit', 'Mulberries', 'cup', '(0,1,2,more than 2)', '(3,6,6,5)', 'unchecked', 'no', ''),
+(99, 'Fruit', 'Huckleberries', 'cup ', '(0,1,2,more than 2)', '(7,12,2,1)', 'unchecked', 'no', ''),
+(100, 'Fruit', 'Gooseberries', 'per 2 whole', '(0,1,2,more than 2)', '(7,12,1,0)', 'unchecked', 'no', ''),
+(103, 'Beverage', 'Krungthepmahanakhon Amornrattanakosin Mahintharayutthaya', 'cup', '(0,1,2,more than 2) ', '(27,6,6,8) ', 'unchecked', 'no', ''),
+(139, 'Seafood', 'Halibut', 'medium fillet', '(0,1,2,more than 2)', '(2,3,3,1)', 'ElvaChao1', 'yes', 'odeodeode333'),
+(140, 'Sweets', 'Chocolate Black Forest Cake', 'medium slice', '(0,1,2,more than 2)', '(0,0,3,0)', 'ElvaChao1', 'yes', 'odeodeode333'),
+(143, 'Beverage', 'Earl Grey Tea', 'cup ', '(0,1,2,more than 2)', '(3,1,2,0)', '', 'yes', 'ElvaChao1'),
+(146, 'Beverage', 'Rose Tea', 'cup', '(0,1,2,more than 2)', '(3,3,2,1)', '', 'yes', 'ElvaChao1'),
+(149, 'Seafood ', 'Bamboo Shrimp', 'medium cup', '(0,1,2,more than 2)', '(0,0,1,0)', '', 'yes', 'odeodeode333'),
+(150, 'Beverage', 'Lavender Tea', 'cup ', '(0,1,2,more than 2)', '(4,1,4,1)', '', 'yes', 'iamodec37'),
+(151, 'Seafood', 'Sea Cucumber', 'per 3 whole', '(0,1,2,more than 2)', '(1,1,0,1) ', '', 'yes', 'iamode831');
 
 -- --------------------------------------------------------
 
@@ -152,394 +162,197 @@ INSERT INTO `food_list` (`id`, `category`, `foodname`, `serving_standard`, `serv
 -- Table structure for table `user_polls`
 --
 
-CREATE TABLE IF NOT EXISTS `user_polls` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(35) NOT NULL,
-  `foodname` varchar(60) NOT NULL,
-  `serving_standard` varchar(40) NOT NULL,
-  `serving_sizes` varchar(40) NOT NULL,
-  `actual_serving_count` varchar(40) NOT NULL,
-  `user_votes` varchar(40) NOT NULL,
-  `last_vote` varchar(5) NOT NULL,
-  `last_vote_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE `user_polls` (
+  `id` int(11) NOT NULL,
+  `username` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `foodname` varchar(59) CHARACTER SET utf8 NOT NULL,
+  `serving_standard` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `serving_sizes` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `profile_pic` varchar(120) CHARACTER SET utf8 NOT NULL,
+  `category` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `food_list_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 --
--- Database: `phpmyadmin`
+-- Dumping data for table `user_polls`
 --
+
+INSERT INTO `user_polls` (`id`, `username`, `foodname`, `serving_standard`, `serving_sizes`, `created_time`, `profile_pic`, `category`, `food_list_id`) VALUES
+(135, 'odeodeode333', 'Halibut', 'medium fillet', '(0,1,2,more than 3)', '2017-02-18 13:29:13', 'http://pbs.twimg.com/profile_images/832780341194616832/3hCTSVn4_normal.jpg', 'Seafood', 139),
+(136, 'odeodeode333', 'Chocolate Black Forest Cake', 'medium slice', '(0,1,2,more than 3)', '2017-02-18 02:39:00', 'http://pbs.twimg.com/profile_images/832780341194616832/3hCTSVn4_normal.jpg', 'Sweets ', 140),
+(139, 'ElvaChao1', 'Earl Grey Tea', 'cup', '(0,1,2,more than 3)', '2017-02-18 07:00:32', 'http://pbs.twimg.com/profile_images/828513497847705600/v9lDMhja_normal.jpg ', 'Beverage', 143),
+(142, 'ElvaChao1', 'Rose Tea', 'cup', '(0,1,2,more than 3)', '2017-02-18 07:52:02', 'http://pbs.twimg.com/profile_images/828513497847705600/v9lDMhja_normal.jp', 'Beverage', 146),
+(145, 'odeodeode333', 'Bamboo Shrimp', 'medium cup', '(0,1,2,more than 3)', '2017-02-18 08:21:03', 'http://pbs.twimg.com/profile_images/832780341194616832/3hCTSVn4_normal.jp', 'Seafood', 149),
+(146, 'iamodec37', 'Lavender Tea ', 'cup', '(0,1,2,more than 3)', '2017-03-26 15:47:56', 'http://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png', 'Beverage', 150),
+(147, 'iamode831', 'Sea Cucumber', 'per 3 whole', '(0,1,2,more than 3)', '2017-04-10 10:23:35', 'http://pbs.twimg.com/profile_images/851362174916108290/ex_QIRFo_normal.jpg', 'Seafood', 151);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pma__bookmark`
+-- Table structure for table `user_saved`
 --
 
-CREATE TABLE IF NOT EXISTS `pma__bookmark` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `query` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks' AUTO_INCREMENT=1 ;
+CREATE TABLE `user_saved` (
+  `id` int(11) NOT NULL,
+  `creator_username` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `foodname` varchar(65) CHARACTER SET utf8 NOT NULL,
+  `saver_username` varchar(40) CHARACTER SET utf8 NOT NULL,
+  `food_list_id` int(11) NOT NULL,
+  `category` varchar(30) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user_saved`
+--
+
+INSERT INTO `user_saved` (`id`, `creator_username`, `foodname`, `saver_username`, `food_list_id`, `category`) VALUES
+(2, 'odeodeode333', 'Chocolate Black Forest Cake', 'odeodeode333', 140, 'Sweets'),
+(3, 'odeodeode333', 'Halibut', 'odeodeode333', 139, 'Seafood'),
+(4, 'odeodeode333', 'Halibut', 'ElvaChao1', 139, 'Seafood'),
+(5, 'odeodeode333', 'Chocolate Black Forest Cake', 'ElvaChao1', 140, 'Seafood'),
+(7, '', 'Abalone', 'ElvaChao1', 15, 'Seafood'),
+(8, '', 'Coconut', 'ElvaChao1', 73, 'Fruit'),
+(11, '', 'Cherry', 'ElvaChao1', 67, 'Fruit'),
+(13, '', 'Goat Milk', 'ElvaChao1', 61, 'Beverage'),
+(18, '', 'Loquat', 'ElvaChao1', 68, 'Fruit'),
+(19, '', 'Coke', 'ElvaChao1', 62, 'Beverage'),
+(20, 'ElvaChao1', 'Earl Grey Tea', 'ElvaChao1', 143, 'Beverage'),
+(21, 'ElvaChao1', 'Earl Grey Tea', 'ElvaChao1', 143, 'Beverage'),
+(23, 'ElvaChao1', 'Earl Grey Tea', 'odeodeode333', 143, 'Beverage'),
+(26, '', 'Kiwi Fruit', 'ElvaChao1', 69, 'Fruit'),
+(29, 'ElvaChao1', 'Rose Tea', 'ElvaChao1', 146, 'Beverage'),
+(32, 'ElvaChao1', 'Earl Grey Tea', 'ElvaChao1', 143, 'Beverage'),
+(33, 'odeodeode333', 'Bamboo Shrimp', 'odeodeode333', 149, 'Seafood'),
+(34, 'ElvaChao1', 'Rose Tea', 'ElvaChao1', 146, 'Beverage'),
+(35, 'ElvaChao1', 'Rose Tea', 'ElvaChao1', 146, 'Beverage'),
+(39, 'iamodec37', 'Lavender Tea', 'iamodec37', 150, 'Beverage'),
+(41, 'iamodec37', 'Lavender Tea', 'iamodec37', 150, 'Beverage'),
+(42, '', 'Krungthepmahanakhon Amornrattanakosin Mahintharayutthaya', 'iamodec37', 103, 'Beverage'),
+(43, 'iamode831', 'Sea Cucumber', 'iamode831', 151, 'Seafood'),
+(46, '', 'Coke', 'iamode831', 62, 'Beverage'),
+(47, '', 'Green Tea', 'iamode831', 57, 'Beverage'),
+(48, 'iamode831', 'Sea Cucumber', 'iamode831', 151, 'Seafood'),
+(49, 'ElvaChao1', 'Rose Tea', 'iamode831', 146, 'Beverage'),
+(50, 'iamode831', 'Sea Cucumber', 'iamode831', 151, 'Seafood'),
+(51, 'ElvaChao1', 'Rose Tea', 'iamode831', 146, 'Beverage'),
+(52, 'ElvaChao1', 'Rose Tea', 'iamode831', 146, 'Beverage'),
+(53, 'iamodec37', 'Lavender Tea', 'simplynopress', 150, 'Beverage'),
+(54, '', 'Green Tea', 'simplynopress', 57, 'Beverage'),
+(55, 'iamodec37', 'Lavender Tea', 'simplynopress', 150, 'Beverage'),
+(56, 'iamodec37', 'Lavender Tea', 'simplynopress', 150, 'Beverage');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pma__column_info`
+-- Table structure for table `user_votes`
 --
 
-CREATE TABLE IF NOT EXISTS `pma__column_info` (
-  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+CREATE TABLE `user_votes` (
+  `id` int(11) NOT NULL,
+  `foodname` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `vote` int(11) NOT NULL,
+  `vote_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `username` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `food_list_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Table structure for table `pma__designer_coords`
+-- Dumping data for table `user_votes`
 --
 
-CREATE TABLE IF NOT EXISTS `pma__designer_coords` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `x` int(11) DEFAULT NULL,
-  `y` int(11) DEFAULT NULL,
-  `v` tinyint(4) DEFAULT NULL,
-  `h` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`db_name`,`table_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for Designer';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__history`
---
-
-CREATE TABLE IF NOT EXISTS `pma__history` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `sqlquery` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `username` (`username`,`db`,`table`,`timevalue`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__pdf_pages`
---
-
-CREATE TABLE IF NOT EXISTS `pma__pdf_pages` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `page_nr` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  PRIMARY KEY (`page_nr`),
-  KEY `db_name` (`db_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+INSERT INTO `user_votes` (`id`, `foodname`, `vote`, `vote_timestamp`, `username`, `food_list_id`) VALUES
+(32, 'Abalone', 1, '2017-02-12 00:55:21', 'ElvaChao1', 15),
+(36, 'Goat Milk ', 2, '2017-02-16 07:13:21', 'ElvaChao1', 61),
+(37, 'Cherry', 4, '2017-02-16 07:24:32', 'ElvaChao1', 67),
+(38, 'Coconut', 2, '2017-02-16 06:48:13', 'ElvaChao1', 73),
+(56, 'Goat Milk', 4, '2017-02-18 21:40:12', 'ElvaChao1', 61),
+(57, 'Goat Milk ', 1, '2017-02-18 00:22:47', 'ElvaChao1', 61),
+(80, 'Halibut', 1, '2017-02-18 02:36:36', 'odeodeode333', 139),
+(81, 'Chocolate Black Forest Cake', 3, '2017-02-18 02:42:00', 'odeodeode333', 140),
+(82, 'Chocolate Black Forest Cake ', 3, '2017-02-18 03:38:46', 'odeodeode333', 140),
+(84, 'Halibut  ', 2, '2017-02-18 02:41:12', 'ElvaChao1', 139),
+(85, 'Chocolate Black Forest Cake', 3, '2017-02-18 02:40:13', 'ElvaChao1', 140),
+(91, 'Loquat', 1, '2017-02-18 07:47:52', 'ElvaChao1', 68),
+(92, 'Coke', 2, '2017-02-18 07:27:38', 'ElvaChao1', 62),
+(93, 'Earl Grey Tea', 3, '2017-02-18 07:00:31', 'ElvaChao1', 143),
+(94, 'Earl Grey Tea', 1, '2017-02-18 07:00:49', 'ElvaChao1', 143),
+(96, 'Earl Grey Tea ', 1, '2017-02-18 10:40:50', 'odeodeode333', 143),
+(99, 'Kiwi Fruit', 1, '2017-02-18 07:39:27', 'ElvaChao1', 69),
+(102, 'Rose Tea', 3, '2017-02-18 10:36:18', 'ElvaChao1', 146),
+(105, 'Earl Grey Tea', 3, '2017-02-18 07:59:29', 'ElvaChao1', 143),
+(106, 'Bamboo Shrimp', 3, '2017-02-18 08:02:20', 'odeodeode333', 149),
+(107, 'Rose Tea', 2, '2017-02-18 17:43:29', 'ElvaChao1', 146),
+(108, 'Rose Tea', 1, '2017-02-18 19:55:13', 'ElvaChao1', 146),
+(112, 'Lavender Tea', 3, '2017-03-26 03:27:45', 'iamodec37', 150),
+(114, 'Lavender Tea', 1, '2017-03-28 03:28:08', 'iamodec37', 150),
+(115, 'Krungthepmahanakhon Amornrattanakosin Mahintharayutthaya', 4, '2017-04-08 04:34:47', 'iamodec37', 103),
+(116, 'Sea Cucumber', 2, '2017-04-10 11:37:47', 'iamode831', 151),
+(119, 'Coke', 1, '2017-04-10 12:40:31', 'iamode831', 62),
+(120, 'Green Tea', 1, '2017-04-10 15:22:43', 'iamode831', 57),
+(121, 'Sea Cucumber', 1, '2017-04-10 15:49:53', 'iamode831', 151),
+(122, 'Rose Tea', 3, '2017-04-11 17:52:31', 'iamode831', 146),
+(123, 'Sea Cucumber', 4, '2017-04-12 16:49:40', 'iamode831', 151),
+(124, 'Rose Tea', 2, '2017-04-12 16:49:55', 'iamode831', 146),
+(125, 'Rose Tea', 4, '2017-04-12 16:47:51', 'iamode831', 146),
+(126, 'Lavender Tea', 3, '2017-04-16 18:54:21', 'simplynopress', 150),
+(127, 'Green Tea', 2, '2017-04-16 15:25:54', 'simplynopress', 57),
+(128, 'Lavender Tea', 3, '2017-04-16 18:28:50', 'simplynopress', 150),
+(129, 'Lavender Tea', 1, '2017-04-16 19:32:50', 'simplynopress', 150);
 
 --
--- Table structure for table `pma__recent`
+-- Indexes for dumped tables
 --
 
-CREATE TABLE IF NOT EXISTS `pma__recent` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `tables` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
-
--- --------------------------------------------------------
+--
+-- Indexes for table `food_list`
+--
+ALTER TABLE `food_list`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Table structure for table `pma__relation`
+-- Indexes for table `user_polls`
 --
-
-CREATE TABLE IF NOT EXISTS `pma__relation` (
-  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`master_db`,`master_table`,`master_field`),
-  KEY `foreign_field` (`foreign_db`,`foreign_table`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
-
--- --------------------------------------------------------
+ALTER TABLE `user_polls`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Table structure for table `pma__table_coords`
+-- Indexes for table `user_saved`
 --
-
-CREATE TABLE IF NOT EXISTS `pma__table_coords` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `pdf_page_number` int(11) NOT NULL DEFAULT '0',
-  `x` float unsigned NOT NULL DEFAULT '0',
-  `y` float unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
-
--- --------------------------------------------------------
+ALTER TABLE `user_saved`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Table structure for table `pma__table_info`
+-- Indexes for table `user_votes`
 --
-
-CREATE TABLE IF NOT EXISTS `pma__table_info` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`db_name`,`table_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
-
--- --------------------------------------------------------
+ALTER TABLE `user_votes`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Table structure for table `pma__table_uiprefs`
+-- AUTO_INCREMENT for dumped tables
 --
 
-CREATE TABLE IF NOT EXISTS `pma__table_uiprefs` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `prefs` text COLLATE utf8_bin NOT NULL,
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`username`,`db_name`,`table_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
-
--- --------------------------------------------------------
-
 --
--- Table structure for table `pma__tracking`
+-- AUTO_INCREMENT for table `food_list`
 --
-
-CREATE TABLE IF NOT EXISTS `pma__tracking` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `version` int(10) unsigned NOT NULL,
-  `date_created` datetime NOT NULL,
-  `date_updated` datetime NOT NULL,
-  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
-  `schema_sql` text COLLATE utf8_bin,
-  `data_sql` longtext COLLATE utf8_bin,
-  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
-  `tracking_active` int(1) unsigned NOT NULL DEFAULT '1',
-  PRIMARY KEY (`db_name`,`table_name`,`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
-
--- --------------------------------------------------------
-
+ALTER TABLE `food_list`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 --
--- Table structure for table `pma__userconfig`
+-- AUTO_INCREMENT for table `user_polls`
 --
-
-CREATE TABLE IF NOT EXISTS `pma__userconfig` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `config_data` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
-
--- --------------------------------------------------------
-
+ALTER TABLE `user_polls`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 --
--- Table structure for table `pma_bookmark`
+-- AUTO_INCREMENT for table `user_saved`
 --
-
-CREATE TABLE IF NOT EXISTS `pma_bookmark` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `query` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
+ALTER TABLE `user_saved`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 --
--- Table structure for table `pma_column_info`
+-- AUTO_INCREMENT for table `user_votes`
 --
-
-CREATE TABLE IF NOT EXISTS `pma_column_info` (
-  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma_designer_coords`
---
-
-CREATE TABLE IF NOT EXISTS `pma_designer_coords` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `x` int(11) DEFAULT NULL,
-  `y` int(11) DEFAULT NULL,
-  `v` tinyint(4) DEFAULT NULL,
-  `h` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`db_name`,`table_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for Designer';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma_history`
---
-
-CREATE TABLE IF NOT EXISTS `pma_history` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `sqlquery` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `username` (`username`,`db`,`table`,`timevalue`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma_pdf_pages`
---
-
-CREATE TABLE IF NOT EXISTS `pma_pdf_pages` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `page_nr` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  PRIMARY KEY (`page_nr`),
-  KEY `db_name` (`db_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma_recent`
---
-
-CREATE TABLE IF NOT EXISTS `pma_recent` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `tables` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma_relation`
---
-
-CREATE TABLE IF NOT EXISTS `pma_relation` (
-  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`master_db`,`master_table`,`master_field`),
-  KEY `foreign_field` (`foreign_db`,`foreign_table`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma_table_coords`
---
-
-CREATE TABLE IF NOT EXISTS `pma_table_coords` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `pdf_page_number` int(11) NOT NULL DEFAULT '0',
-  `x` float unsigned NOT NULL DEFAULT '0',
-  `y` float unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma_table_info`
---
-
-CREATE TABLE IF NOT EXISTS `pma_table_info` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`db_name`,`table_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma_table_uiprefs`
---
-
-CREATE TABLE IF NOT EXISTS `pma_table_uiprefs` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `prefs` text COLLATE utf8_bin NOT NULL,
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`username`,`db_name`,`table_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma_tracking`
---
-
-CREATE TABLE IF NOT EXISTS `pma_tracking` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `version` int(10) unsigned NOT NULL,
-  `date_created` datetime NOT NULL,
-  `date_updated` datetime NOT NULL,
-  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
-  `schema_sql` text COLLATE utf8_bin,
-  `data_sql` longtext COLLATE utf8_bin,
-  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
-  `tracking_active` int(1) unsigned NOT NULL DEFAULT '1',
-  PRIMARY KEY (`db_name`,`table_name`,`version`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT COMMENT='Database changes tracking for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma_userconfig`
---
-
-CREATE TABLE IF NOT EXISTS `pma_userconfig` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `config_data` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
-
+ALTER TABLE `user_votes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+

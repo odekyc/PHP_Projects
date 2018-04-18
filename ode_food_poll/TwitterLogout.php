@@ -7,9 +7,15 @@
     
     session_start();
     
-    unset($_SESSION['TwitterUsername']);
-    unset($_SESSION['oauth_token']);
-    unset($_SESSION['oauth_token_secret']);
+
+     unset($_SESSION['username']);
+    unset($_SESSION['oauth_token'] );
+     unset($_SESSION['profilepic']);
+     unset($_SESSION['oauth_verifier']);
+     unset($_SESSION['dbupdated']);
+     unset($_SESSION['dbupdate-error']);
+     unset($_SESSION['whichupdatevote']);
+     unset($_SESSION['mypoll-deleted']);
     session_destroy();
     header("location: index.php");
 ?>

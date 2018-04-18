@@ -11,9 +11,12 @@
      include 'EpiOAuth.php';
      include 'EpiTwitter.php';
      include 'keys.php';
+     include 'database.php';
+
+     session_start();
      
-     
-     
+     $_SESSION['whichupdatevote']="regular";
+     $_SESSION['mypoll-deleted']=false;
   
 ?>
 
@@ -23,16 +26,20 @@
     // Press the 'Run' button on the top to start the web server,
     // then click the URL that is emitted to the Output tab of the console.
 
-    $servername = 'localhost';
-    $username = 'ode';
-    $password = 'doctor78';
-    $database = "ode_food_poll";
+    // $servername = getenv('IP');
+    // $username = getenv('C9_USER');
+    // $password = "";
+    // $database = "ode_food_poll";
+    // $dbport = 3306;
+
+    $servername = $cleardb_server;
+    $username = $cleardb_username;
+    $password = $cleardb_password;
+    $database = $cleardb_db;
     $dbport = 3306;
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $database);
 
-    session_start();
+    
     // Create connection
     
          
@@ -54,6 +61,7 @@
       echo "<link rel='stylesheet' type='text/css' href='stylesheet.css?<?php echo time(); ?>' />"; 
      
 
+    $conn = new mysqli($servername, $username, $password, $database, $dbport);
     
      $actual_ct_sql = "SELECT actual_serving_count FROM food_list WHERE id=".$click_id;
      
@@ -62,6 +70,8 @@
       $foodname_sql = "SELECT foodname FROM food_list WHERE id=".$click_id;
       
       $serving_std_sql = "SELECT serving_standard FROM food_list WHERE id=".$click_id;
+      
+       $usersaved_sql = "SELECT * FROM user_saved WHERE saver_username = '".$_SESSION["username"]."' AND food_list_id =".$click_id; 
        
       $actual_ct_result=mysqli_query($conn, $actual_ct_sql);
       
@@ -71,6 +81,15 @@
      
       $serving_std_result=mysqli_query($conn, $serving_std_sql);
       
+      $usersaved_result=mysqli_query($conn, $usersaved_sql);
+      
+      if ($usersaved_result->num_rows > 0) {
+           $usersaved_data="checked";
+      }
+      elseif ($usersaved_result->num_rows == 0) {
+           $usersaved_data="unchecked";
+      }
+      
      $actual_ct_row=mysqli_fetch_array($actual_ct_result,MYSQLI_NUM);
      
      $foodname_row=mysqli_fetch_array($foodname_result,MYSQLI_NUM);
@@ -78,6 +97,8 @@
      $serving_sz_row=mysqli_fetch_array($serving_sz_result,MYSQLI_NUM);
      
      $serving_std_row=mysqli_fetch_array($serving_std_result,MYSQLI_NUM);
+     
+     
      
      $actual_ct_data= $actual_ct_row[0]; 
      
@@ -87,13 +108,19 @@
      
      $foodname_data=$foodname_row[0];
      
+    
+     
+     $_SESSION['foodname']= $foodname_data;
+     
 
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
     
-  
+    $_SESSION['oauth_token']=$_GET['oauth_token'];
+     
+    $_SESSION['oauth_verifier']=$_GET['oauth_verifier'];
       $conn->close();
     
   
@@ -104,6 +131,7 @@
 <div id='upper-div'><h1 id='upper-div-title'>Ode-Food-Poll</h1><div id='home-div-in' class='block'><span class='block-span'>Home</span></div><div id='mypolls' class='block'><span id='mypolls-span' class='block-span'><center>My Polls</center></span><</div><div id='newpoll' class='block'><span id='newpoll-span' class='block-span'>New Poll</span></div></div>  
      <div id='voting-poll-div'> <div id="foodname-div"><span id="foodname-span"></span><span id="serving-std-span"></span><span id="serving_sz">Serving Size</span><span id="actual_serving_ct">(Servings Count)</span><span id="idliketovote">I'd Like to Vote For(Daily Serving Size):</span> <div id="tweet-but-container"><a href="https://twitter.com/share/tweet?text=Ode's%20Food%20Poll%20@" data-size="large" class="twitter-share-button" data-show-count="false">Share on Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
      <form action="UpdateVote.php" id="voteform" method="post">
+           
            <select id="voteselect" name="votevalue">
               <option id="firstvoteop" value="0">first</option>
               <option id="secondvoteop" value="1">second</option>
@@ -111,7 +139,12 @@
               <option id="fourthvoteop" value="3">fourth</option>
            </select>
          
-          <input id="votesubmit" type="submit" value="Submit">
+         <input id="userpoll-ckbox" type="checkbox" name="userpoll-chk" value="unchecked"><h1 id="userpoll-ckbox-text">Saved To Your Polls</h1> 
+        
+          <input id="votesubmit-in" type="submit" value="Submit">
+          
+           
+         
         </form>
         
 </div><div id="chart"><span id="totalvotes"></span></div></div>
@@ -125,21 +158,24 @@
        
        
        $("#mypolls").click(function(){
-        window.location.href = "MyPolls.php";
+        window.location.href = "MyPolls.php?oauth_token="+"<?php echo $_SESSION["oauth_token"] ?>"+"&oauth_verifier="+"<?php echo $_SESSION["oauth_verifier"] ?>";
+
         $('#home-div-in').css("background-color", "#e5ffcc");
         $('#home-div-out').css("background-color", "#e5ffcc");
         $('#mypolls').css("background-color", "#ace600");
     });
 
     $("#newpoll").click(function(){ 
-        window.location.href = "NewPoll.php";
+        window.location.href = "NewPoll.php?oauth_token="+"<?php echo $_SESSION["oauth_token"] ?>"+"&oauth_verifier="+"<?php echo $_SESSION["oauth_verifier"] ?>";
+
         $('#home-div-in').css("background-color", "#e5ffcc");
         $('#home-div-out').css("background-color", "#e5ffcc");
          $('#newpoll').css("background-color", "#ace600");
         });
         
         $("#home-div-in").click(function(){ 
-        window.location.href = "LoggedIn.php";
+        window.location.href = "LoggedIn.php?oauth_token="+"<?php echo $_SESSION["oauth_token"] ?>"+"&oauth_verifier="+"<?php echo $_SESSION["oauth_verifier"] ?>";
+
         $('#home-div-in').css("background-color", "#ace600");
          $('#newpoll').css("background-color", "orange");
     });
@@ -158,10 +194,10 @@
    
     
     
-     $('#ode-h5-div').css('top','1400px');
-       $('html').css('height', '1600px');
+     $('#ode-h5-div').css('top','1650px');
+       $('html').css('height', '1850px');
        
-       $('#voting-poll-div').css('height', '1200px');
+       $('#voting-poll-div').css('height', '1400px');
        
        
 
@@ -179,6 +215,8 @@
        var serving_std="<?php echo $serving_std_data?>"
        
        var foodname= "<?php echo $foodname_data?>";
+       
+       var db_usersaved="<?php echo $usersaved_data?>";
        
      
        
@@ -202,7 +240,7 @@
             foodnm_chk_hlder=foodname_arr[i];
              
             while (foodnm_chk_hlder.length > 12 ){
-                temp_foodname_chk=foodnm_chk_hlder.slice(0,12)+"-<br />";
+                temp_foodname_chk+=foodnm_chk_hlder.slice(0,12)+"-<br />";
                 foodnm_chk_hlder=foodnm_chk_hlder.slice(12);
                 
             }
@@ -226,17 +264,56 @@
            foodname_lines+=1;
        }
        
+       
+       var serving_stdLen= serving_std.length;
+
+       var serving_std_arr=serving_std.split(' ');
+       
+        var revised_serving_std="";
+        
+        var revised_serving_std_arr=[];
+        
+         var serving_std_lines=0;
+         
+         var serving_std_chk_hlder="";
+       
+        var temp_serving_std_chk="";
+        
+       for(var i = 0; i < serving_std_arr.length; i++) { 
+            
+            serving_std_chk_hlder=serving_std_arr[i];
+             
+            while (serving_std_chk_hlder.length > 14 ){
+                temp_serving_std_chk+=serving_std_chk_hlder.slice(0,14)+"-<br />";
+                serving_std_chk_hlder=serving_std_chk_hlder.slice(14);
+                
+            }
+            
+            temp_serving_std_chk+=serving_std_chk_hlder;
+            
+            revised_serving_std_arr.push(temp_serving_std_chk);
+            temp_serving_std_chk="";
+        }
+       
+       revised_serving_std=revised_serving_std_arr.join(" ");
+       
+       serving_std_lines+=Math.ceil(serving_stdLen/14);
+       
+       if(revised_serving_std.indexOf("<br />")>0){
+           serving_std_lines+=1;
+       }
+       
         var serving_std_top=(foodname_lines*85)+100;
         
-        var serving_sz_top=(foodname_lines*85)+185;
+        var serving_sz_top=((foodname_lines+serving_std_lines-1)*85)+185;
         
-        var actual_servingct_top=(foodname_lines*85)+235;
+        var actual_servingct_top=((foodname_lines+serving_std_lines-1)*85)+235;
         
-         var idliketovote_top=(foodname_lines*85)+335;
+         var idliketovote_top=((foodname_lines+serving_std_lines-1)*85)+335;
          
-         var voteform_top=(foodname_lines*85)+375;
+         var voteform_top=((foodname_lines+serving_std_lines-1)*85)+375;
          
-         var tweetbut_top=(foodname_lines*85)+500;
+         var tweetbut_top=((foodname_lines+serving_std_lines-1)*85)+500;
          
 
         
@@ -499,7 +576,43 @@
       .text(function(d) {
         return "("+d.data.value+")";
       });
-
+      
+      
+      if(db_usersaved !="unchecked"){
+          document.getElementById("userpoll-ckbox").checked=true;
+          var tempval=$( "#userpoll-ckbox" ).val("checked");
+         
+      }
+     
+     
+     var usersaved=false;
+     
+     
+      
+      $("#userpoll-ckbox").click(function(){
+           usersaved = document.getElementById("userpoll-ckbox").checked;
+          if(usersaved ==true){
+              $( "#userpoll-ckbox" ).val("checked");
+          }
+          else if(usersaved == false){
+              $( "#userpoll-ckbox" ).val("unchecked");
+          }
+          var value= $( "#userpoll-ckbox" ).val();
+        
+      });
+      
+    
    </script>
    
+<?php
+   if($_SESSION['dbupdated']=="success"){
+       $_SESSION['dbupdated']="none";
+        echo "<div id='dbupdate-status-div'><h1 id='dbupdate-status-h1'><CENTER>This Vote Has Been Updated in Database Successfully</CENTER></h1></div>";
+   }
+   elseif($_SESSION['dbupdated']=="fail"){
+        $_SESSION['dbupdated']="none";
+        echo "<div id='dbupdate-status-div'><h1 id='dbupdate-status-h1'><CENTER>Database Connection Error".$_SESSION['dbupdate-error']."</CENTER></h1></div>";
+   }
+
+?>
 
