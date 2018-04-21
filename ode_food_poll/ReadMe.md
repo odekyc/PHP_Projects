@@ -1,1 +1,1 @@
-https://fierce-caverns-72613.herokuapp.com/NotLoggedIn.php
+https://fierce-caverns-72613.herokuapp.com/
