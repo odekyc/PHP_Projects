@@ -1,0 +1,14 @@
+{
+    "name": "root/ode_poll",
+    "authors": [
+        {
+            "name": "odekyc",
+            "email": "odekyc@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^5.5.0",
+        "abraham/twitteroauth": "0.3.0-beta" ,
+        "ext-mysqli": "*"
+    }
+}
