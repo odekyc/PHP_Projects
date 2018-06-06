@@ -1,2 +1,2 @@
-# PHP_Projects
-All Projects Built by PHP and Javascript!
+# PHP_Assignments
+Simple Assignments Built by PHP and Javascript!
