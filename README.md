@@ -1,2 +1,2 @@
-# PHP_Assignments
-Simple Assignments Built by PHP and Javascript!
+# PHP_SmallProjects
+Simple Light Projects Built by PHP and Javascript!
